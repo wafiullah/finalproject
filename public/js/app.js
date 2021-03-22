@@ -1854,6 +1854,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -1861,7 +1862,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'App',
   components: {
     'navbar': _components_Navbar__WEBPACK_IMPORTED_MODULE_1__.default,
-    'header': _components_Header__WEBPACK_IMPORTED_MODULE_0__.default,
+    'side-header': _components_Header__WEBPACK_IMPORTED_MODULE_0__.default,
     'home-footer': _components_Footer__WEBPACK_IMPORTED_MODULE_2__.default
   }
 });
@@ -19698,16 +19699,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [_c("h1", [_vm._v("Hi freinds")]), _vm._v(" "), _c("side-header")],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("header")])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

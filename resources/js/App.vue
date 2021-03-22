@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Hi freinds</h1>
-        <header></header>
+        <side-header></side-header>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     name: 'App',
     components: {
         'navbar': Navbar,
-        'header': Header,
+        'side-header': Header,
         'home-footer': Footer
 
     }
