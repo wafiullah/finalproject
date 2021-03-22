@@ -12,6 +12,31 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
+    .styles(['resources/assets/css/vendor/plugins.min.css' ,
+        'resources/assets/css/style.min.css' ,
+       'resources/assets/css/responsive.min.css'] ,
+       'public/css/app-plugins.css');
+       
+mix.postCss('resources/css/app.css', 'public/css', [
         //
     ]).vue();
+
+
+// mix.js('resources/js/app.js', 'public/js')
+//    .postCss(['resources/css/app.css' ,
+//     'resources/assets/css/vendor/plugins.min.css' ,
+//    'resources/assets/css/style.min.css' ,
+//    'resources/assets/css/responsive.min.css'] ,
+//     'public/css',[
+
+//     ]).vue();
+   //.postCss('resources/assets/css/vendor/plugins.min.css' , 'public/css')
+   //.postCss('resources/assets/css/style.min.css' , 'public/css')
+   //.postCss('resources/assets/css/responsive.min.css' , 'public/css');
+
+//mix.options({
+  //  postCss: [
+   //     require('postcss-custom-properties')
+   // ]
+//}).vue();   
+

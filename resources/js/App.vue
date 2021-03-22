@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>Hi freinds</h1>
         <header></header>
     </div>
 </template>
