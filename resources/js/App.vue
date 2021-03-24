@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Hi freinds</h1>
         <side-header></side-header>
     </div>
 </template>
