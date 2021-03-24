@@ -17,10 +17,10 @@
                                 <div class="header-right-nav">
                                     <ul class="res-xs-flex">
                                         <li class="after-n">
-                                            <a href="compare.html"><font-awesome-icon :icon="['fas', 'random']" > </font-awesome-icon> Compare (0)</a>
+                                            <a href="compare.html"><font-awesome-icon :icon="['fas', 'random']" /> Compare (0)</a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html"><font-awesome-icon :icon="['fas', 'heart']" > </font-awesome-icon> Wishlist (0)</a>
+                                            <a href="wishlist.html"><font-awesome-icon :icon="['fas', 'heart']" /> Wishlist (0)</a>
                                         </li>
                                     </ul>
                                     <div class="dropdown-navs">
@@ -169,7 +169,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img src="assets/images/banner-image/banner-menu.jpg" alt="" /></a>
+                                                        <a href="single-product.html"><img :src=" '/images/banner-image/banner-menu.jpg' " alt="" /></a>
                                                     </li>
                                                 </ul>
                                             </li>
