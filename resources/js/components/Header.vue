@@ -17,10 +17,10 @@
                                 <div class="header-right-nav">
                                     <ul class="res-xs-flex">
                                         <li class="after-n">
-                                            <a href="compare.html"><font-awesome-icon :icon="['fas', 'random']" /> Compare (0)</a>
+                                            <a href="compare.html"><i class="ion-ios-shuffle-strong"></i> Compare (0)</a>
                                         </li>
                                         <li>
-                                            <a href="wishlist.html"><font-awesome-icon :icon="['fas', 'heart']" /> Wishlist (0)</a>
+                                            <a href="wishlist.html"><i class="ion-android-favorite-outline"></i> Wishlist (0)</a>
                                         </li>
                                     </ul>
                                     <div class="dropdown-navs">
@@ -78,10 +78,10 @@
                                     <div class="main-navigation d-none d-lg-block">
                                         <ul>
                                             <li class="menu-dropdown">
-                                                <a href="#">Home <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                <a href="#">Home <i class="ion-ios-arrow-down"></i></a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Home Organic <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Home Organic <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="index.html">Organic 1</a></li>
                                                             <li><a href="index-2.html">Organic 2</a></li>
@@ -90,7 +90,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Home Cosmetic <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Home Cosmetic <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="index-5.html">Cosmetic 1</a></li>
                                                             <li><a href="index-6.html">Cosmetic 2</a></li>
@@ -99,7 +99,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Home Digital <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Home Digital <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="index-9.html">Digital 1</a></li>
                                                             <li><a href="index-10.html">Digital 2</a></li>
@@ -117,7 +117,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Home Medical <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Home Medical <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="index-17.html">Medical 1</a></li>
                                                             <li><a href="index-18.html">Medical 2</a></li>
@@ -128,7 +128,7 @@
                                                 </ul>
                                             </li>
                                             <li class="menu-dropdown">
-                                                <a href="#">Shop <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                <a href="#">Shop <i class="ion-ios-arrow-down"></i></a>
                                                 <ul class="mega-menu-wrap">
                                                     <li>
                                                         <ul>
@@ -174,7 +174,7 @@
                                                 </ul>
                                             </li>
                                             <li class="menu-dropdown">
-                                                <a href="#">Pages <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
                                                 <ul class="sub-menu">
                                                     <li><a href="about.html">About Page</a></li>
                                                     <li><a href="cart.html">Cart Page</a></li>
@@ -186,24 +186,24 @@
                                                 </ul>
                                             </li>
                                             <li class="menu-dropdown">
-                                                <a href="#">Blog <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                <a href="#">Blog <i class="ion-ios-arrow-down"></i></a>
                                                 <ul class="sub-menu">
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Blog Grid <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Blog Grid <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
                                                             <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Blog List <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Blog List <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="blog-list-left-sidebar.html">Blog List Left Sidebar</a></li>
                                                             <li><a href="blog-list-right-sidebar.html">Blog List Right Sidebar</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Blog Single <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Blog Single <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="blog-single-left-sidebar.html">Blog Single Left Sidebar</a></li>
                                                             <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidebar</a></li>
@@ -219,7 +219,7 @@
                                     <div class="header_account_area">
                                         <!--Seach Area Start -->
                                         <div class="header_account_list search_list">
-                                            <a href="javascript:void(0)"><font-awesome-icon :icon="['fas', 'search']" /></a>
+                                            <a href="javascript:void(0)"><i class="ion-ios-search-strong"></i></a>
                                             <div class="dropdown_search">
                                                 <form action="#">
                                                     <input placeholder="Search entire store here ..." type="text" />
@@ -303,7 +303,7 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                    <button type="submit"><font-awesome-icon :icon="['fas', 'search']" /></button>
+                                                    <button type="submit"><i class="ion-ios-search-strong"></i></button>
                                                 </form>
                                             </div>
                                         </div>
@@ -323,7 +323,7 @@
                                                                 <h4><a href="single-product.html">Juicy Couture...</a></h4>
                                                                 <span>$9.00</span>
                                                                 <div class="shopping-cart-delete">
-                                                                    <a href="#"><font-awesome-icon :icon="['fas' , 'window-close']" /></a>
+                                                                    <a href="#"><i class="ion-android-cancel"></i></a>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -336,7 +336,7 @@
                                                                 <h4><a href="single-product.html">Water and Wind...</a></h4>
                                                                 <span>$11.00</span>
                                                                 <div class="shopping-cart-delete">
-                                                                    <a href="#"><font-awesome-icon :icon="['fas' , 'window-close']" /></a>
+                                                                    <a href="#"><i class="ion-android-cancel"></i></a>
                                                                 </div>
                                                             </div>
                                                         </li>

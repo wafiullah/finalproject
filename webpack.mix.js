@@ -16,6 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
         'resources/assets/css/style.min.css' ,
        'resources/assets/css/responsive.min.css'] ,
        'public/css/app-plugins.css');
+       mix.copyDirectory('resources/assets/fonts', 'public/fonts');
+       mix.copyDirectory('resources/assets/images', 'public/images');
        
 mix.postCss('resources/css/app.css', 'public/css', [
         //
