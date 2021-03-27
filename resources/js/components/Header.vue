@@ -1,5 +1,4 @@
 <template>
-    <div>
          <header class="main-header home-2">
                 <!-- Header Top Start -->
                 <div class="header-top-nav">
@@ -108,7 +107,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Home Furniture <font-awesome-icon :icon="['fas', 'caret-down']" /></a>
+                                                        <a href="#">Home Furniture <i class="fa fa-caret-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="index-13.html">Furniture 1</a></li>
                                                             <li><a href="index-14.html">Furniture 2</a></li>
@@ -490,5 +489,4 @@
                 <!--Header Bottom Account End -->
             </header>
         
-    </div>
 </template>

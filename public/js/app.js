@@ -1856,6 +1856,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -1885,6 +1886,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-owl-carousel */ "./node_modules/vue-owl-carousel/dist/vue-owl-carousel.js");
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19874,7 +19887,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("side-header"), _vm._v(" "), _c("home-footer")], 1)
+  return _c(
+    "div",
+    [
+      _c("side-header"),
+      _vm._v(" "),
+      _c("home-slider"),
+      _vm._v(" "),
+      _c("home-footer")
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -19899,74 +19922,72 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("footer", { staticClass: "footer-area" }, [
-      _c("div", { staticClass: "footer-top" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-              _c("div", { staticClass: "footer-logo" }, [
-                _c("a", { attrs: { href: "index.html" } }, [
-                  _c("img", {
-                    attrs: { src: "/images/logo/footer-logo.png ", alt: "" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _vm._m(0)
+  return _c("footer", { staticClass: "footer-area" }, [
+    _c("div", { staticClass: "footer-top" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("div", { staticClass: "footer-logo" }, [
+              _c("a", { attrs: { href: "index.html" } }, [
+                _c("img", {
+                  attrs: { src: "/images/logo/footer-logo.png ", alt: "" }
+                })
+              ])
             ]),
             _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "col-md-6 col-lg-4 mt-res-md-50px mt-res-sx-30px mt-res-md-30px"
-              },
-              [
-                _c("div", { staticClass: "single-wedge" }, [
-                  _c("h4", { staticClass: "footer-herading" }, [
-                    _vm._v("Newsletter")
+            _vm._m(0)
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-md-6 col-lg-4 mt-res-md-50px mt-res-sx-30px mt-res-md-30px"
+            },
+            [
+              _c("div", { staticClass: "single-wedge" }, [
+                _c("h4", { staticClass: "footer-herading" }, [
+                  _vm._v("Newsletter")
+                ]),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _vm._m(4),
+                _vm._v(" "),
+                _c("div", { staticClass: "img_app" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "/images/icons/app_store.png", alt: "" }
+                    })
                   ]),
                   _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "img_app" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("img", {
-                        attrs: { src: "/images/icons/app_store.png", alt: "" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("img", {
-                        attrs: { src: "/images/icons/google_play.png", alt: "" }
-                      })
-                    ])
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("img", {
+                      attrs: { src: "/images/icons/google_play.png", alt: "" }
+                    })
                   ])
                 ])
-              ]
-            )
-          ])
+              ])
+            ]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "footer-bottom" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _vm._m(5),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-6 col-lg-8" }, [
-              _c("img", {
-                staticClass: "payment-img",
-                attrs: { src: "/images/icons/payment.png", alt: "" }
-              })
-            ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "footer-bottom" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(5),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-8" }, [
+            _c("img", {
+              staticClass: "payment-img",
+              attrs: { src: "/images/icons/payment.png", alt: "" }
+            })
           ])
         ])
       ])
@@ -19981,22 +20002,20 @@ var staticRenderFns = [
     return _c("div", { staticClass: "about-footer" }, [
       _c("p", { staticClass: "text-info" }, [
         _vm._v(
-          "We are a team of designers and developers that create high quality HTML template"
+          "\n                            We are a team of designers and developers that\n                            create high quality HTML template\n                        "
         )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "need-help" }, [
         _c("p", { staticClass: "phone-info" }, [
           _vm._v(
-            "\n                                        NEED HELP?\n                                        "
+            "\n                                NEED HELP?\n                                "
           ),
           _c("span", [
-            _vm._v(
-              "\n                                            (+800) 345 678 "
-            ),
+            _vm._v("\n                                    (+800) 345 678 "),
             _c("br"),
             _vm._v(
-              "\n                                            (+800) 123 456\n                                        "
+              "\n                                    (+800) 123 456\n                                "
             )
           ])
         ])
@@ -20135,7 +20154,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "subscrib-text" }, [
       _c("p", [
         _vm._v(
-          "You may unsubscribe at any moment. For that purpose, please find our contact info in the legal notice."
+          "\n                                You may unsubscribe at any moment. For that\n                                purpose, please find our contact info in the\n                                legal notice.\n                            "
         )
       ])
     ])
@@ -20224,11 +20243,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-6 col-lg-4" }, [
       _c("p", { staticClass: "copy-text" }, [
-        _vm._v("Copyright © "),
+        _vm._v(
+          "\n                        Copyright ©\n                        "
+        ),
         _c("a", { attrs: { href: "https://hasthemes.com/" } }, [
           _vm._v(" HasThemes")
         ]),
-        _vm._v(". All Rights Reserved")
+        _vm._v(
+          ". All\n                        Rights Reserved\n                    "
+        )
       ])
     ])
   }
@@ -20255,172 +20278,128 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("header", { staticClass: "main-header home-2" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "header-navigation sticky-nav" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "container-inner" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-2 col-sm-2" }, [
-                _c("div", { staticClass: "logo" }, [
-                  _c("a", { attrs: { href: "index.html" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/logo/logo.jpg", alt: "" }
-                    })
-                  ])
+  return _c("header", { staticClass: "main-header home-2" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "header-navigation sticky-nav" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "container-inner" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-2 col-sm-2" }, [
+              _c("div", { staticClass: "logo" }, [
+                _c("a", { attrs: { href: "index.html" } }, [
+                  _c("img", {
+                    attrs: { src: "/images/logo/logo.jpg", alt: "" }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-10 col-sm-10" }, [
+              _c("div", { staticClass: "main-navigation d-none d-lg-block" }, [
+                _c("ul", [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "menu-dropdown" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("ul", { staticClass: "mega-menu-wrap" }, [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _vm._m(6),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "banner-wrapper" }, [
+                        _c("a", { attrs: { href: "single-product.html" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "/images/banner-image/banner-menu.jpg",
+                              alt: ""
+                            }
+                          })
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(7),
+                  _vm._v(" "),
+                  _vm._m(8),
+                  _vm._v(" "),
+                  _vm._m(9)
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-md-10 col-sm-10" }, [
-                _c(
-                  "div",
-                  { staticClass: "main-navigation d-none d-lg-block" },
-                  [
-                    _c("ul", [
-                      _c("li", { staticClass: "menu-dropdown" }, [
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _c("ul", { staticClass: "sub-menu" }, [
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _vm._m(3),
-                          _vm._v(" "),
-                          _vm._m(4),
-                          _vm._v(" "),
-                          _c(
-                            "li",
-                            { staticClass: "menu-dropdown position-static" },
-                            [
-                              _c(
-                                "a",
-                                { attrs: { href: "#" } },
-                                [
-                                  _vm._v("Home Furniture "),
-                                  _c("font-awesome-icon", {
-                                    attrs: { icon: ["fas", "caret-down"] }
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _vm._m(5)
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._m(6)
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "menu-dropdown" }, [
-                        _vm._m(7),
-                        _vm._v(" "),
-                        _c("ul", { staticClass: "mega-menu-wrap" }, [
-                          _vm._m(8),
-                          _vm._v(" "),
-                          _vm._m(9),
-                          _vm._v(" "),
-                          _vm._m(10),
-                          _vm._v(" "),
-                          _vm._m(11),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "banner-wrapper" }, [
+              _c("div", { staticClass: "header_account_area" }, [
+                _vm._m(10),
+                _vm._v(" "),
+                _c("div", { staticClass: "cart-info d-flex" }, [
+                  _c("div", { staticClass: "mini-cart-warp" }, [
+                    _vm._m(11),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mini-cart-content" }, [
+                      _c("ul", [
+                        _c("li", { staticClass: "single-shopping-cart" }, [
+                          _c("div", { staticClass: "shopping-cart-img" }, [
                             _c(
                               "a",
                               { attrs: { href: "single-product.html" } },
                               [
                                 _c("img", {
                                   attrs: {
-                                    src: "/images/banner-image/banner-menu.jpg",
-                                    alt: ""
+                                    alt: "",
+                                    src: "/images/product-image/mini-cart/1.jpg"
                                   }
                                 })
                               ]
-                            )
-                          ])
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "product-quantity" }, [
+                              _vm._v("1x")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(12)
+                        ]),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "single-shopping-cart" }, [
+                          _c("div", { staticClass: "shopping-cart-img" }, [
+                            _c(
+                              "a",
+                              { attrs: { href: "single-product.html" } },
+                              [
+                                _c("img", {
+                                  attrs: {
+                                    alt: "",
+                                    src: "/images/product-image/mini-cart/2.jpg"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "product-quantity" }, [
+                              _vm._v("1x")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(13)
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(12),
+                      _vm._m(14),
                       _vm._v(" "),
-                      _vm._m(13),
-                      _vm._v(" "),
-                      _vm._m(14)
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "header_account_area" }, [
-                  _vm._m(15),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "cart-info d-flex" }, [
-                    _c("div", { staticClass: "mini-cart-warp" }, [
-                      _vm._m(16),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "mini-cart-content" }, [
-                        _c("ul", [
-                          _c("li", { staticClass: "single-shopping-cart" }, [
-                            _c("div", { staticClass: "shopping-cart-img" }, [
-                              _c(
-                                "a",
-                                { attrs: { href: "single-product.html" } },
-                                [
-                                  _c("img", {
-                                    attrs: {
-                                      alt: "",
-                                      src:
-                                        "/images/product-image/mini-cart/1.jpg"
-                                    }
-                                  })
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "product-quantity" }, [
-                                _vm._v("1x")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(17)
-                          ]),
-                          _vm._v(" "),
-                          _c("li", { staticClass: "single-shopping-cart" }, [
-                            _c("div", { staticClass: "shopping-cart-img" }, [
-                              _c(
-                                "a",
-                                { attrs: { href: "single-product.html" } },
-                                [
-                                  _c("img", {
-                                    attrs: {
-                                      alt: "",
-                                      src:
-                                        "/images/product-image/mini-cart/2.jpg"
-                                    }
-                                  })
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "product-quantity" }, [
-                                _vm._v("1x")
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _vm._m(18)
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _vm._m(19),
-                        _vm._v(" "),
-                        _vm._m(20)
-                      ])
+                      _vm._m(15)
                     ])
                   ])
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _vm._m(21)
-          ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(16)
         ])
       ])
     ])
@@ -20521,145 +20500,174 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _vm._v("Home "),
-      _c("i", { staticClass: "ion-ios-arrow-down" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "menu-dropdown position-static" }, [
+    return _c("li", { staticClass: "menu-dropdown" }, [
       _c("a", { attrs: { href: "#" } }, [
-        _vm._v("Home Organic "),
+        _vm._v("Home "),
         _c("i", { staticClass: "ion-ios-arrow-down" })
       ]),
       _vm._v(" "),
-      _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "index.html" } }, [_vm._v("Organic 1")])
+      _c("ul", { staticClass: "sub-menu" }, [
+        _c("li", { staticClass: "menu-dropdown position-static" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Home Organic "),
+            _c("i", { staticClass: "ion-ios-arrow-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
+            _c("li", [
+              _c("a", { attrs: { href: "index.html" } }, [_vm._v("Organic 1")])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-2.html" } }, [
+                _vm._v("Organic 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-3.html" } }, [
+                _vm._v("Organic 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-4.html" } }, [
+                _vm._v("Organic 4")
+              ])
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-2.html" } }, [_vm._v("Organic 2")])
+        _c("li", { staticClass: "menu-dropdown position-static" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Home Cosmetic "),
+            _c("i", { staticClass: "ion-ios-arrow-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
+            _c("li", [
+              _c("a", { attrs: { href: "index-5.html" } }, [
+                _vm._v("Cosmetic 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-6.html" } }, [
+                _vm._v("Cosmetic 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-7.html" } }, [
+                _vm._v("Cosmetic 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-8.html" } }, [
+                _vm._v("Cosmetic 4")
+              ])
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-3.html" } }, [_vm._v("Organic 3")])
+        _c("li", { staticClass: "menu-dropdown position-static" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Home Digital "),
+            _c("i", { staticClass: "ion-ios-arrow-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
+            _c("li", [
+              _c("a", { attrs: { href: "index-9.html" } }, [
+                _vm._v("Digital 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-10.html" } }, [
+                _vm._v("Digital 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-11.html" } }, [
+                _vm._v("Digital 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-12.html" } }, [
+                _vm._v("Digital 4")
+              ])
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-4.html" } }, [_vm._v("Organic 4")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "menu-dropdown position-static" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _vm._v("Home Cosmetic "),
-        _c("i", { staticClass: "ion-ios-arrow-down" })
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "index-5.html" } }, [_vm._v("Cosmetic 1")])
+        _c("li", { staticClass: "menu-dropdown position-static" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Home Furniture "),
+            _c("i", { staticClass: "fa fa-caret-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
+            _c("li", [
+              _c("a", { attrs: { href: "index-13.html" } }, [
+                _vm._v("Furniture 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-14.html" } }, [
+                _vm._v("Furniture 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-15.html" } }, [
+                _vm._v("Furniture 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-16.html" } }, [
+                _vm._v("Furniture 4")
+              ])
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-6.html" } }, [_vm._v("Cosmetic 2")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-7.html" } }, [_vm._v("Cosmetic 3")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-8.html" } }, [_vm._v("Cosmetic 4")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "menu-dropdown position-static" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _vm._v("Home Digital "),
-        _c("i", { staticClass: "ion-ios-arrow-down" })
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "index-9.html" } }, [_vm._v("Digital 1")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-10.html" } }, [_vm._v("Digital 2")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-11.html" } }, [_vm._v("Digital 3")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-12.html" } }, [_vm._v("Digital 4")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
-      _c("li", [
-        _c("a", { attrs: { href: "index-13.html" } }, [_vm._v("Furniture 1")])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "index-14.html" } }, [_vm._v("Furniture 2")])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "index-15.html" } }, [_vm._v("Furniture 3")])
-      ]),
-      _vm._v(" "),
-      _c("li", [
-        _c("a", { attrs: { href: "index-16.html" } }, [_vm._v("Furniture 4")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "menu-dropdown position-static" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _vm._v("Home Medical "),
-        _c("i", { staticClass: "ion-ios-arrow-down" })
-      ]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "index-17.html" } }, [_vm._v("Medical 1")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-18.html" } }, [_vm._v("Medical 2")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-19.html" } }, [_vm._v("Medical 3")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "index-20.html" } }, [_vm._v("Medical 4")])
+        _c("li", { staticClass: "menu-dropdown position-static" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _vm._v("Home Medical "),
+            _c("i", { staticClass: "ion-ios-arrow-down" })
+          ]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
+            _c("li", [
+              _c("a", { attrs: { href: "index-17.html" } }, [
+                _vm._v("Medical 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-18.html" } }, [
+                _vm._v("Medical 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-19.html" } }, [
+                _vm._v("Medical 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-20.html" } }, [
+                _vm._v("Medical 4")
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -20986,151 +20994,151 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("option", { attrs: { value: "104" } }, [
                   _vm._v(
-                    "\n                                                            Fresh Food\n                                                        "
+                    "\n                                                       Fresh Food\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "183" } }, [
                   _vm._v(
-                    "\n                                                            - - Fresh Fruit\n                                                        "
+                    "\n                                                       - - Fresh Fruit\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "187" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Bananas\n                                                        "
+                    "\n                                                       - - - - Bananas\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "188" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Apples & Pears\n                                                        "
+                    "\n                                                       - - - - Apples & Pears\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "189" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Berries & Cherries\n                                                        "
+                    "\n                                                       - - - - Berries & Cherries\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "190" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Oranges & Citrus Fruit\n                                                        "
+                    "\n                                                       - - - - Oranges & Citrus Fruit\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "191" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Grapes\n                                                        "
+                    "\n                                                       - - - - Grapes\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "184" } }, [
                   _vm._v(
-                    "\n                                                            - - Fresh Vegetables\n                                                        "
+                    "\n                                                       - - Fresh Vegetables\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "192" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Potatoes & Sweet Potatoes\n                                                        "
+                    "\n                                                       - - - - Potatoes & Sweet Potatoes\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "193" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Onions & Leeks\n                                                        "
+                    "\n                                                       - - - - Onions & Leeks\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "194" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Carrots & Root Vegetables\n                                                        "
+                    "\n                                                       - - - - Carrots & Root Vegetables\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "195" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Broccoli & Cauliflower\n                                                        "
+                    "\n                                                       - - - - Broccoli & Cauliflower\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "196" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Cabbages & Greens\n                                                        "
+                    "\n                                                       - - - - Cabbages & Greens\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "185" } }, [
                   _vm._v(
-                    "\n                                                            - - Fresh Salad & Dips\n                                                        "
+                    "\n                                                       - - Fresh Salad & Dips\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "197" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Lettuce & Salad bags\n                                                        "
+                    "\n                                                       - - - - Lettuce & Salad bags\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "198" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Tomatoes\n                                                        "
+                    "\n                                                       - - - - Tomatoes\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "199" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Cucumber\n                                                        "
+                    "\n                                                       - - - - Cucumber\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "200" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Celery\n                                                        "
+                    "\n                                                       - - - - Celery\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "201" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Peppers\n                                                        "
+                    "\n                                                       - - - - Peppers\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "186" } }, [
                   _vm._v(
-                    "\n                                                            - - Milk, Butter & Eggs\n                                                        "
+                    "\n                                                       - - Milk, Butter & Eggs\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "202" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Milk\n                                                        "
+                    "\n                                                       - - - - Milk\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "203" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Spreads & Margarine\n                                                        "
+                    "\n                                                       - - - - Spreads & Margarine\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "204" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Fresh Cream & Custard\n                                                        "
+                    "\n                                                       - - - - Fresh Cream & Custard\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "205" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Eggs\n                                                        "
+                    "\n                                                       - - - - Eggs\n                                                   "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "206" } }, [
                   _vm._v(
-                    "\n                                                            - - - - Baking & Cooking\n                                                        "
+                    "\n                                                       - - - - Baking & Cooking\n                                                   "
                   )
                 ])
               ]
@@ -21676,112 +21684,98 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "slider-area home-2 home-4" },
+    [
+      _c("carousel", { attrs: { items: 1, nav: false, dots: true } }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "slider-height-6 d-flex align-items-start justify-content-start bg-img",
+            staticStyle: {
+              "background-image": "url(images/slider-image/sample-7.jpg)"
+            }
+          },
+          [
+            _c("div", { staticClass: "container" }, [
+              _c(
+                "div",
+                { staticClass: "slider-content-5 slider-animated-1 text-left" },
+                [
+                  _c("span", { staticClass: "animated" }, [
+                    _vm._v("100% NATURAL")
+                  ]),
+                  _vm._v(" "),
+                  _c("h1", { staticClass: "animated" }, [
+                    _vm._v("\n                        Fresh Vegetables"),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        And Fruits\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "shop-btn animated",
+                      attrs: { href: "shop-4-column.html" }
+                    },
+                    [_vm._v("SHOP NOW")]
+                  )
+                ]
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "slider-height-6 d-flex align-items-start justify-content-start bg-img",
+            staticStyle: {
+              "background-image": "url(images/slider-image/sample-8.jpg)"
+            }
+          },
+          [
+            _c("div", { staticClass: "container" }, [
+              _c(
+                "div",
+                { staticClass: "slider-content-5 slider-animated-1 text-left" },
+                [
+                  _c("span", { staticClass: "animated" }, [
+                    _vm._v("BEST OFFER SALE !")
+                  ]),
+                  _vm._v(" "),
+                  _c("h1", { staticClass: "animated" }, [
+                    _vm._v("\n                        Up To 70% Off "),
+                    _c("br"),
+                    _vm._v(
+                      "\n                        Fresh Juice\n                    "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "shop-btn animated",
+                      attrs: { href: "shop-4-column.html" }
+                    },
+                    [_vm._v("SHOP NOW")]
+                  )
+                ]
+              )
+            ])
+          ]
+        )
+      ])
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "slider-area home-2 home-4" }, [
-      _c(
-        "div",
-        {
-          staticClass: "slider-active-3 owl-carousel slider-hm8 owl-dot-style"
-        },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "slider-height-6 d-flex align-items-start justify-content-start bg-img",
-              staticStyle: {
-                "background-image": "url(images/slider-image/sample-7.jpg)"
-              }
-            },
-            [
-              _c("div", { staticClass: "container" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "slider-content-5 slider-animated-1 text-left"
-                  },
-                  [
-                    _c("span", { staticClass: "animated" }, [
-                      _vm._v("100% NATURAL")
-                    ]),
-                    _vm._v(" "),
-                    _c("h1", { staticClass: "animated" }, [
-                      _vm._v(
-                        "\n                               Fresh Vegetables"
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                               And Fruits\n                           "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "shop-btn animated",
-                        attrs: { href: "shop-4-column.html" }
-                      },
-                      [_vm._v("SHOP NOW")]
-                    )
-                  ]
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "slider-height-6 d-flex align-items-start justify-content-start bg-img",
-              staticStyle: {
-                "background-image": "url(images/slider-image/sample-8.jpg)"
-              }
-            },
-            [
-              _c("div", { staticClass: "container" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "slider-content-5 slider-animated-1 text-left"
-                  },
-                  [
-                    _c("span", { staticClass: "animated" }, [
-                      _vm._v("BEST OFFER SALE !")
-                    ]),
-                    _vm._v(" "),
-                    _c("h1", { staticClass: "animated" }, [
-                      _vm._v("\n                               Up To 70% Off "),
-                      _c("br"),
-                      _vm._v(
-                        "\n                               Fresh Juice\n                           "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "shop-btn animated",
-                        attrs: { href: "shop-4-column.html" }
-                      },
-                      [_vm._v("SHOP NOW")]
-                    )
-                  ]
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,6 +1,7 @@
 <template>
     <div>
         <side-header></side-header>
+        <home-slider></home-slider>
         <home-footer></home-footer>
     </div>
 </template>
