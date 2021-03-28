@@ -1,6 +1,7 @@
-import About from '../views/About.vue'
-import Contact from '../views/Contact.vue'
-import HomePage from '../views/HomePage.vue'
+
+import About from './views/About.vue'
+import Contact from './views/Contact.vue'
+import App from './App.vue'
 
 
 export default {
@@ -10,8 +11,8 @@ export default {
     routes: [
         {
             path: '/', 
-            name: 'home',
-            component: HomePage
+            name: 'app',
+            component: App
         },
         {
             path: '/contact', 

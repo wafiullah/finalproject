@@ -2,15 +2,15 @@ require('./bootstrap');
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-
 import carousel from 'vue-owl-carousel'
 
-Vue.use(VueRouter)
+
+import routes from './router'
+
 Vue.use(carousel)
+Vue.use(VueRouter)
 
 
-import routes from './routes'
 
 
 

@@ -1,4 +1,5 @@
 <template>
+    <div>
          <header class="main-header home-2">
                 <!-- Header Top Start -->
                 <div class="header-top-nav">
@@ -107,7 +108,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="menu-dropdown position-static">
-                                                        <a href="#">Home Furniture <i class="fa fa-caret-down"></i></a>
+                                                        <a href="#">Home Furniture <i class="ion-ios-arrow-down"></i></a>
                                                         <ul class="sub-menu sub-menu-2">
                                                             <li><a href="index-13.html">Furniture 1</a></li>
                                                             <li><a href="index-14.html">Furniture 2</a></li>
@@ -168,7 +169,7 @@
                                                         </ul>
                                                     </li>
                                                     <li class="banner-wrapper">
-                                                        <a href="single-product.html"><img :src=" '/images/banner-image/banner-menu.jpg' " alt="" /></a>
+                                                        <a href="single-product.html"><img :src=" '/images/banner-image/banner-menu.jpg '" alt="" /></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -477,7 +478,7 @@
                                                     <li><a href="blog-single-right-sidebar.html">Blog Single Right Sidebar</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><router-link to="/Contuct">Contuct Us</router-link></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -489,4 +490,5 @@
                 <!--Header Bottom Account End -->
             </header>
         
+    </div>
 </template>

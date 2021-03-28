@@ -2,6 +2,7 @@
     <div>
         <side-header></side-header>
         <home-slider></home-slider>
+        <router-view></router-view>
         <home-footer></home-footer>
     </div>
 </template>
@@ -12,6 +13,8 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Slider from './components/Slider'
+import Contact from './views/Contact'
+
 
 
 
@@ -21,7 +24,8 @@ export default {
         'navbar': Navbar,
         'side-header': Header,
         'home-footer': Footer,
-        'home-slider': Slider
+        'home-slider': Slider,
+        'contact': Contact
 
 
     }

@@ -1849,6 +1849,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Navbar */ "./resources/js/components/Navbar.vue");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.vue");
 /* harmony import */ var _components_Slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Slider */ "./resources/js/components/Slider.vue");
+/* harmony import */ var _views_Contact__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Contact */ "./resources/js/views/Contact.vue");
 //
 //
 //
@@ -1857,6 +1858,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -1867,7 +1870,8 @@ __webpack_require__.r(__webpack_exports__);
     'navbar': _components_Navbar__WEBPACK_IMPORTED_MODULE_1__.default,
     'side-header': _components_Header__WEBPACK_IMPORTED_MODULE_0__.default,
     'home-footer': _components_Footer__WEBPACK_IMPORTED_MODULE_2__.default,
-    'home-slider': _components_Slider__WEBPACK_IMPORTED_MODULE_3__.default
+    'home-slider': _components_Slider__WEBPACK_IMPORTED_MODULE_3__.default,
+    'contact': _views_Contact__WEBPACK_IMPORTED_MODULE_4__.default
   }
 });
 
@@ -1949,27 +1953,27 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-owl-carousel */ "./node_modules/vue-owl-carousel/dist/vue-owl-carousel.js");
 /* harmony import */ var vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./resources/js/routes/index.js");
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use((vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0___default()));
 
+vue__WEBPACK_IMPORTED_MODULE_2__.default.use((vue_owl_carousel__WEBPACK_IMPORTED_MODULE_0___default()));
+vue__WEBPACK_IMPORTED_MODULE_2__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_3__.default);
 
-var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   el: '#app',
   components: {
     App: _App_vue__WEBPACK_IMPORTED_MODULE_4__.default
   },
-  router: new vue_router__WEBPACK_IMPORTED_MODULE_2__.default(_routes__WEBPACK_IMPORTED_MODULE_3__.default),
+  router: new vue_router__WEBPACK_IMPORTED_MODULE_3__.default(_router__WEBPACK_IMPORTED_MODULE_1__.default),
   render: function render(h) {
     return h(_App_vue__WEBPACK_IMPORTED_MODULE_4__.default);
   }
@@ -2008,10 +2012,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/routes/index.js":
-/*!**************************************!*\
-  !*** ./resources/js/routes/index.js ***!
-  \**************************************/
+/***/ "./resources/js/router.js":
+/*!********************************!*\
+  !*** ./resources/js/router.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2019,9 +2023,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _views_About_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../views/About.vue */ "./resources/js/views/About.vue");
-/* harmony import */ var _views_Contact_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../views/Contact.vue */ "./resources/js/views/Contact.vue");
-/* harmony import */ var _views_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../views/HomePage.vue */ "./resources/js/views/HomePage.vue");
+/* harmony import */ var _views_About_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/About.vue */ "./resources/js/views/About.vue");
+/* harmony import */ var _views_Contact_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Contact.vue */ "./resources/js/views/Contact.vue");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 
 
 
@@ -2029,8 +2033,8 @@ __webpack_require__.r(__webpack_exports__);
   mode: 'history',
   routes: [{
     path: '/',
-    name: 'home',
-    component: _views_HomePage_vue__WEBPACK_IMPORTED_MODULE_2__.default
+    name: 'app',
+    component: _App_vue__WEBPACK_IMPORTED_MODULE_2__.default
   }, {
     path: '/contact',
     name: 'contact',
@@ -19720,40 +19724,6 @@ component.options.__file = "resources/js/views/Contact.vue"
 
 /***/ }),
 
-/***/ "./resources/js/views/HomePage.vue":
-/*!*****************************************!*\
-  !*** ./resources/js/views/HomePage.vue ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__.default)(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/js/views/HomePage.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/App.vue?vue&type=script&lang=js&":
 /*!*******************************************************!*\
   !*** ./resources/js/App.vue?vue&type=script&lang=js& ***!
@@ -19893,6 +19863,8 @@ var render = function() {
       _c("side-header"),
       _vm._v(" "),
       _c("home-slider"),
+      _vm._v(" "),
+      _c("router-view"),
       _vm._v(" "),
       _c("home-footer")
     ],
@@ -20278,128 +20250,165 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("header", { staticClass: "main-header home-2" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "header-navigation sticky-nav" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "container-inner" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-2 col-sm-2" }, [
-              _c("div", { staticClass: "logo" }, [
-                _c("a", { attrs: { href: "index.html" } }, [
-                  _c("img", {
-                    attrs: { src: "/images/logo/logo.jpg", alt: "" }
-                  })
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-10 col-sm-10" }, [
-              _c("div", { staticClass: "main-navigation d-none d-lg-block" }, [
-                _c("ul", [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "menu-dropdown" }, [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "mega-menu-wrap" }, [
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _vm._m(5),
-                      _vm._v(" "),
-                      _vm._m(6),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "banner-wrapper" }, [
-                        _c("a", { attrs: { href: "single-product.html" } }, [
-                          _c("img", {
-                            attrs: {
-                              src: "/images/banner-image/banner-menu.jpg",
-                              alt: ""
-                            }
-                          })
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(7),
-                  _vm._v(" "),
-                  _vm._m(8),
-                  _vm._v(" "),
-                  _vm._m(9)
+  return _c("div", [
+    _c("header", { staticClass: "main-header home-2" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "header-navigation sticky-nav" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "container-inner" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-2 col-sm-2" }, [
+                _c("div", { staticClass: "logo" }, [
+                  _c("a", { attrs: { href: "index.html" } }, [
+                    _c("img", {
+                      attrs: { src: "/images/logo/logo.jpg", alt: "" }
+                    })
+                  ])
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "header_account_area" }, [
-                _vm._m(10),
-                _vm._v(" "),
-                _c("div", { staticClass: "cart-info d-flex" }, [
-                  _c("div", { staticClass: "mini-cart-warp" }, [
-                    _vm._m(11),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "mini-cart-content" }, [
-                      _c("ul", [
-                        _c("li", { staticClass: "single-shopping-cart" }, [
-                          _c("div", { staticClass: "shopping-cart-img" }, [
-                            _c(
-                              "a",
-                              { attrs: { href: "single-product.html" } },
-                              [
-                                _c("img", {
-                                  attrs: {
-                                    alt: "",
-                                    src: "/images/product-image/mini-cart/1.jpg"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "product-quantity" }, [
-                              _vm._v("1x")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(12)
-                        ]),
+              _c("div", { staticClass: "col-md-10 col-sm-10" }, [
+                _c(
+                  "div",
+                  { staticClass: "main-navigation d-none d-lg-block" },
+                  [
+                    _c("ul", [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("li", { staticClass: "menu-dropdown" }, [
+                        _vm._m(2),
                         _vm._v(" "),
-                        _c("li", { staticClass: "single-shopping-cart" }, [
-                          _c("div", { staticClass: "shopping-cart-img" }, [
+                        _c("ul", { staticClass: "mega-menu-wrap" }, [
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "banner-wrapper" }, [
                             _c(
                               "a",
                               { attrs: { href: "single-product.html" } },
                               [
                                 _c("img", {
                                   attrs: {
-                                    alt: "",
-                                    src: "/images/product-image/mini-cart/2.jpg"
+                                    src:
+                                      "/images/banner-image/banner-menu.jpg ",
+                                    alt: ""
                                   }
                                 })
                               ]
-                            ),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "product-quantity" }, [
-                              _vm._v("1x")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _vm._m(13)
+                            )
+                          ])
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(14),
+                      _vm._m(7),
                       _vm._v(" "),
-                      _vm._m(15)
+                      _vm._m(8),
+                      _vm._v(" "),
+                      _vm._m(9)
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "header_account_area" }, [
+                  _vm._m(10),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "cart-info d-flex" }, [
+                    _c("div", { staticClass: "mini-cart-warp" }, [
+                      _vm._m(11),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mini-cart-content" }, [
+                        _c("ul", [
+                          _c("li", { staticClass: "single-shopping-cart" }, [
+                            _c("div", { staticClass: "shopping-cart-img" }, [
+                              _c(
+                                "a",
+                                { attrs: { href: "single-product.html" } },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      alt: "",
+                                      src:
+                                        "/images/product-image/mini-cart/1.jpg"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "product-quantity" }, [
+                                _vm._v("1x")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(12)
+                          ]),
+                          _vm._v(" "),
+                          _c("li", { staticClass: "single-shopping-cart" }, [
+                            _c("div", { staticClass: "shopping-cart-img" }, [
+                              _c(
+                                "a",
+                                { attrs: { href: "single-product.html" } },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      alt: "",
+                                      src:
+                                        "/images/product-image/mini-cart/2.jpg"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "product-quantity" }, [
+                                _vm._v("1x")
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _vm._m(13)
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(14),
+                        _vm._v(" "),
+                        _vm._m(15)
+                      ])
                     ])
                   ])
                 ])
               ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mobile-menu-area" }, [
+              _c("div", { staticClass: "mobile-menu" }, [
+                _c("nav", { attrs: { id: "mobile-menu-active" } }, [
+                  _c("ul", { staticClass: "menu-overflow" }, [
+                    _vm._m(16),
+                    _vm._v(" "),
+                    _vm._m(17),
+                    _vm._v(" "),
+                    _vm._m(18),
+                    _vm._v(" "),
+                    _vm._m(19),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/Contuct" } }, [
+                          _vm._v("Contuct Us")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
             ])
-          ]),
-          _vm._v(" "),
-          _vm._m(16)
+          ])
         ])
       ])
     ])
@@ -20607,7 +20616,7 @@ var staticRenderFns = [
         _c("li", { staticClass: "menu-dropdown position-static" }, [
           _c("a", { attrs: { href: "#" } }, [
             _vm._v("Home Furniture "),
-            _c("i", { staticClass: "fa fa-caret-down" })
+            _c("i", { staticClass: "ion-ios-arrow-down" })
           ]),
           _vm._v(" "),
           _c("ul", { staticClass: "sub-menu sub-menu-2" }, [
@@ -20994,151 +21003,151 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("option", { attrs: { value: "104" } }, [
                   _vm._v(
-                    "\n                                                       Fresh Food\n                                                   "
+                    "\n                                                            Fresh Food\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "183" } }, [
                   _vm._v(
-                    "\n                                                       - - Fresh Fruit\n                                                   "
+                    "\n                                                            - - Fresh Fruit\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "187" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Bananas\n                                                   "
+                    "\n                                                            - - - - Bananas\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "188" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Apples & Pears\n                                                   "
+                    "\n                                                            - - - - Apples & Pears\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "189" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Berries & Cherries\n                                                   "
+                    "\n                                                            - - - - Berries & Cherries\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "190" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Oranges & Citrus Fruit\n                                                   "
+                    "\n                                                            - - - - Oranges & Citrus Fruit\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "191" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Grapes\n                                                   "
+                    "\n                                                            - - - - Grapes\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "184" } }, [
                   _vm._v(
-                    "\n                                                       - - Fresh Vegetables\n                                                   "
+                    "\n                                                            - - Fresh Vegetables\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "192" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Potatoes & Sweet Potatoes\n                                                   "
+                    "\n                                                            - - - - Potatoes & Sweet Potatoes\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "193" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Onions & Leeks\n                                                   "
+                    "\n                                                            - - - - Onions & Leeks\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "194" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Carrots & Root Vegetables\n                                                   "
+                    "\n                                                            - - - - Carrots & Root Vegetables\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "195" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Broccoli & Cauliflower\n                                                   "
+                    "\n                                                            - - - - Broccoli & Cauliflower\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "196" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Cabbages & Greens\n                                                   "
+                    "\n                                                            - - - - Cabbages & Greens\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "185" } }, [
                   _vm._v(
-                    "\n                                                       - - Fresh Salad & Dips\n                                                   "
+                    "\n                                                            - - Fresh Salad & Dips\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "197" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Lettuce & Salad bags\n                                                   "
+                    "\n                                                            - - - - Lettuce & Salad bags\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "198" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Tomatoes\n                                                   "
+                    "\n                                                            - - - - Tomatoes\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "199" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Cucumber\n                                                   "
+                    "\n                                                            - - - - Cucumber\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "200" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Celery\n                                                   "
+                    "\n                                                            - - - - Celery\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "201" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Peppers\n                                                   "
+                    "\n                                                            - - - - Peppers\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "186" } }, [
                   _vm._v(
-                    "\n                                                       - - Milk, Butter & Eggs\n                                                   "
+                    "\n                                                            - - Milk, Butter & Eggs\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "202" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Milk\n                                                   "
+                    "\n                                                            - - - - Milk\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "203" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Spreads & Margarine\n                                                   "
+                    "\n                                                            - - - - Spreads & Margarine\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "204" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Fresh Cream & Custard\n                                                   "
+                    "\n                                                            - - - - Fresh Cream & Custard\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "205" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Eggs\n                                                   "
+                    "\n                                                            - - - - Eggs\n                                                        "
                   )
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "206" } }, [
                   _vm._v(
-                    "\n                                                       - - - - Baking & Cooking\n                                                   "
+                    "\n                                                            - - - - Baking & Cooking\n                                                        "
                   )
                 ])
               ]
@@ -21233,429 +21242,391 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mobile-menu-area" }, [
-      _c("div", { staticClass: "mobile-menu" }, [
-        _c("nav", { attrs: { id: "mobile-menu-active" } }, [
-          _c("ul", { staticClass: "menu-overflow" }, [
+    return _c("li", [
+      _c("a", { attrs: { href: "index.html" } }, [_vm._v("HOME")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home Organic")]),
+          _vm._v(" "),
+          _c("ul", [
             _c("li", [
-              _c("a", { attrs: { href: "index.html" } }, [_vm._v("HOME")]),
-              _vm._v(" "),
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Home Organic")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "index.html" } }, [
-                        _vm._v("Organic 1")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-2.html" } }, [
-                        _vm._v("Organic 2")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-3.html" } }, [
-                        _vm._v("Organic 3")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-4.html" } }, [
-                        _vm._v("Organic 4")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Home Cosmetic")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-5.html" } }, [
-                        _vm._v("Cosmetic 1")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-6.html" } }, [
-                        _vm._v("Cosmetic 2")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-7.html" } }, [
-                        _vm._v("Cosmetic 3")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-8.html" } }, [
-                        _vm._v("Cosmetic 4")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Home Digital")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-9.html" } }, [
-                        _vm._v("Digital 1")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-10.html" } }, [
-                        _vm._v("Digital 2")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-11.html" } }, [
-                        _vm._v("Digital 3")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-12.html" } }, [
-                        _vm._v("Digital 4")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Home Furniture")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-13.html" } }, [
-                        _vm._v("Furniture 1")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-14.html" } }, [
-                        _vm._v("Furniture 2")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-15.html" } }, [
-                        _vm._v("Furniture 3")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-16.html" } }, [
-                        _vm._v("Furniture 4")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Home Medical")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-17.html" } }, [
-                        _vm._v("Medical 1")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-18.html" } }, [
-                        _vm._v("Medical 2")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-19.html" } }, [
-                        _vm._v("Medical 3")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "index-20.html" } }, [
-                        _vm._v("Medical 4")
-                      ])
-                    ])
-                  ])
-                ])
+              _c("a", { attrs: { href: "index.html" } }, [_vm._v("Organic 1")])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-2.html" } }, [
+                _vm._v("Organic 2")
               ])
             ]),
             _vm._v(" "),
             _c("li", [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("Shop")]),
-              _vm._v(" "),
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Shop Grid")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "shop-3-column.html" } }, [
-                        _vm._v("Shop Grid 3 Column")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "shop-4-column.html" } }, [
-                        _vm._v("Shop Grid 4 Column")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "shop-left-sidebar.html" } }, [
-                        _vm._v("Shop Grid Left Sidebar")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "shop-right-sidebar.html" } }, [
-                        _vm._v("Shop Grid Right Sidebar")
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Shop List")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "shop-list.html" } }, [
-                        _vm._v("Shop List")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "shop-list-left-sidebar.html" } },
-                        [_vm._v("Shop List Left Sidebar")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "shop-list-right-sidebar.html" } },
-                        [_vm._v("Shop List Right Sidebar")]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Single Shop")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c("a", { attrs: { href: "single-product.html" } }, [
-                        _vm._v("Shop Single")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-variable.html" } },
-                        [_vm._v("Shop Variable")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-affiliate.html" } },
-                        [_vm._v("Shop Affiliate")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-group.html" } },
-                        [_vm._v("Shop Group")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-tabstyle-2.html" } },
-                        [_vm._v("Shop Tab 2")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-tabstyle-3.html" } },
-                        [_vm._v("Shop Tab 3")]
-                      )
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Single Shop")]),
-                  _vm._v(" "),
-                  _c("ul", [
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-slider.html" } },
-                        [_vm._v("Shop Slider")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-gallery-left.html" } },
-                        [_vm._v("Shop Gallery Left")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "single-product-gallery-right.html" }
-                        },
-                        [_vm._v("Shop Gallery Right")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-sticky-left.html" } },
-                        [_vm._v("Shop Sticky Left")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "single-product-sticky-right.html" } },
-                        [_vm._v("Shop Sticky Right")]
-                      )
-                    ])
-                  ])
-                ])
+              _c("a", { attrs: { href: "index-3.html" } }, [
+                _vm._v("Organic 3")
               ])
             ]),
             _vm._v(" "),
             _c("li", [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("Pages")]),
-              _vm._v(" "),
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "about.html" } }, [
-                    _vm._v("About Page")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "cart.html" } }, [
-                    _vm._v("Cart Page")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "checkout.html" } }, [
-                    _vm._v("Checkout Page")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "compare.html" } }, [
-                    _vm._v("Compare Page")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "login.html" } }, [
-                    _vm._v("Login & Regiter Page")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "my-account.html" } }, [
-                    _vm._v("Account Page")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "wishlist.html" } }, [
-                    _vm._v("Wishlist Page")
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("Blog")]),
-              _vm._v(" "),
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "blog-grid-left-sidebar.html" } }, [
-                    _vm._v("Blog Grid Left Sidebar")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "blog-grid-right-sidebar.html" } }, [
-                    _vm._v("Blog Grid Right Sidebar")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "blog-list-left-sidebar.html" } }, [
-                    _vm._v("Blog List Left Sidebar")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "blog-list-right-sidebar.html" } }, [
-                    _vm._v("Blog List Right Sidebar")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    { attrs: { href: "blog-single-left-sidebar.html" } },
-                    [_vm._v("Blog Single Left Sidebar")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c(
-                    "a",
-                    { attrs: { href: "blog-single-right-sidebar.html" } },
-                    [_vm._v("Blog Single Right Sidebar")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("a", { attrs: { href: "contact.html" } }, [
-                _vm._v("Contact Us")
+              _c("a", { attrs: { href: "index-4.html" } }, [
+                _vm._v("Organic 4")
               ])
             ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home Cosmetic")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "index-5.html" } }, [
+                _vm._v("Cosmetic 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-6.html" } }, [
+                _vm._v("Cosmetic 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-7.html" } }, [
+                _vm._v("Cosmetic 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-8.html" } }, [
+                _vm._v("Cosmetic 4")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home Digital")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "index-9.html" } }, [
+                _vm._v("Digital 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-10.html" } }, [
+                _vm._v("Digital 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-11.html" } }, [
+                _vm._v("Digital 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-12.html" } }, [
+                _vm._v("Digital 4")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home Furniture")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "index-13.html" } }, [
+                _vm._v("Furniture 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-14.html" } }, [
+                _vm._v("Furniture 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-15.html" } }, [
+                _vm._v("Furniture 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-16.html" } }, [
+                _vm._v("Furniture 4")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Home Medical")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "index-17.html" } }, [
+                _vm._v("Medical 1")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-18.html" } }, [
+                _vm._v("Medical 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-19.html" } }, [
+                _vm._v("Medical 3")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "index-20.html" } }, [
+                _vm._v("Medical 4")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Shop")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Shop Grid")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "shop-3-column.html" } }, [
+                _vm._v("Shop Grid 3 Column")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "shop-4-column.html" } }, [
+                _vm._v("Shop Grid 4 Column")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "shop-left-sidebar.html" } }, [
+                _vm._v("Shop Grid Left Sidebar")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "shop-right-sidebar.html" } }, [
+                _vm._v("Shop Grid Right Sidebar")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Shop List")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "shop-list.html" } }, [
+                _vm._v("Shop List")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "shop-list-left-sidebar.html" } }, [
+                _vm._v("Shop List Left Sidebar")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "shop-list-right-sidebar.html" } }, [
+                _vm._v("Shop List Right Sidebar")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Single Shop")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "single-product.html" } }, [
+                _vm._v("Shop Single")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-variable.html" } }, [
+                _vm._v("Shop Variable")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-affiliate.html" } }, [
+                _vm._v("Shop Affiliate")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-group.html" } }, [
+                _vm._v("Shop Group")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-tabstyle-2.html" } }, [
+                _vm._v("Shop Tab 2")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-tabstyle-3.html" } }, [
+                _vm._v("Shop Tab 3")
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Single Shop")]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-slider.html" } }, [
+                _vm._v("Shop Slider")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-gallery-left.html" } }, [
+                _vm._v("Shop Gallery Left")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                { attrs: { href: "single-product-gallery-right.html" } },
+                [_vm._v("Shop Gallery Right")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-sticky-left.html" } }, [
+                _vm._v("Shop Sticky Left")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "single-product-sticky-right.html" } }, [
+                _vm._v("Shop Sticky Right")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Pages")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "about.html" } }, [_vm._v("About Page")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "cart.html" } }, [_vm._v("Cart Page")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "checkout.html" } }, [
+            _vm._v("Checkout Page")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "compare.html" } }, [_vm._v("Compare Page")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "login.html" } }, [
+            _vm._v("Login & Regiter Page")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "my-account.html" } }, [
+            _vm._v("Account Page")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "wishlist.html" } }, [
+            _vm._v("Wishlist Page")
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Blog")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "blog-grid-left-sidebar.html" } }, [
+            _vm._v("Blog Grid Left Sidebar")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "blog-grid-right-sidebar.html" } }, [
+            _vm._v("Blog Grid Right Sidebar")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "blog-list-left-sidebar.html" } }, [
+            _vm._v("Blog List Left Sidebar")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "blog-list-right-sidebar.html" } }, [
+            _vm._v("Blog List Right Sidebar")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "blog-single-left-sidebar.html" } }, [
+            _vm._v("Blog Single Left Sidebar")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "blog-single-right-sidebar.html" } }, [
+            _vm._v("Blog Single Right Sidebar")
           ])
         ])
       ])
