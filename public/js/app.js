@@ -2032,10 +2032,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mode: 'history',
   routes: [{
-    path: '/',
-    name: 'app',
-    component: _App_vue__WEBPACK_IMPORTED_MODULE_2__.default
-  }, {
     path: '/contact',
     name: 'contact',
     component: _views_Contact_vue__WEBPACK_IMPORTED_MODULE_1__.default

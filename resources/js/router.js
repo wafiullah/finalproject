@@ -10,11 +10,6 @@ export default {
 
     routes: [
         {
-            path: '/', 
-            name: 'app',
-            component: App
-        },
-        {
             path: '/contact', 
             name: 'contact',
             component: Contact
