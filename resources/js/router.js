@@ -1,7 +1,7 @@
 
 import About from './views/About.vue'
 import Contact from './views/Contact.vue'
-import App from './App.vue'
+
 
 
 export default {

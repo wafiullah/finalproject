@@ -211,7 +211,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><router-link :to="{ name: 'contact'}">Contact Us</router-link></li>
                                         </ul>
                                     </div>
                                     <!--Main Navigation End -->

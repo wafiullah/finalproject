@@ -2025,8 +2025,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _views_About_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/About.vue */ "./resources/js/views/About.vue");
 /* harmony import */ var _views_Contact_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Contact.vue */ "./resources/js/views/Contact.vue");
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
-
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -20306,17 +20304,27 @@ var render = function() {
                       _vm._v(" "),
                       _vm._m(8),
                       _vm._v(" "),
-                      _vm._m(9)
+                      _c(
+                        "li",
+                        [
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "contact" } } },
+                            [_vm._v("Contact Us")]
+                          )
+                        ],
+                        1
+                      )
                     ])
                   ]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "header_account_area" }, [
-                  _vm._m(10),
+                  _vm._m(9),
                   _vm._v(" "),
                   _c("div", { staticClass: "cart-info d-flex" }, [
                     _c("div", { staticClass: "mini-cart-warp" }, [
-                      _vm._m(11),
+                      _vm._m(10),
                       _vm._v(" "),
                       _c("div", { staticClass: "mini-cart-content" }, [
                         _c("ul", [
@@ -20341,7 +20349,7 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _vm._m(12)
+                            _vm._m(11)
                           ]),
                           _vm._v(" "),
                           _c("li", { staticClass: "single-shopping-cart" }, [
@@ -20365,13 +20373,13 @@ var render = function() {
                               ])
                             ]),
                             _vm._v(" "),
-                            _vm._m(13)
+                            _vm._m(12)
                           ])
                         ]),
                         _vm._v(" "),
-                        _vm._m(14),
+                        _vm._m(13),
                         _vm._v(" "),
-                        _vm._m(15)
+                        _vm._m(14)
                       ])
                     ])
                   ])
@@ -20383,13 +20391,13 @@ var render = function() {
               _c("div", { staticClass: "mobile-menu" }, [
                 _c("nav", { attrs: { id: "mobile-menu-active" } }, [
                   _c("ul", { staticClass: "menu-overflow" }, [
+                    _vm._m(15),
+                    _vm._v(" "),
                     _vm._m(16),
                     _vm._v(" "),
                     _vm._m(17),
                     _vm._v(" "),
                     _vm._m(18),
-                    _vm._v(" "),
-                    _vm._m(19),
                     _vm._v(" "),
                     _c(
                       "li",
@@ -20963,14 +20971,6 @@ var staticRenderFns = [
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "contact.html" } }, [_vm._v("Contact Us")])
     ])
   },
   function() {
