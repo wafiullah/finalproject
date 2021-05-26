@@ -78,7 +78,7 @@
                                     <div class="main-navigation d-none d-lg-block">
                                         <ul>
                                             <li class="menu-dropdown">
-                                                <a href="#">Home <i class="ion-ios-arrow-down"></i></a>
+                                                <router-link to="/">Home <i class="ion-ios-arrow-down"></i> </router-link>
                                                 <ul class="sub-menu">
                                                     <li class="menu-dropdown position-static">
                                                         <a href="#">Home Organic <i class="ion-ios-arrow-down"></i></a>
@@ -180,7 +180,8 @@
                                                     <li><a href="cart.html">Cart Page</a></li>
                                                     <li><a href="checkout.html">Checkout Page</a></li>
                                                     <li><a href="compare.html">Compare Page</a></li>
-                                                    <li><a href="login.html">Login & Regiter Page</a></li>
+                                                    <li> <router-link :to="{ name: 'Login'}">Login Page</router-link></li>
+                                                    <li> <router-link :to="{ name: 'Register'}">Regiter Page</router-link></li>
                                                     <li><a href="my-account.html">Account Page</a></li>
                                                     <li><a href="wishlist.html">Wishlist Page</a></li>
                                                 </ul>
@@ -462,7 +463,8 @@
                                                     <li><a href="cart.html">Cart Page</a></li>
                                                     <li><a href="checkout.html">Checkout Page</a></li>
                                                     <li><a href="compare.html">Compare Page</a></li>
-                                                    <li><a href="login.html">Login & Regiter Page</a></li>
+                                                    <li> <router-link :to="{ name: 'Login'}">Login Page</router-link></li>
+                                                    <li> <router-link :to="{ name: 'Register'}">Regiter Page</router-link></li>
                                                     <li><a href="my-account.html">Account Page</a></li>
                                                     <li><a href="wishlist.html">Wishlist Page</a></li>
                                                 </ul>
