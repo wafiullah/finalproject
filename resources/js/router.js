@@ -3,7 +3,8 @@ import About from './views/About.vue'
 import Contact from './views/Contact.vue'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
-import Registration from './views/Registration.vue'
+import Register from './views/Register.vue'
+import Shop from './views/Shop.vue'
 
 export default {
   
@@ -12,28 +13,33 @@ export default {
     routes: [
         {
             path: '/', 
-            name: 'Home',
+            name: 'home',
             component: Home
         },
         {
             path: '/contact', 
-            name: 'Contact',
+            name: 'contact',
             component: Contact
         },
         {
             path: '/about', 
-            name: 'About',
+            name: 'about',
             component: About
         },
        {
             path: '/login', 
-            name: 'Login',
+            name: 'login',
             component: Login
         }, 
         {
             path: '/register', 
-            name: 'Register',
-            component: Registration
+            name: 'register',
+            component: Register
+        },
+        {
+            path: '/shop', 
+            name: 'shop',
+            component: Shop
         },
     ]
 
