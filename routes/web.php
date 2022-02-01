@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +20,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+    Route::get('/password/reset', [ForgotPasswordController::class,'showLinkRequestForm'])->name('password.request');
+    Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('/password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/password/reset', [ResetPasswordController::class,'reset'])->name('password.update');
+
+    Route::group(['middleware' => 'auth:web'], function () {
+        Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+        Route::post('/profile/update', [AdminController::class, 'updateProfile'])->name('profile.update');
+        Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+        Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
+
+        Route::get('/users', [UsersController::class, 'index'])->name('users');
+        Route::resource('categories', CategoriesController::class);
+        Route::resource('products', ProductsController::class);
+    });
 });
-Route::any('{slug}',function(){
-    return view('welcome');
-});
+
+
+Route::get('/{vue?}', function () {
+    return view('app');
+})->where('vue', '[\/\w\.-]*');

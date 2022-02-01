@@ -5,11 +5,15 @@ import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import Shop from './views/Shop.vue'
+import SingleProduct from './views/SingleProduct.vue'
+import Dashboard from './views/User/Dashboard.vue'
 
-export default {
-  
+import Vue from "vue";
+import Router from "vue-router";
+
+Vue.use(Router);
+const router = new Router({
     mode: 'history',
-
     routes: [
         {
             path: '/', 
@@ -41,7 +45,35 @@ export default {
             name: 'shop',
             component: Shop
         },
+        {
+            path: '/product/:id', 
+            name: 'product-details',
+            component: SingleProduct,
+            props: true
+        },
+        {
+            path: '/dashboard', 
+            name: 'dashboard',
+            component: Dashboard,
+            meta: {
+                requiresAuth: true
+            }
+        },
     ]
 
 
-}
+});
+
+router.beforeEach((to, from, next) => {
+    //  If the next route is requires user to be Logged IN
+    if (to.matched.some(m => m.meta.requiresAuth)) {
+        var token = localStorage.getItem("company_user_token");
+        if (!token) {
+            next("/login");
+        }
+    }
+
+    return next();
+});
+
+export default router;

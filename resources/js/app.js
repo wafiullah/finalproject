@@ -1,8 +1,10 @@
 require('./bootstrap');
 
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
+// import VueRouter from 'vue-router'
+// Vue.use(VueRouter)
+
+
 
 
 // vee validate
@@ -27,6 +29,8 @@ Vue.use(VeeValidate)
 import carousel from 'vue-owl-carousel'
 Vue.use(carousel)
 
+
+
 // end carousel
 
 import routes from './router'
@@ -37,7 +41,7 @@ import App from './App.vue';
  const app = new Vue({
     el: '#app',
     components: { App},
-    router: new VueRouter(routes),
+    router: routes,
 
     render: h => h(App)
 });

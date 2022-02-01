@@ -29,33 +29,105 @@
 
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <form action="" method="post">
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            placeholder="Name"
-                                        />
-                                        <input
-                                            type="password"
-                                            name="password"
-                                            placeholder="Password"
-                                        />
-                                        <input
-                                            type="password"
-                                            name="confirm-password"
-                                            placeholder="Confirm Password"
-                                        />
-                                        <input
-                                            name="user-email"
-                                            placeholder="Email"
-                                            type="email"
-                                        />
-                                        <div class="button-box">
-                                            <button type="submit">
-                                                <span>Register</span>
-                                            </button>
-                                        </div>
-                                    </form>
+                                    <ValidationObserver
+                                        ref="form"
+                                        v-slot="{ handleSubmit }"
+                                    >
+                                        <form
+                                            @submit.prevent="
+                                                handleSubmit(onSubmit)
+                                            "
+                                        >
+                                            <ValidationProvider
+                                                name="Name"
+                                                rules="required"
+                                                v-slot="{ errors }"
+                                                vid="name"
+                                            >
+                                                <div class="form-group">
+                                                    <input
+                                                        v-model="formData.name"
+                                                        type="text"
+                                                        name="name"
+                                                        placeholder="Name"
+                                                    />
+
+                                                    <span
+                                                        class="text-danger text-sm"
+                                                        >{{ errors[0] }}</span
+                                                    >
+                                                </div>
+                                            </ValidationProvider>
+                                            <ValidationProvider
+                                                name="Email"
+                                                rules="required|email"
+                                                v-slot="{ errors }"
+                                                vid="email"
+                                            >
+                                                <div class="form-group">
+                                                    <input
+                                                        v-model="formData.email"
+                                                        type="text"
+                                                        name="email"
+                                                        placeholder="Email"
+                                                    />
+
+                                                    <span
+                                                        class="text-danger text-sm"
+                                                        >{{ errors[0] }}</span
+                                                    >
+                                                </div>
+                                            </ValidationProvider>
+                                            <ValidationProvider
+                                                name="Password"
+                                                vid="password"
+                                                rules="required|confirmed:password_confirmation"
+                                                v-slot="{ errors }"
+                                            >
+                                                <div class="form-group">
+                                                    <input
+                                                        v-model="
+                                                            formData.password
+                                                        "
+                                                        type="password"
+                                                        name="password"
+                                                        placeholder="Password"
+                                                    />
+                                                    <span
+                                                        class="text-danger text-sm"
+                                                        >{{ errors[0] }}</span
+                                                    >
+                                                </div>
+                                            </ValidationProvider>
+                                            <ValidationProvider
+                                                name="Confirm Password"
+                                                rules="required"
+                                                vid="password_confirmation"
+                                                v-slot="{ errors }"
+                                            >
+                                                <div class="form-group">
+                                                    <input
+                                                        v-model="
+                                                            formData.password_confirmation
+                                                        "
+                                                        type="password"
+                                                        name="password_confirmation"
+                                                        placeholder="Confirm Password"
+                                                    />
+                                                    <span
+                                                        class="text-danger text-sm"
+                                                        >{{ errors[0] }}</span
+                                                    >
+                                                </div>
+                                            </ValidationProvider>
+
+                                            <div class="button-box">
+                                                <button type="submit">
+                                                    <span>Register</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </ValidationObserver>
                                 </div>
                             </div>
                         </div>
@@ -65,3 +137,55 @@
         </div>
     </div>
 </template>
+
+<script>
+import VsToast from "@vuesimple/vs-toast";
+export default {
+    data() {
+        return {
+            formData: {
+                name: "",
+                email: "",
+                password: "",
+                password_confirmation: ""
+            }
+        };
+    },
+    methods: {
+        onSubmit() {
+            this.$refs.form.validate().then(success => {
+                if (!success) {
+                    return;
+                }
+                axios
+                    .post(route("user.register"), this.formData)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.status) {
+                            VsToast.show({
+                                title: "Success",
+                                message: res.data.message,
+                                variant: "success"
+                            });
+                              this.$router
+                                .replace({ name: "login" })
+                                .then(() => {});
+                        }
+                    })
+                    .catch(err => {
+                        if (err.response.status === 422) {
+                            this.$refs.form.setErrors(err.response.data.errors);
+                        }
+
+                        VsToast.show({
+                            title: "Error!",
+                            message: err.response.data.message,
+                            variant: "error"
+                        });
+                        console.log(err);
+                    });
+            });
+        }
+    }
+};
+</script>

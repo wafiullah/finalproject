@@ -28,35 +28,73 @@
                             </div>
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <form
-                                        action=""
-                                        method="post"
+                                    <ValidationObserver
+                                        ref="form"
+                                        v-slot="{ handleSubmit }"
                                     >
-                                        <input
-                                            type="text"
-                                            name="user-name"
-                                            placeholder="Username"
-                                        />
-                                        <input
-                                            type="password"
-                                            name="user-password"
-                                            placeholder="Password"
-                                        />
-                                        <div class="button-box">
-                                            <div class="login-toggle-btn">
-                                                <input type="checkbox" />
-                                                <a
-                                                    class="flote-none"
-                                                    href="javascript:void(0)"
-                                                    >Remember me</a
-                                                >
-                                                <a href="#">Forgot Password?</a>
+                                        <form
+                                            @submit.prevent="
+                                                handleSubmit(onSubmit)
+                                            "
+                                            class="contact-form-style"
+                                        >
+                                            <ValidationProvider
+                                                name="Email"
+                                                rules="required|email"
+                                                v-slot="{ errors }"
+                                            >
+                                                <div class="form-group">
+                                                    <input
+                                                        v-model="formData.email"
+                                                        type="text"
+                                                        name="email"
+                                                        placeholder="Email"
+                                                    />
+
+                                                    <span
+                                                        class="text-danger text-sm"
+                                                        >{{ errors[0] }}</span
+                                                    >
+                                                </div>
+                                            </ValidationProvider>
+                                            <ValidationProvider
+                                                name="Password"
+                                                rules="required"
+                                                v-slot="{ errors }"
+                                            >
+                                                <div class="form-group">
+                                                    <input
+                                                        v-model="
+                                                            formData.password
+                                                        "
+                                                        type="password"
+                                                        name="password"
+                                                        placeholder="Password"
+                                                    />
+                                                    <span
+                                                        class="text-danger text-sm"
+                                                        >{{ errors[0] }}</span
+                                                    >
+                                                </div>
+                                            </ValidationProvider>
+                                            <div class="button-box">
+                                                <div class="login-toggle-btn">
+                                                    <input type="checkbox" />
+                                                    <a
+                                                        class="flote-none"
+                                                        href="javascript:void(0)"
+                                                        >Remember me</a
+                                                    >
+                                                    <a href="#"
+                                                        >Forgot Password?</a
+                                                    >
+                                                </div>
+                                                <button type="submit">
+                                                    <span>Login</span>
+                                                </button>
                                             </div>
-                                            <button type="submit">
-                                                <span>Login</span>
-                                            </button>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </ValidationObserver>
                                 </div>
                             </div>
                         </div>
@@ -67,10 +105,55 @@
     </div>
 </template>
 <script>
+import VsToast from "@vuesimple/vs-toast";
 export default {
-    name: "Login",
     data() {
-        return {};
+        return {
+            formData: {
+                email: "",
+                password: ""
+            }
+        };
+    },
+    methods: {
+        onSubmit() {
+            this.$refs.form.validate().then(success => {
+                if (!success) {
+                    return;
+                }
+                axios
+                    .post(route("user.authenticate"), {
+                        email: this.formData.email,
+                        password: this.formData.password
+                    })
+                    .then(res => {
+                        if (res.data.company_user_token) {
+                            localStorage.setItem(
+                                "company_user_token",
+                                res.data.company_user_token
+                            );
+                              localStorage.setItem(
+                                "company_user",
+                               JSON.stringify( res.data.company_user)
+                            );
+                            // this.$router
+                            //     .replace({ name: "dashboard" })
+                            //     .then(() => {});
+                            window.location = '/dashboard'
+                        } else {
+                            // this.ToasterFailed("Something went wrong.");
+                        }
+                    })
+                    .catch(err => {
+                        VsToast.show({
+                            title: "Error!",
+                            message: err.response.data.message,
+                            variant: "error"
+                        });
+                        console.log(err);
+                    });
+            });
+        }
     }
 };
 </script>

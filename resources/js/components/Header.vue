@@ -7,41 +7,39 @@
                         <div class="row">
                             <!--Left Start-->
                             <div class="col-lg-4 col-md-4">
-                                <div class="left-text">
-                                    <p>Welcome you to Ecolife store!</p>
-                                </div>
+                               
                             </div>
                             <!--Left End-->
                             <!--Right Start-->
                             <div class="col-lg-8 col-md-8 text-right">
                                 <div class="header-right-nav">
                                     <ul class="res-xs-flex">
-                                        <li class="after-n">
-                                            <a href="compare.html"><i class="ion-ios-shuffle-strong"></i> Compare (0)</a>
+                                        <li  v-if="userLoggedIn">
+                                            <router-link to="/dashboard">User Dashboard</router-link>
                                         </li>
-                                        <li>
-                                            <a href="wishlist.html"><i class="ion-android-favorite-outline"></i> Wishlist (0)</a>
+                                         <li v-if="userLoggedIn">
+                                            <a href="#" @click="logout">Logout</a>
                                         </li>
                                     </ul>
                                     <div class="dropdown-navs">
                                         <ul>
                                             <!-- Settings Start -->
-                                            <li class="dropdown">
+                                            <!-- <li class="dropdown">
                                                 <a class="angle-icon" href="#">Settings</a>
                                                 <ul class="dropdown-nav">
                                                     <li><a href="my-account.html">My Account</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
                                                     <li><a href="login.html">Login</a></li>
                                                 </ul>
-                                            </li>
+                                            </li> -->
                                             <!-- Settings End -->
                                             <!-- Currency Start -->
-                                            <li class="top-10px first-child">
+                                            <!-- <li class="top-10px first-child">
                                                 <select>
                                                     <option value="1">USD $</option>
                                                     <option value="2">EUR €</option>
                                                 </select>
-                                            </li>
+                                            </li> -->
                                             <!-- Currency End -->
                                             <!-- Language Start -->
                                             <li class="top-10px mr-15px">
@@ -68,7 +66,7 @@
                                 <!-- Logo Start -->
                                 <div class="col-md-2 col-sm-2">
                                     <div class="logo">
-                                        <a href="index.html"><img :src="'/images/logo/logo.jpg' " alt="" /></a>
+                                        <router-link to="/"><img :src="'/images/logo/logo.jpg' " alt="" /></router-link>
                                     </div>
                                 </div>
                                 <!-- Logo End -->
@@ -83,8 +81,8 @@
                                             <li>
                                                 <router-link to="/shop">Shop </router-link>
                                             </li>
-                                            <li><router-link to="/login">Login</router-link></li>
-                                            <li><router-link to="/register">Register</router-link></li>
+                                            <li v-if="!userLoggedIn"><router-link to="/login">Login</router-link></li>
+                                            <li v-if="!userLoggedIn"><router-link to="/register">Register</router-link></li>
                                             <li><router-link to="/contact">Contact Us</router-link></li>
                                         </ul>
                                     </div>
@@ -367,3 +365,33 @@
         
     </div>
 </template>
+
+
+<script>
+    export default {
+        data() {
+            return {
+                userLoggedIn: '',
+                loggedInUser: ''
+            }
+        },
+        mounted () {
+            this.userLoggedIn = localStorage.getItem('company_user_token');
+            this.loggedInUser = JSON.parse(localStorage.getItem('company_user'));
+        },
+        methods: {
+            logout() {
+                localStorage.removeItem('company_user_token');
+                localStorage.removeItem('company_user');
+                window.location = '/dashboard'
+                // this.$router.push({
+                //     name: 'login'
+                // })
+            }
+        },
+    }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

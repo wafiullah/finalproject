@@ -20,9 +20,11 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
         "@fortawesome/vue-fontawesome": "^2.0.2",
+        "@vuesimple/vs-toast": "^1.4.1",
         "vee-validate": "^3.4.5",
         "vue": "^2.6.12",
         "vue-owl-carousel": "^2.0.3",
-        "vue-router": "^3.5.1"
+        "vue-router": "^3.5.1",
+        "vue-toast-notification": "^0.6.2"
     }
 }

@@ -14,9 +14,7 @@
                             Fresh Vegetables<br />
                             And Fruits
                         </h1>
-                        <a href="shop-4-column.html" class="shop-btn animated"
-                            >SHOP NOW</a
-                        >
+                        <router-link class="shop-btn animated" to="/shop" >SHOP NOW</router-link>
                     </div>
                 </div>
             </div>
@@ -33,9 +31,7 @@
                             Up To 70% Off <br />
                             Fresh Juice
                         </h1>
-                        <a href="shop-4-column.html" class="shop-btn animated"
-                            >SHOP NOW</a
-                        >
+                        <router-link class="shop-btn animated" to="/shop" >SHOP NOW</router-link>
                     </div>
                 </div>
             </div>
