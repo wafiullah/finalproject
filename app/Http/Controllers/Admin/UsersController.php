@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Mail;
-use App\Sale;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Mail\UserAccountBlock;
 use App\Mail\UserAccountUnBlock;
@@ -20,7 +19,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::with('sales')
+        $users = User::query()
         ->when($request->email, function ($query, $email) {
             return $query->where('email', $email);
         })
@@ -41,25 +40,12 @@ class UsersController extends Controller
         return view('admin.users.profile', compact('user', 'sales'));
     }
 
-    public function resendEmail($userId)
-    {
-        $user = User::find($userId);
-        if ($user->hasVerifiedEmail()) {
-            return redirect()->back()->with('error', 'Accoun is already verified.');
-        }
-
-        $user->sendEmailVerificationNotification();
-
-        return redirect()->back()->with('success', 'Account email verifiation has been resent.');
-    }
 
     public function blockUserAccount(Request $request)
     {
         $user = User::find($request->userId);
-        $user->status = 'block';
-        $user->reason = $request->message;
+        $user->status = 1;
         $user->save();
-        Mail::to($user->email)->send(new UserAccountBlock($user, $request->message));
 
         return redirect()->back()->with('success', 'Account successfully blocked.');
     }
@@ -67,9 +53,8 @@ class UsersController extends Controller
     public function unblockUserAccount($userId)
     {
         $user = User::find($userId);
-        $user->status = 'active';
+        $user->status = 0;
         $user->save();
-        Mail::to($user->email)->send(new UserAccountUnBlock($user));
 
         return redirect()->back()->with('success', 'Account successfully unblocked.');
     }
@@ -81,10 +66,5 @@ class UsersController extends Controller
         return redirect()->back()->with('success', 'User successfully deleted.');
     }
 
-    public function userSales(Request $request)
-    {
-        $sales = Sale::with('package')->where('user_id', $request->id)->paginate(10);
-
-        return view('admin.users.user_sales', compact('sales'));
-    }
+   
 }

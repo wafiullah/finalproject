@@ -16,7 +16,8 @@ class ProductsController extends Controller
     public function index()
     {
         //
-        return view('admin.products.index');
+        $products = Product::latest()->get();
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -38,16 +39,34 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'title' => 'required|unique:products',
             'price' => 'required',
             'discounted_price' => 'required',
-            'image1' => 'required|image',
-            'image2' => 'required|image',
+            'image_file1' => 'nullable|image',
+            'image_file2' => 'nullable|image',
         ]);
 
+        if ($request->hasFile('image_file1')) {
+
+            $file = $request->file('image_file1');
+            $filename = $file->getClientOriginalName();
+            $name = $file->move(public_path("images"), $filename);
+            $path = '/images/' . $filename;
+            $request->request->add(['image1' => $path]);
+        }
+        if ($request->hasFile('image_file2')) {
+
+            $file = $request->file('image_file2');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path("images"), $filename);
+            $path = '/images/' . $filename;
+            $request->request->add(['image2' => $path]);
+        }
+
         Product::create($request->all());
-        return redirect()->back()->with('message', 'Product successfully added.');
+        return redirect()->back()->with('success', 'Product successfully added.');
     }
 
     /**
@@ -59,7 +78,7 @@ class ProductsController extends Controller
     public function show(Product $product)
     {
         //
-        
+
     }
 
     /**
@@ -85,12 +104,29 @@ class ProductsController extends Controller
     {
         //
         $request->validate([
-            'title' => 'required|unique:products,title,id,'. $product->id,
+            'title' => 'required|unique:products,title,' . $product->id,
             'price' => 'required',
             'discounted_price' => 'required',
-            'image1' => 'required|image',
-            'image2' => 'required|image',
+            'image_file1' => 'nullable|image',
+            'image_file2' => 'nullable|image',
         ]);
+
+        if ($request->hasFile('image_file1')) {
+
+            $file = $request->file('image_file1');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path("images"), $filename);
+            $path = '/images/' . $filename;
+            $request->request->add(['image1' => $path]);
+        }
+        if ($request->hasFile('image_file2')) {
+
+            $file = $request->file('image_file2');
+            $filename = $file->getClientOriginalName();
+            $file->move(public_path("images"), $filename);
+            $path = '/images/' . $filename;
+            $request->request->add(['image2' => $path]);
+        }
 
         $product->update($request->all());
         return redirect()->back()->with('message', 'Product successfully updated.');

@@ -47,33 +47,16 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Contact</th>
-                                <th>Business</th>
-                                <th>Register Mobile</th>
-                                <th>Platform</th>
                                 <th>Account</th>
-                                <th>Resend Email</th>
                                 <th>Created At</th>
-                                <th>Sales Added</th>
-                                <th>Sales</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($users as $user)
                             <tr>
-                                <td>{{$user->first_name}} {{$user->last_name}}</td>
+                                <td>{{$user->name}} </td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->contact}}</td>
-                                <td>{{$user->business_title}}</td>
-                                <td class="tx-12">
-                                    @if($user->register_by_mobile == 1)
-                                    <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Yes
-                                    @else
-                                    <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> No
-                                    @endif
-                                </td>
-                                <td>{{$user->platform}}</td>
                                 <td class="tx-12">
                                     @if($user->email_verified_at == "")
                                     <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Pending verification
@@ -81,21 +64,9 @@
                                     <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Email verified
                                     @endif
                                 </td>
+                                <td>{{$user->created_at}}</td>
                                 <td>
-                                    @if($user->email_verified_at == "")
-                                    <a href="{{route('admin.resend.email', $user->id)}}"
-                                        class="btn btn-primary btn-sm"><i class="fa fa-repeat"></i> Resend Email</a>
-                                    @endif
-                                </td>
-                                <td>{{time_elapsed_string($user->created_at)}}</td>
-                                <td>{{$user->sales->count()}}</td>
-                                <td><a href="{{route('admin.user.sales',[$user->id])}}"
-                                        class="btn btn-success btn-sm">Sales
-                                    </a></td>
-                                <td><a href="{{route('admin.user.profile',[$user->id])}}"
-                                        class="btn btn-success btn-sm">View
-                                        Profile</a>
-                                    @if($user->status == "active")
+                                    @if($user->status == 0)
                                     <a href="#" data-target="#blockAccount" data-toggle="modal"
                                         class="btn btn-danger btn-sm" data-id="{{$user->id}}"> <i
                                             class="fa fa-lock"></i>
@@ -127,9 +98,6 @@
 @push('js')
 <script src="{{asset('assets/lib/datatables/js/datatables.min.js')}}"></script>
 <script src="{{asset('assets/js/dataTable.js')}}"></script>
-<!-- Button trigger modal -->
-
-
 <!-- Modal -->
 <div class="modal fade" id="blockAccount" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -144,15 +112,6 @@
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <textarea class="form-control" required
-                                        placeholder="Type reason for the account block." name="message" id=""
-                                        rows="4"></textarea>
-                                </div>
-                            </div>
-                        </div>
                         <input type="hidden" name="userId" class="userId">
                     </div>
                 </div>

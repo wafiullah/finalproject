@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\ResetPasswordController;
+use App\Http\Controllers\Admin\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\Admin\ResetPasswordController;
 
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/login', [AuthController::class, 'login'])->name('login');
     Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
     Route::get('/password/reset', [ForgotPasswordController::class,'showLinkRequestForm'])->name('password.request');
@@ -35,7 +36,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], fu
         Route::post('/profile/update', [AdminController::class, 'updateProfile'])->name('profile.update');
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
         Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
-
+        Route::post('/user/block', [UsersController::class, 'blockUserAccount'])->name('user.block.account');
+        Route::get('/user/unblock/{id}', [UsersController::class, 'unblockUserAccount'])->name('user.unblock.account');
+        Route::delete('/user/delete/{id}', [UsersController::class, 'deleteUser'])->name('user.delete');
         Route::get('/users', [UsersController::class, 'index'])->name('users');
         Route::resource('categories', CategoriesController::class);
         Route::resource('products', ProductsController::class);
