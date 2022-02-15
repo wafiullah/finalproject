@@ -25,6 +25,7 @@
         "vue": "^2.6.12",
         "vue-owl-carousel": "^2.0.3",
         "vue-router": "^3.5.1",
+        "vue-tabs-component": "^1.5.0",
         "vue-toast-notification": "^0.6.2"
     }
 }

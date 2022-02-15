@@ -3182,6 +3182,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3915,6 +3919,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -4090,132 +4096,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Shop",
+  name: 'Shop',
   data: function data() {
     return {
-      items: [{
-        title: 'Juicy Couture Juicy Quilted',
-        id: 1,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 2,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 3,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 4,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 5,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 6,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 7,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 8,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }, {
-        title: 'Juicy Couture Juicy Quilted',
-        id: 9,
-        price: 12,
-        discounted: 15,
-        brand: 'Juice Design',
-        image1: '/images/product-image/organic/product-1.jpg',
-        image2: '/images/product-image/organic/product-1.jpg'
-      }]
+      items: []
     };
+  },
+  methods: {
+    calculatePercentage: function calculatePercentage(item) {
+      return parseFloat(item.discounted_price / item.price * 100, 2).toFixed(2);
+    },
+    getProducts: function getProducts() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(route('shop.products')).then(function (res) {
+        console.log(res.data);
+        _this.items = res.data.data;
+      })["catch"](function (err) {})["finally"](function () {});
+    }
+  },
+  mounted: function mounted() {
+    this.getProducts();
   }
 });
 
@@ -4232,6 +4135,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_tabs_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-tabs-component */ "./node_modules/vue-tabs-component/dist/index.js");
+/* harmony import */ var vue_tabs_component__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_tabs_component__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -4575,1391 +4482,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Shop",
+  components: {
+    Tabs: vue_tabs_component__WEBPACK_IMPORTED_MODULE_1__.Tabs,
+    Tab: vue_tabs_component__WEBPACK_IMPORTED_MODULE_1__.Tab
+  },
   data: function data() {
     return {
-      item: {
-        id: 1,
-        title: "Juicy Couture Juicy Quilted",
-        price: 12,
-        discounted: 15,
-        brand: "Juice Design",
-        image1: "/images/product-image/organic/product-1.jpg",
-        image2: "/images/product-image/organic/product-1.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim venialo quis nostrud exercitation ullamco"
-      }
+      item: null
     };
+  },
+  methods: {
+    getSingleProduct: function getSingleProduct() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get(route("shop.product", {
+        id: this.$route.params.id
+      })).then(function (res) {
+        _this.item = res.data.data;
+      })["catch"](function (err) {})["finally"](function () {});
+    }
+  },
+  mounted: function mounted() {
+    this.getSingleProduct();
   }
 });
 
@@ -6553,6 +5100,106 @@ router.beforeEach(function (to, from, next) {
   return next();
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.tabs-component-tabs {\r\n    display: inline-flex;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -23975,6 +22622,315 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SingleProduct.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
 /***/ "./node_modules/vee-validate/dist/rules.js":
 /*!*************************************************!*\
   !*** ./node_modules/vee-validate/dist/rules.js ***!
@@ -27195,15 +26151,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _SingleProduct_vue_vue_type_template_id_55d32178___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleProduct.vue?vue&type=template&id=55d32178& */ "./resources/js/views/SingleProduct.vue?vue&type=template&id=55d32178&");
 /* harmony import */ var _SingleProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleProduct.vue?vue&type=script&lang=js& */ "./resources/js/views/SingleProduct.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SingleProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleProduct.vue?vue&type=style&index=0&lang=css& */ "./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
   _SingleProduct_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _SingleProduct_vue_vue_type_template_id_55d32178___WEBPACK_IMPORTED_MODULE_0__.render,
   _SingleProduct_vue_vue_type_template_id_55d32178___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -27417,6 +26375,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Dashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/User/Dashboard.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleProduct_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SingleProduct.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/SingleProduct.vue?vue&type=style&index=0&lang=css&");
+
 
 /***/ }),
 
@@ -28284,6 +27255,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "dropdown-navs" }, [
       _c("ul", [
+        _c("li", [
+          _c("a", { attrs: { href: "/admin/login", target: "_blank" } }, [
+            _vm._v("Admin Panel")
+          ])
+        ]),
+        _vm._v(" "),
         _c("li", { staticClass: "top-10px mr-15px" }, [
           _c("select", [
             _c("option", { attrs: { value: "1" } }, [_vm._v("English")]),
@@ -30419,9 +29396,9 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                                                            " +
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t" +
                                             _vm._s(item.title) +
-                                            "\n                                                        "
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t"
                                         )
                                       ]
                                     )
@@ -30434,17 +29411,25 @@ var render = function() {
                                 _c("div", { staticClass: "pricing-meta" }, [
                                   _c("ul", [
                                     _c("li", { staticClass: "old-price" }, [
-                                      _vm._v("€" + _vm._s(item.price))
+                                      _vm._v("$" + _vm._s(item.price))
                                     ]),
                                     _vm._v(" "),
                                     _c("li", { staticClass: "current-price" }, [
-                                      _vm._v("€" + _vm._s(item.discounted))
+                                      _vm._v("$" + _vm._s(item.discounted))
                                     ]),
                                     _vm._v(" "),
                                     _c(
                                       "li",
                                       { staticClass: "discount-price" },
-                                      [_vm._v("-5%")]
+                                      [
+                                        _vm._v(
+                                          "-" +
+                                            _vm._s(
+                                              _vm.calculatePercentage(item)
+                                            ) +
+                                            "%"
+                                        )
+                                      ]
                                     )
                                   ])
                                 ])
@@ -30471,7 +29456,7 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            "\n                                                           View\n                                                        "
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tView\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
                                           )
                                         ]
                                       )
@@ -30487,12 +29472,8 @@ var render = function() {
                       0
                     )
                   ]
-                ),
-                _vm._v(" "),
-                _vm._m(6)
-              ]),
-              _vm._v(" "),
-              _vm._m(7)
+                )
+              ])
             ])
           ])
         ])
@@ -30537,7 +29518,7 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("option", { attrs: { value: "" } }, [_vm._v("A to Z")]),
           _vm._v(" "),
-          _c("option", { attrs: { value: "" } }, [_vm._v(" Z to A")]),
+          _c("option", { attrs: { value: "" } }, [_vm._v("Z to A")]),
           _vm._v(" "),
           _c("option", { attrs: { value: "" } }, [_vm._v("In stock")])
         ])
@@ -30588,207 +29569,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("i", { staticClass: "ion-android-star" })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "tab-pane", attrs: { id: "shop-2" } }, [
-      _c("div", { staticClass: "shop-list-wrap mb-30px scroll-zoom" }, [
-        _c("div", { staticClass: "row list-product m-0px" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-xs-12 col-sm-12 col-md-4 col-lg-4" },
-                [
-                  _c("div", { staticClass: "left-img" }, [
-                    _c("div", { staticClass: "img-block" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "thumbnail",
-                          attrs: { href: "single-product.html" }
-                        },
-                        [
-                          _c("img", {
-                            staticClass: "first-img",
-                            attrs: {
-                              src:
-                                "assets/images/product-image/organic/product-7.jpg",
-                              alt: ""
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("img", {
-                            staticClass: "second-img",
-                            attrs: {
-                              src:
-                                "assets/images/product-image/organic/product-8.jpg",
-                              alt: ""
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "quick-view" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "quick_view",
-                            attrs: {
-                              href: "#",
-                              "data-link-action": "quickview",
-                              title: "Quick view",
-                              "data-toggle": "modal",
-                              "data-target": "#exampleModal"
-                            }
-                          },
-                          [_c("i", { staticClass: "ion-ios-search-strong" })]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "product-flag" }, [
-                      _c("li", { staticClass: "new" }, [_vm._v("New")])
-                    ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-xs-12 col-sm-12 col-md-8 col-lg-8" },
-                [
-                  _c("div", { staticClass: "product-desc-wrap" }, [
-                    _c("div", { staticClass: "product-decs" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "inner-link",
-                          attrs: { href: "shop-4-column.html" }
-                        },
-                        [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                      ),
-                      _vm._v(" "),
-                      _c("h2", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "product-link",
-                            attrs: { href: "single-product.html" }
-                          },
-                          [_vm._v("Fila Locker Room Varsity Jacket")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "rating-product" }, [
-                        _c("i", { staticClass: "ion-android-star" }),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "ion-android-star" }),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "ion-android-star" }),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "ion-android-star" }),
-                        _vm._v(" "),
-                        _c("i", { staticClass: "ion-android-star" })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "pricing-meta" }, [
-                        _c("ul", [
-                          _c("li", { staticClass: "old-price not-cut" }, [
-                            _vm._v("€9.90")
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "product-intro-info" }, [
-                        _c("p", [
-                          _vm._v(
-                            "Create a cool and sporty look with the FILA® Locker Room Varsity Jacket."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v("Comfortable cotton-blend fabrication.")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [
-                          _vm._v(
-                            "Classic varsity jacket features brand details throughout."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Flat knit collar.")])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "in-stock" }, [
-                        _vm._v("Availability: "),
-                        _c("span", [_vm._v("299 In Stock")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "add-to-link" }, [
-                      _c("ul", [
-                        _c("li", { staticClass: "cart" }, [
-                          _c(
-                            "a",
-                            { staticClass: "cart-btn", attrs: { href: "#" } },
-                            [_vm._v("ADD TO CART ")]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "wishlist.html" } }, [
-                            _c("i", {
-                              staticClass: "ion-android-favorite-outline"
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "compare.html" } }, [
-                            _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pro-pagination-style text-center" }, [
-      _c("ul", [
-        _c("li", [
-          _c("a", { staticClass: "prev", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "ion-ios-arrow-left" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { staticClass: "active", attrs: { href: "#" } }, [
-            _vm._v("1")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("2")])]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { staticClass: "next", attrs: { href: "#" } }, [
-            _c("i", { staticClass: "ion-ios-arrow-right" })
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -30816,102 +29596,346 @@ var render = function() {
   return _c("div", [
     _vm._m(0),
     _vm._v(" "),
-    _c("section", { staticClass: "product-details-area mtb-60px" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-xl-6 col-lg-6 col-md-12" }, [
-            _c("div", { staticClass: "product-details-content" }, [
-              _c("h2", [_vm._v(_vm._s(_vm.item.title))]),
+    _vm.item
+      ? _c("section", { staticClass: "product-details-area mtb-60px" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-xl-5 col-lg-5 col-md-12" }, [
+                _c(
+                  "div",
+                  { staticClass: "product-details-img product-details-tab" },
+                  [
+                    _c("div", { staticClass: "zoompro-wrap zoompro-2" }, [
+                      _c(
+                        "div",
+                        { staticClass: "zoompro-border zoompro-span" },
+                        [
+                          _c("img", {
+                            staticClass: "zoompro",
+                            attrs: {
+                              src: _vm.item.image1,
+                              "data-zoom-image":
+                                "assets/images/product-image/organic/zoom/1.jpg",
+                              alt: ""
+                            }
+                          })
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]),
               _vm._v(" "),
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.item.description))]),
-              _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
-              _vm._m(6),
-              _vm._v(" "),
-              _vm._m(7),
-              _vm._v(" "),
-              _vm._m(8)
+              _c(
+                "div",
+                { staticClass: "col-xl-6 col-lg-6 col-md-12 offset-1" },
+                [
+                  _c("div", { staticClass: "product-details-content" }, [
+                    _c("h2", [_vm._v(_vm._s(_vm.item.title))]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "pricing-meta" }, [
+                      _c("ul", [
+                        _c("li", { staticClass: "old-price not-cut" }, [
+                          _vm._v(
+                            "\n                                    $" +
+                              _vm._s(_vm.item.price) +
+                              "\n                                "
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.item.description))]),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ])
+                ]
+              )
             ])
           ])
         ])
-      ])
-    ]),
+      : _vm._e(),
     _vm._v(" "),
-    _c("section", { staticClass: "product-details-area mtb-60px" }, [
+    _c("div", { staticClass: "description-review-area mb-60px" }, [
       _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-xl-6 col-lg-6 col-md-12" }, [
-            _c(
-              "div",
-              { staticClass: "product-details-img product-details-tab" },
-              [
-                _c("div", { staticClass: "zoompro-wrap zoompro-2" }, [
-                  _c("div", { staticClass: "zoompro-border zoompro-span" }, [
-                    _c("img", {
-                      staticClass: "zoompro",
-                      attrs: {
-                        src: _vm.item.image1,
-                        "data-zoom-image": _vm.item.image1,
-                        alt: ""
-                      }
-                    })
+        _c("div", { staticClass: "description-review-wrapper" }, [
+          _c(
+            "div",
+            { staticClass: "description-review-topbar nav" },
+            [
+              _c(
+                "tabs",
+                {
+                  attrs: {
+                    options: {
+                      useUrlFragment: false,
+                      defaultTabHash: "Description"
+                    }
+                  }
+                },
+                [
+                  _c("tab", { attrs: { name: "Description" } }, [
+                    _c("div", { staticClass: "product-description-wrapper" }, [
+                      _c("p", [
+                        _vm._v(
+                          "\n                                    Lorem ipsum dolor sit amet consectetur\n                                    adipisicing elit, sed do eiusmod tempor\n                                    incididunt\n                                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                                    ut labore et dolore magna aliqua. Ut\n                                    enim ad minim veniam, quis nostrud\n                                    exercitation ullamco laboris nisi ut\n                                    aliquip ex ea commo consequat. Duis aute\n                                    irure dolor in reprehend in voluptate\n                                    velit esse cillum dolore eu fugiat nulla\n                                    pariatur. Excepteur sint occaecat\n                                    cupidatat non proident, sunt in culpa\n                                    qui officia deserunt\n                                "
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tab", { attrs: { name: "Reviews" } }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-lg-7" }, [
+                        _c("div", { staticClass: "review-wrapper" }, [
+                          _c("div", { staticClass: "single-review" }, [
+                            _c("div", { staticClass: "review-img" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: "assets/images/testimonial-image/1.png",
+                                  alt: ""
+                                }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "review-content" }, [
+                              _c("div", { staticClass: "review-top-wrap" }, [
+                                _c("div", { staticClass: "review-left" }, [
+                                  _c("div", { staticClass: "review-name" }, [
+                                    _c("h4", [
+                                      _vm._v(
+                                        "\n                                                                White Lewis\n                                                            "
+                                      )
+                                    ])
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "rating-product" }, [
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", { staticClass: "ion-android-star" })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "review-left" }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _vm._v("Reply")
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "review-bottom" }, [
+                                _c("p", [
+                                  _vm._v(
+                                    "\n                                                        Vestibulum ante\n                                                        ipsum primis aucibus\n                                                        orci luctustrices\n                                                        posuere cubilia\n                                                        Curae Suspendisse\n                                                        viverra ed viverra.\n                                                        Mauris ullarper\n                                                        euismod vehicula.\n                                                        Phasellus quam nisi,\n                                                        congue id nulla.\n                                                    "
+                                  )
+                                ])
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "single-review child-review" },
+                            [
+                              _c("div", { staticClass: "review-img" }, [
+                                _c("img", {
+                                  attrs: {
+                                    src:
+                                      "assets/images/testimonial-image/2.png",
+                                    alt: ""
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "review-content" }, [
+                                _c("div", { staticClass: "review-top-wrap" }, [
+                                  _c("div", { staticClass: "review-left" }, [
+                                    _c("div", { staticClass: "review-name" }, [
+                                      _c("h4", [
+                                        _vm._v(
+                                          "\n                                                                White Lewis\n                                                            "
+                                        )
+                                      ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "rating-product" },
+                                      [
+                                        _c("i", {
+                                          staticClass: "ion-android-star"
+                                        }),
+                                        _vm._v(" "),
+                                        _c("i", {
+                                          staticClass: "ion-android-star"
+                                        }),
+                                        _vm._v(" "),
+                                        _c("i", {
+                                          staticClass: "ion-android-star"
+                                        }),
+                                        _vm._v(" "),
+                                        _c("i", {
+                                          staticClass: "ion-android-star"
+                                        }),
+                                        _vm._v(" "),
+                                        _c("i", {
+                                          staticClass: "ion-android-star"
+                                        })
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "review-left" }, [
+                                    _c("a", { attrs: { href: "#" } }, [
+                                      _vm._v("Reply")
+                                    ])
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "review-bottom" }, [
+                                  _c("p", [
+                                    _vm._v(
+                                      "\n                                                        Vestibulum ante\n                                                        ipsum primis aucibus\n                                                        orci luctustrices\n                                                        posuere cubilia\n                                                        Curae Sus pen disse\n                                                        viverra ed viverra.\n                                                        Mauris ullarper\n                                                        euismod vehicula.\n                                                    "
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-lg-5" }, [
+                        _c(
+                          "div",
+                          { staticClass: "ratting-form-wrapper pl-50" },
+                          [
+                            _c("h3", [_vm._v("Add a Review")]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "ratting-form" }, [
+                              _c("form", { attrs: { action: "#" } }, [
+                                _c("div", { staticClass: "star-box" }, [
+                                  _c("span", [_vm._v("Your rating:")]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "rating-product" }, [
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", {
+                                      staticClass: "ion-android-star"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("i", { staticClass: "ion-android-star" })
+                                  ])
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col-md-6" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "rating-form-style mb-10"
+                                      },
+                                      [
+                                        _c("input", {
+                                          attrs: {
+                                            placeholder: "Name",
+                                            type: "text"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-md-6" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "rating-form-style mb-10"
+                                      },
+                                      [
+                                        _c("input", {
+                                          attrs: {
+                                            placeholder: "Email",
+                                            type: "email"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col-md-12" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "rating-form-style form-submit"
+                                      },
+                                      [
+                                        _c("textarea", {
+                                          attrs: {
+                                            name: "Your Review",
+                                            placeholder: "Message"
+                                          }
+                                        }),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          attrs: {
+                                            type: "submit",
+                                            value: "Submit"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ])
+                    ])
                   ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "product-dec-slider-2",
-                    attrs: { id: "gallery" }
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "active",
-                        attrs: {
-                          "data-image": _vm.item.image1,
-                          "data-zoom-image": _vm.item.image1
-                        }
-                      },
-                      [_c("img", { attrs: { src: _vm.item.image1, alt: "" } })]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        attrs: {
-                          "data-image": _vm.item.image2,
-                          "data-zoom-image": _vm.item.image2
-                        }
-                      },
-                      [_c("img", { attrs: { src: _vm.item.image2, alt: "" } })]
-                    )
-                  ]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(9)
+                ],
+                1
+              )
+            ],
+            1
+          )
         ])
       ])
-    ]),
-    _vm._v(" "),
-    _vm._m(10),
-    _vm._v(" "),
-    _vm._m(11),
-    _vm._v(" "),
-    _vm._m(12)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -30931,9 +29955,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("ul", { staticClass: "breadcrumb-links" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "index.html" } }, [_vm._v("Home")])
-                ]),
+                _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Home")])]),
                 _vm._v(" "),
                 _c("li", [_vm._v("Single Product")])
               ])
@@ -30941,116 +29963,6 @@ var staticRenderFns = [
           ])
         ])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-6 col-lg-6 col-md-12" }, [
-      _c("div", { staticClass: "product-details-img product-details-tab" }, [
-        _c("div", { staticClass: "zoompro-wrap zoompro-2" }, [
-          _c("div", { staticClass: "zoompro-border zoompro-span" }, [
-            _c("img", {
-              staticClass: "zoompro",
-              attrs: {
-                src: "item.image1",
-                "data-zoom-image":
-                  "assets/images/product-image/organic/zoom/1.jpg",
-                alt: ""
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "product-dec-slider-2", attrs: { id: "gallery" } },
-          [
-            _c(
-              "a",
-              {
-                staticClass: "active",
-                attrs: {
-                  "data-image": "item.image1",
-                  "data-zoom-image":
-                    "assets/images/product-image/organic/zoom/1.jpg"
-                }
-              },
-              [_c("img", { attrs: { src: "item.image1", alt: "" } })]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-image":
-                    "assets/images/product-image/organic/product-9.jpg",
-                  "data-zoom-image":
-                    "assets/images/product-image/organic/zoom/2.jpg"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "assets/images/product-image/organic/product-9.jpg",
-                    alt: ""
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-image":
-                    "assets/images/product-image/organic/product-20.jpg",
-                  "data-zoom-image":
-                    "assets/images/product-image/organic/zoom/3.jpg"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "assets/images/product-image/organic/product-20.jpg",
-                    alt: ""
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                attrs: {
-                  "data-image":
-                    "assets/images/product-image/organic/product-19.jpg",
-                  "data-zoom-image":
-                    "assets/images/product-image/organic/zoom/4.jpg"
-                }
-              },
-              [
-                _c("img", {
-                  attrs: {
-                    src: "assets/images/product-image/organic/product-19.jpg",
-                    alt: ""
-                  }
-                })
-              ]
-            )
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "reference" }, [
-      _vm._v("\n                            Reference:"),
-      _c("span", [_vm._v(" demo_17")])
     ])
   },
   function() {
@@ -31074,43 +29986,6 @@ var staticRenderFns = [
         _c("a", { staticClass: "reviews", attrs: { href: "#" } }, [
           _vm._v("Read reviews (1)")
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pricing-meta" }, [
-      _c("ul", [
-        _c("li", { staticClass: "old-price not-cut" }, [_vm._v("€18.90")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pro-details-list" }, [
-      _c("ul", [
-        _c("li", [_vm._v("- 0.5 mm Dail")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("- Inspired vector icons")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("- Very modern style")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pro-details-quality mt-0px" }, [
-      _c("div", { staticClass: "cart-plus-minus" }, [
-        _c("input", {
-          staticClass: "cart-plus-minus-box",
-          attrs: { type: "text", name: "qtybutton", value: "1" }
-        })
       ])
     ])
   },
@@ -31147,2146 +30022,6 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pro-details-policy" }, [
-      _c("ul", [
-        _c("li", [
-          _c("img", {
-            attrs: { src: "assets/images/icons/policy.png", alt: "" }
-          }),
-          _c("span", [
-            _vm._v(
-              "Security Policy (Edit With Customer\n                                        Reassurance Module)"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: { src: "assets/images/icons/policy-2.png", alt: "" }
-          }),
-          _c("span", [
-            _vm._v(
-              "Delivery Policy (Edit With Customer\n                                        Reassurance Module)"
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("img", {
-            attrs: { src: "assets/images/icons/policy-3.png", alt: "" }
-          }),
-          _c("span", [
-            _vm._v(
-              "Return Policy (Edit With Customer\n                                        Reassurance Module)"
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-6 col-lg-6 col-md-12" }, [
-      _c("div", { staticClass: "product-details-content" }, [
-        _c("h2", [_vm._v("Originals Kaval Windbr")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "reference" }, [
-          _vm._v("\n                            Reference:"),
-          _c("span", [_vm._v(" demo_17")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pro-details-rating-wrap" }, [
-          _c("div", { staticClass: "rating-product" }, [
-            _c("i", { staticClass: "ion-android-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "ion-android-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "ion-android-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "ion-android-star" }),
-            _vm._v(" "),
-            _c("i", { staticClass: "ion-android-star" })
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "read-review" }, [
-            _c("a", { staticClass: "reviews", attrs: { href: "#" } }, [
-              _vm._v("Read reviews (1)")
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pricing-meta" }, [
-          _c("ul", [
-            _c("li", { staticClass: "old-price not-cut" }, [_vm._v("€18.90")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "\n                            Lorem ipsum dolor sit amet, consectetur adipisic\n                            elit eiusm tempor incidid ut labore et dolore\n                            magna aliqua. Ut enim ad minim venialo quis\n                            nostrud exercitation ullamco\n                        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pro-details-list" }, [
-          _c("ul", [
-            _c("li", [_vm._v("- 0.5 mm Dail")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("- Inspired vector icons")]),
-            _vm._v(" "),
-            _c("li", [_vm._v("- Very modern style")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pro-details-social-info" }, [
-          _c("span", [_vm._v("Share")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "social-info" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "ion-social-facebook" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "ion-social-twitter" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "ion-social-google" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "ion-social-instagram" })
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "pro-details-policy" }, [
-          _c("ul", [
-            _c("li", [
-              _c("img", {
-                attrs: { src: "assets/images/icons/policy.png", alt: "" }
-              }),
-              _c("span", [
-                _vm._v(
-                  "Security Policy (Edit With Customer\n                                        Reassurance Module)"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("img", {
-                attrs: { src: "assets/images/icons/policy-2.png", alt: "" }
-              }),
-              _c("span", [
-                _vm._v(
-                  "Delivery Policy (Edit With Customer\n                                        Reassurance Module)"
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("li", [
-              _c("img", {
-                attrs: { src: "assets/images/icons/policy-3.png", alt: "" }
-              }),
-              _c("span", [
-                _vm._v(
-                  "Return Policy (Edit With Customer\n                                        Reassurance Module)"
-                )
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "description-review-area mb-60px" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "description-review-wrapper" }, [
-          _c("div", { staticClass: "description-review-topbar nav" }, [
-            _c(
-              "a",
-              { attrs: { "data-toggle": "tab", href: "#des-details1" } },
-              [_vm._v("Description")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "active",
-                attrs: { "data-toggle": "tab", href: "#des-details2" }
-              },
-              [_vm._v("Product Details")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              { attrs: { "data-toggle": "tab", href: "#des-details3" } },
-              [_vm._v("Reviews (2)")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "tab-content description-review-bottom" }, [
-            _c(
-              "div",
-              { staticClass: "tab-pane active", attrs: { id: "des-details2" } },
-              [
-                _c("div", { staticClass: "product-anotherinfo-wrapper" }, [
-                  _c("ul", [
-                    _c("li", [
-                      _c("span", [_vm._v("Weight")]),
-                      _vm._v(" 400 g")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("span", [_vm._v("Dimensions")]),
-                      _vm._v(
-                        "10 x 10 x 15 cm\n                                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("span", [_vm._v("Materials")]),
-                      _vm._v(
-                        " 60% cotton, 40%\n                                    polyester\n                                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("span", [_vm._v("Other Info")]),
-                      _vm._v(
-                        " American\n                                    heirloom jean shorts pug seitan\n                                    letterpress\n                                "
-                      )
-                    ])
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "tab-pane", attrs: { id: "des-details1" } },
-              [
-                _c("div", { staticClass: "product-description-wrapper" }, [
-                  _c("p", [
-                    _vm._v(
-                      "\n                                Lorem ipsum dolor sit amet consectetur\n                                adipisicing elit, sed do eiusmod tempor\n                                incididunt\n                            "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "\n                                ut labore et dolore magna aliqua. Ut enim ad\n                                minim veniam, quis nostrud exercitation\n                                ullamco laboris nisi ut aliquip ex ea commo\n                                consequat. Duis aute irure dolor in\n                                reprehend in voluptate velit esse cillum\n                                dolore eu fugiat nulla pariatur. Excepteur\n                                sint occaecat cupidatat non proident, sunt\n                                in culpa qui officia deserunt\n                            "
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "tab-pane", attrs: { id: "des-details3" } },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-7" }, [
-                    _c("div", { staticClass: "review-wrapper" }, [
-                      _c("div", { staticClass: "single-review" }, [
-                        _c("div", { staticClass: "review-img" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/testimonial-image/1.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "review-content" }, [
-                          _c("div", { staticClass: "review-top-wrap" }, [
-                            _c("div", { staticClass: "review-left" }, [
-                              _c("div", { staticClass: "review-name" }, [
-                                _c("h4", [_vm._v("White Lewis")])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "rating-product" }, [
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "review-left" }, [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Reply")
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "review-bottom" }, [
-                            _c("p", [
-                              _vm._v(
-                                "\n                                                    Vestibulum ante ipsum\n                                                    primis aucibus orci\n                                                    luctustrices posuere\n                                                    cubilia Curae\n                                                    Suspendisse viverra ed\n                                                    viverra. Mauris ullarper\n                                                    euismod vehicula.\n                                                    Phasellus quam nisi,\n                                                    congue id nulla.\n                                                "
-                              )
-                            ])
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "single-review child-review" }, [
-                        _c("div", { staticClass: "review-img" }, [
-                          _c("img", {
-                            attrs: {
-                              src: "assets/images/testimonial-image/2.png",
-                              alt: ""
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "review-content" }, [
-                          _c("div", { staticClass: "review-top-wrap" }, [
-                            _c("div", { staticClass: "review-left" }, [
-                              _c("div", { staticClass: "review-name" }, [
-                                _c("h4", [_vm._v("White Lewis")])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "rating-product" }, [
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" }),
-                                _vm._v(" "),
-                                _c("i", { staticClass: "ion-android-star" })
-                              ])
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "review-left" }, [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Reply")
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "review-bottom" }, [
-                            _c("p", [
-                              _vm._v(
-                                "\n                                                    Vestibulum ante ipsum\n                                                    primis aucibus orci\n                                                    luctustrices posuere\n                                                    cubilia Curae Sus pen\n                                                    disse viverra ed\n                                                    viverra. Mauris ullarper\n                                                    euismod vehicula.\n                                                "
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-5" }, [
-                    _c("div", { staticClass: "ratting-form-wrapper pl-50" }, [
-                      _c("h3", [_vm._v("Add a Review")]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "ratting-form" }, [
-                        _c("form", { attrs: { action: "#" } }, [
-                          _c("div", { staticClass: "star-box" }, [
-                            _c("span", [_vm._v("Your rating:")]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "rating-product" }, [
-                              _c("i", { staticClass: "ion-android-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "ion-android-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "ion-android-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "ion-android-star" }),
-                              _vm._v(" "),
-                              _c("i", { staticClass: "ion-android-star" })
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "row" }, [
-                            _c("div", { staticClass: "col-md-6" }, [
-                              _c(
-                                "div",
-                                { staticClass: "rating-form-style mb-10" },
-                                [
-                                  _c("input", {
-                                    attrs: { placeholder: "Name", type: "text" }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-md-6" }, [
-                              _c(
-                                "div",
-                                { staticClass: "rating-form-style mb-10" },
-                                [
-                                  _c("input", {
-                                    attrs: {
-                                      placeholder: "Email",
-                                      type: "email"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-md-12" }, [
-                              _c(
-                                "div",
-                                {
-                                  staticClass: "rating-form-style form-submit"
-                                },
-                                [
-                                  _c("textarea", {
-                                    attrs: {
-                                      name: "Your Review",
-                                      placeholder: "Message"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("input", {
-                                    attrs: { type: "submit", value: "Submit" }
-                                  })
-                                ]
-                              )
-                            ])
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "recent-add-area" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "section-title" }, [
-              _c("h2", [_vm._v("You Might Also Like")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("Add Related products to weekly line up")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "recent-product-slider owl-carousel owl-nav-style" },
-          [
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: { src: "item.image1", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-12.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Originals Kaval Windbr...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price" }, [_vm._v("€23.90")]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "current-price" }, [
-                      _vm._v("€21.51")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "discount-price" }, [
-                      _vm._v("-10%")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-1.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-1.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Juicy Couture Juicy Quil...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price" }, [_vm._v("€35.90")]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "current-price" }, [
-                      _vm._v("€34.21")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "discount-price" }, [_vm._v("-5%")])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-3.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-4.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Brixton Patrol All Terrai...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€29.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-6.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-6.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("New Balance Arishi Spo...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€29.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-22.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-15.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Calvin Klein Jeans Refle...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€29.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-14.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-14.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Madden by Steve Madd...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price" }, [_vm._v("€12.90")]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "current-price" }, [
-                      _vm._v("€10.21")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "discount-price" }, [
-                      _vm._v("-10%")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "recent-add-area mt-30 mb-30px" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "section-title" }, [
-              _c("h2", [_vm._v("In The Same Category")]),
-              _vm._v(" "),
-              _c("p", [_vm._v("16 other products in the same category:")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "recent-product-slider owl-carousel owl-nav-style" },
-          [
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-15.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-15.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Originals Kaval Windbr...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price" }, [_vm._v("€23.90")]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "current-price" }, [
-                      _vm._v("€21.51")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "discount-price" }, [
-                      _vm._v("-10%")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-14.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-14.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Juicy Couture Juicy Quil...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price" }, [_vm._v("€35.90")]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "current-price" }, [
-                      _vm._v("€34.21")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "discount-price" }, [_vm._v("-5%")])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-22.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-23.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Brixton Patrol All Terrai...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€29.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-9.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-9.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("New Balance Arishi Spo...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€29.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-18.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-18.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("GRAPHIC CORNER")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Calvin Klein Jeans Refle...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€29.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-7.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-8.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Madden by Steve Madd...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price" }, [_vm._v("€12.90")]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "current-price" }, [
-                      _vm._v("€10.21")
-                    ]),
-                    _vm._v(" "),
-                    _c("li", { staticClass: "discount-price" }, [
-                      _vm._v("-10%")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-17.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-16.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Trans-Weight Hooded...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€11.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("article", { staticClass: "list-product" }, [
-              _c("div", { staticClass: "img-block" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "thumbnail",
-                    attrs: { href: "single-product.html" }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "first-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-9.jpg",
-                        alt: ""
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("img", {
-                      staticClass: "second-img",
-                      attrs: {
-                        src:
-                          "assets/images/product-image/organic/product-9.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "quick-view" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "quick_view",
-                      attrs: {
-                        href: "#",
-                        "data-link-action": "quickview",
-                        title: "Quick view",
-                        "data-toggle": "modal",
-                        "data-target": "#exampleModal"
-                      }
-                    },
-                    [_c("i", { staticClass: "ion-ios-search-strong" })]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "product-flag" }, [
-                _c("li", { staticClass: "new" }, [_vm._v("New")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "product-decs" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "inner-link",
-                    attrs: { href: "shop-4-column.html" }
-                  },
-                  [_c("span", [_vm._v("STUDIO DESIGN")])]
-                ),
-                _vm._v(" "),
-                _c("h2", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "product-link",
-                      attrs: { href: "single-product.html" }
-                    },
-                    [_vm._v("Water and Wind Resist...")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "rating-product" }, [
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" }),
-                  _vm._v(" "),
-                  _c("i", { staticClass: "ion-android-star" })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "pricing-meta" }, [
-                  _c("ul", [
-                    _c("li", { staticClass: "old-price not-cut" }, [
-                      _vm._v("€11.90")
-                    ])
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "add-to-link" }, [
-                _c("ul", [
-                  _c("li", { staticClass: "cart" }, [
-                    _c("a", { staticClass: "cart-btn", attrs: { href: "#" } }, [
-                      _vm._v("ADD TO CART\n                                ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "wishlist.html" } }, [
-                      _c("i", { staticClass: "ion-android-favorite-outline" })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "compare.html" } }, [
-                      _c("i", { staticClass: "ion-ios-shuffle-strong" })
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ]
-        )
       ])
     ])
   }
@@ -37215,6 +33950,978 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (VueRouter);
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-tabs-component/dist/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/vue-tabs-component/dist/index.js ***!
+  \*******************************************************/
+/***/ (function(module) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else {}
+})(typeof self !== 'undefined' ? self : this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_575__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_575__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__nested_webpack_require_575__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__nested_webpack_require_575__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__nested_webpack_require_575__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_575__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__nested_webpack_require_575__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__nested_webpack_require_575__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__nested_webpack_require_575__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__nested_webpack_require_575__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __nested_webpack_require_575__(__nested_webpack_require_575__.s = 7);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __nested_webpack_require_2852__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__nested_webpack_require_2852__(6)(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.5.7' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __nested_webpack_require_6490__) {
+
+var anObject = __nested_webpack_require_6490__(23);
+var IE8_DOM_DEFINE = __nested_webpack_require_6490__(24);
+var toPrimitive = __nested_webpack_require_6490__(26);
+var dP = Object.defineProperty;
+
+exports.f = __nested_webpack_require_6490__(0) ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __nested_webpack_require_7316__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __nested_webpack_require_7316__(8), __nested_webpack_require_7316__(11)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else { var mod; }
+})(this, function (exports, _Tab, _Tabs) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.Tabs = exports.Tab = undefined;
+
+    var _Tab2 = _interopRequireDefault(_Tab);
+
+    var _Tabs2 = _interopRequireDefault(_Tabs);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    exports.default = {
+        install: function install(Vue) {
+            Vue.component('tab', _Tab2.default);
+            Vue.component('tabs', _Tabs2.default);
+        }
+    };
+    exports.Tab = _Tab2.default;
+    exports.Tabs = _Tabs2.default;
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __nested_webpack_require_8958__) {
+
+var Component = __nested_webpack_require_8958__(2)(
+  /* script */
+  __nested_webpack_require_8958__(9),
+  /* template */
+  __nested_webpack_require_8958__(10),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else { var mod; }
+})(this, function (exports) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.default = {
+        props: {
+            id: { default: null },
+            name: { required: true },
+            prefix: { default: '' },
+            suffix: { default: '' },
+            isDisabled: { default: false }
+        },
+
+        data: function data() {
+            return {
+                isActive: false,
+                isVisible: true
+            };
+        },
+
+        computed: {
+            header: function header() {
+                return this.prefix + this.name + this.suffix;
+            },
+            computedId: function computedId() {
+                return this.id ? this.id : this.name.toLowerCase().replace(/ /g, '-');
+            },
+            hash: function hash() {
+                if (this.isDisabled) {
+                    return '#';
+                }
+
+                return '#' + this.computedId;
+            }
+        }
+    };
+});
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isActive),
+      expression: "isActive"
+    }],
+    staticClass: "tabs-component-panel",
+    attrs: {
+      "aria-hidden": !_vm.isActive,
+      "id": _vm.computedId,
+      "role": "tabpanel"
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __nested_webpack_require_11651__) {
+
+var Component = __nested_webpack_require_11651__(2)(
+  /* script */
+  __nested_webpack_require_11651__(12),
+  /* template */
+  __nested_webpack_require_11651__(29),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __nested_webpack_require_11986__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __nested_webpack_require_11986__(13)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else { var mod; }
+})(this, function (exports, _expiringStorage) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _expiringStorage2 = _interopRequireDefault(_expiringStorage);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    exports.default = {
+        props: {
+            cacheLifetime: {
+                default: 5
+            },
+            options: {
+                type: Object,
+                required: false,
+                default: function _default() {
+                    return {
+                        useUrlFragment: true,
+                        defaultTabHash: null
+                    };
+                }
+            }
+        },
+
+        data: function data() {
+            return {
+                tabs: [],
+                activeTabHash: '',
+                activeTabIndex: 0,
+                lastActiveTabHash: ''
+            };
+        },
+
+        computed: {
+            storageKey: function storageKey() {
+                return 'vue-tabs-component.cache.' + window.location.host + window.location.pathname;
+            }
+        },
+
+        created: function created() {
+            this.tabs = this.$children;
+        },
+        mounted: function mounted() {
+            var _this = this;
+
+            window.addEventListener('hashchange', function () {
+                return _this.selectTab(window.location.hash);
+            });
+
+            if (this.findTab(window.location.hash)) {
+                this.selectTab(window.location.hash);
+                return;
+            }
+
+            var previousSelectedTabHash = _expiringStorage2.default.get(this.storageKey);
+
+            if (this.findTab(previousSelectedTabHash)) {
+                this.selectTab(previousSelectedTabHash);
+                return;
+            }
+
+            if (this.options.defaultTabHash !== null && this.findTab("#" + this.options.defaultTabHash)) {
+                this.selectTab("#" + this.options.defaultTabHash);
+                return;
+            }
+
+            if (this.tabs.length) {
+                this.selectTab(this.tabs[0].hash);
+            }
+        },
+
+
+        methods: {
+            findTab: function findTab(hash) {
+                return this.tabs.find(function (tab) {
+                    return tab.hash === hash;
+                });
+            },
+            selectTab: function selectTab(selectedTabHash, event) {
+                // See if we should store the hash in the url fragment.
+                if (event && !this.options.useUrlFragment) {
+                    event.preventDefault();
+                }
+
+                var selectedTab = this.findTab(selectedTabHash);
+
+                if (!selectedTab) {
+                    return;
+                }
+
+                if (selectedTab.isDisabled) {
+                    event.preventDefault();
+                    return;
+                }
+
+                if (this.lastActiveTabHash === selectedTab.hash) {
+                    this.$emit('clicked', { tab: selectedTab });
+                    return;
+                }
+
+                this.tabs.forEach(function (tab) {
+                    tab.isActive = tab.hash === selectedTab.hash;
+                });
+
+                this.$emit('changed', { tab: selectedTab });
+
+                this.activeTabHash = selectedTab.hash;
+                this.activeTabIndex = this.getTabIndex(selectedTabHash);
+
+                this.lastActiveTabHash = this.activeTabHash = selectedTab.hash;
+
+                _expiringStorage2.default.set(this.storageKey, selectedTab.hash, this.cacheLifetime);
+            },
+            setTabVisible: function setTabVisible(hash, visible) {
+                var tab = this.findTab(hash);
+
+                if (!tab) {
+                    return;
+                }
+
+                tab.isVisible = visible;
+
+                if (tab.isActive) {
+                    // If tab is active, set a different one as active.
+                    tab.isActive = visible;
+
+                    this.tabs.every(function (tab, index, array) {
+                        if (tab.isVisible) {
+                            tab.isActive = true;
+
+                            return false;
+                        }
+
+                        return true;
+                    });
+                }
+            },
+            getTabIndex: function getTabIndex(hash) {
+                var tab = this.findTab(hash);
+
+                return this.tabs.indexOf(tab);
+            },
+            getTabHash: function getTabHash(index) {
+                var _this2 = this;
+
+                var tab = this.tabs.find(function (tab) {
+                    return _this2.tabs.indexOf(tab) === index;
+                });
+
+                if (!tab) {
+                    return;
+                }
+
+                return tab.hash;
+            },
+            getActiveTab: function getActiveTab() {
+                return this.findTab(this.activeTabHash);
+            },
+            getActiveTabIndex: function getActiveTabIndex() {
+                return this.getTabIndex(this.activeTabHash);
+            }
+        }
+    };
+});
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __nested_webpack_require_18083__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __nested_webpack_require_18083__(14), __nested_webpack_require_18083__(15)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else { var mod; }
+})(this, function (exports, _classCallCheck2, _createClass2) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+    var _createClass3 = _interopRequireDefault(_createClass2);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    var ExpiringStorage = function () {
+        function ExpiringStorage() {
+            (0, _classCallCheck3.default)(this, ExpiringStorage);
+        }
+
+        (0, _createClass3.default)(ExpiringStorage, [{
+            key: "get",
+            value: function get(key) {
+                var cached = JSON.parse(localStorage.getItem(key));
+
+                if (!cached) {
+                    return null;
+                }
+
+                var expires = new Date(cached.expires);
+
+                if (expires < new Date()) {
+                    localStorage.removeItem(key);
+                    return null;
+                }
+
+                return cached.value;
+            }
+        }, {
+            key: "set",
+            value: function set(key, value, lifeTimeInMinutes) {
+                var currentTime = new Date().getTime();
+
+                var expires = new Date(currentTime + lifeTimeInMinutes * 60000);
+
+                localStorage.setItem(key, JSON.stringify({ value: value, expires: expires }));
+            }
+        }]);
+        return ExpiringStorage;
+    }();
+
+    exports.default = new ExpiringStorage();
+});
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __nested_webpack_require_20970__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __nested_webpack_require_20970__(16);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __nested_webpack_require_21932__) {
+
+module.exports = { "default": __nested_webpack_require_21932__(17), __esModule: true };
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __nested_webpack_require_22084__) {
+
+__nested_webpack_require_22084__(18);
+var $Object = __nested_webpack_require_22084__(4).Object;
+module.exports = function defineProperty(it, key, desc) {
+  return $Object.defineProperty(it, key, desc);
+};
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __nested_webpack_require_22341__) {
+
+var $export = __nested_webpack_require_22341__(19);
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !__nested_webpack_require_22341__(0), 'Object', { defineProperty: __nested_webpack_require_22341__(5).f });
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __nested_webpack_require_22635__) {
+
+var global = __nested_webpack_require_22635__(3);
+var core = __nested_webpack_require_22635__(4);
+var ctx = __nested_webpack_require_22635__(20);
+var hide = __nested_webpack_require_22635__(22);
+var has = __nested_webpack_require_22635__(28);
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var IS_WRAP = type & $export.W;
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE];
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+  var key, own, out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && has(exports, key)) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function (C) {
+      var F = function (a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0: return new C();
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __nested_webpack_require_25085__) {
+
+// optional / simple context binding
+var aFunction = __nested_webpack_require_25085__(21);
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __nested_webpack_require_25864__) {
+
+var dP = __nested_webpack_require_25864__(5);
+var createDesc = __nested_webpack_require_25864__(27);
+module.exports = __nested_webpack_require_25864__(0) ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __nested_webpack_require_26220__) {
+
+var isObject = __nested_webpack_require_26220__(1);
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __nested_webpack_require_26451__) {
+
+module.exports = !__nested_webpack_require_26451__(0) && !__nested_webpack_require_26451__(6)(function () {
+  return Object.defineProperty(__nested_webpack_require_26451__(25)('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __nested_webpack_require_26727__) {
+
+var isObject = __nested_webpack_require_26727__(1);
+var document = __nested_webpack_require_26727__(3).document;
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __nested_webpack_require_27095__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __nested_webpack_require_27095__(1);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "tabs-component"
+  }, [_c('ul', {
+    staticClass: "tabs-component-tabs",
+    attrs: {
+      "role": "tablist"
+    }
+  }, _vm._l((_vm.tabs), function(tab, i) {
+    return _c('li', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (tab.isVisible),
+        expression: "tab.isVisible"
+      }],
+      key: i,
+      staticClass: "tabs-component-tab",
+      class: {
+        'is-active': tab.isActive, 'is-disabled': tab.isDisabled
+      },
+      attrs: {
+        "role": "presentation"
+      }
+    }, [_c('a', {
+      staticClass: "tabs-component-tab-a",
+      attrs: {
+        "aria-controls": tab.hash,
+        "aria-selected": tab.isActive,
+        "href": tab.hash,
+        "role": "tab"
+      },
+      domProps: {
+        "innerHTML": _vm._s(tab.header)
+      },
+      on: {
+        "click": function($event) {
+          _vm.selectTab(tab.hash, $event)
+        }
+      }
+    })])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "tabs-component-panels"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ })
+/******/ ]);
+});
 
 /***/ }),
 

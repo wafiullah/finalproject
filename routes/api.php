@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\User\AuthController;
 
 /*
@@ -22,3 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('user/authenticate', [AuthController::class, 'authenticate'])->name('user.authenticate');
 Route::post('user/register', [AuthController::class, 'register'])->name('user.register');
+Route::get('shop/products', [ShopController::class, 'getProducts'])->name('shop.products');
+Route::get('shop/product/{id}', [ShopController::class, 'getSingleProduct'])->name('shop.product');

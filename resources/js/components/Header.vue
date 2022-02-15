@@ -32,6 +32,9 @@
                                                     <li><a href="login.html">Login</a></li>
                                                 </ul>
                                             </li> -->
+                                             <li >
+                                                <a  href="/admin/login" target="_blank">Admin Panel</a>
+                                            </li>
                                             <!-- Settings End -->
                                             <!-- Currency Start -->
                                             <!-- <li class="top-10px first-child">
@@ -40,6 +43,7 @@
                                                     <option value="2">EUR €</option>
                                                 </select>
                                             </li> -->
+                                            
                                             <!-- Currency End -->
                                             <!-- Language Start -->
                                             <li class="top-10px mr-15px">
