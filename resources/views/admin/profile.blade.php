@@ -24,7 +24,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label">Full Name: <span class="tx-danger">*</span></label>
-                                <input class="form-control" type="text" name="name" value="{{ admin()->name }}"
+                                <input class="form-control" type="text" name="name" value="{{ auth()->user()->name }}"
                                     placeholder="Full Name">
                             </div>
                         </div>
@@ -53,7 +53,7 @@
 
                     </div>
                     <div class="form-layout-footer">
-                        <button class="btn btn-primary bd-0" type="submit">Submit Form</button>
+                        <button class="btn btn-primary bd-0" type="submit">Update Profile</button>
                     </div>
                 </form>
             </div>

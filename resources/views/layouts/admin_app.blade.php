@@ -21,8 +21,11 @@
     <div class="slim-header with-sidebar">
         <div class="container-fluid">
             <div class="slim-header-left">
-                <h2 class="slim-logo"><a href="{{route('admin.dashboard')}}"><img
-                            src="{{asset('assets/img/logo-black.png')}}" height="40"><span></span></a></h2>
+                <h2 class="slim-logo">
+                    <a href="{{route('admin.dashboard')}}">
+                        {{-- <img
+                            src="{{asset('assets/img/logo-black.png')}}" height="40"> --}}
+                    </a></h2>
                 <a href="" id="slimSidebarMenu" class="slim-sidebar-menu"><span></span></a>
             </div>
 
@@ -58,24 +61,42 @@
                         Dashboard</a>
                 </li>
                 <li class="sidebar-nav-item">
+                    <a href="{{route('admin.products.index')}}" class="sidebar-nav-link products"><i
+                            class="icon ion-ios-list"></i>
+                        Products</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="{{route('admin.purchase-materials.index')}}"
+                            class="sidebar-nav-link purchase-materials"><i class="icon ion-ios-list"></i>
+                            Purchase Materials</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="{{route('admin.suppliers.index')}}" class="sidebar-nav-link suppliers"><i
+                                class="icon ion-ios-list"></i>
+                            Suppliers</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="{{route('admin.employees.index')}}" class="sidebar-nav-link employees"><i
+                                class="icon ion-ios-people"></i>
+                            Employees</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="{{route('admin.attendance.index')}}" class="sidebar-nav-link attendance"><i
+                                class="icon ion-ios-people"></i>
+                            Attendance</a>
+                    </li>
+                    <li class="sidebar-nav-item">
                     <a href="{{route('admin.users')}}" class="sidebar-nav-link users"><i
                             class="icon ion-ios-people"></i>
                         Users</a>
                 </li>
-                <li class="sidebar-nav-item">
-                    <a href="{{route('admin.products.index')}}" class="sidebar-nav-link sales"><i
-                            class="icon ion-ios-list"></i>
-                        Products</a>
-                </li>
-                <li class="sidebar-nav-item with-sub">
+                {{-- <li class="sidebar-nav-item with-sub">
                     <a href="" class="sidebar-nav-link"><i class="icon ion-ios-cog"></i> Manage Data</a>
                     <ul class="nav sidebar-nav-sub">
                         <li class="nav-sub-item"> <a href="{{route('admin.categories.index')}}" class="nav-sub-link">
                                 Manage Categories</a> </li>
                     </ul>
-                </li>
-                <li class="sidebar-nav-item">
-                </li>
+                </li> --}}
             </ul>
         </div>
         <!-- slim-sidebar -->

@@ -46,6 +46,76 @@ INSERT INTO `admins` VALUES (2,'Admin','admin@admin.com','$2a$12$ivSzEX3gZEBv2CA
 UNLOCK TABLES;
 
 --
+-- Table structure for table `attendances`
+--
+
+DROP TABLE IF EXISTS `attendances`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attendances` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `employee_id` bigint(20) unsigned NOT NULL,
+  `attendance` tinyint(4) NOT NULL,
+  `date` date NOT NULL,
+  `month` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `attendances_employee_id_foreign` (`employee_id`),
+  CONSTRAINT `attendances_employee_id_foreign` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `attendances`
+--
+
+LOCK TABLES `attendances` WRITE;
+/*!40000 ALTER TABLE `attendances` DISABLE KEYS */;
+INSERT INTO `attendances` VALUES (1,4,1,'2022-02-20','february','2022','2022-02-20 13:47:23','2022-02-20 13:47:23'),(2,5,1,'2022-02-20','february','2022','2022-02-20 13:47:23','2022-02-20 14:20:42');
+/*!40000 ALTER TABLE `attendances` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employees`
+--
+
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employees` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(4) DEFAULT '0',
+  `mobile` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `photo` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `experience` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `joining_date` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (4,'Wafiullah','wafiullah@gmail.com','2022-02-20 13:44:58','2022-02-20 13:44:58',0,'03122687487','Wardak','Wardak','Wardak','Operation Manager','40000','/images/testimonial18.jpg','10','2022-02-24'),(5,'Muhammad Shoaib','mshoaibdev@gmail.com','2022-02-20 13:45:41','2022-02-20 13:45:41',0,'03122687487','Karachi','Karachi','Karachi','Software Engineer','100000','/images/testimonial3.jpg','6 Years','2022-02-24');
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -86,7 +156,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +165,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2019_12_14_000001_create_personal_access_tokens_table',2);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2019_12_14_000001_create_personal_access_tokens_table',2),(5,'2019_04_24_144756_create_attendances_table',3),(6,'2022_02_20_195149_create_admins_table',0),(7,'2022_02_20_195149_create_attendances_table',0),(8,'2022_02_20_195149_create_employees_table',0),(9,'2022_02_20_195149_create_failed_jobs_table',0),(10,'2022_02_20_195149_create_password_resets_table',0),(11,'2022_02_20_195149_create_personal_access_tokens_table',0),(12,'2022_02_20_195149_create_products_table',0),(13,'2022_02_20_195149_create_purchase_materials_table',0),(14,'2022_02_20_195149_create_suppliers_table',0),(15,'2022_02_20_195149_create_users_table',0),(16,'2022_02_20_195151_add_foreign_keys_to_attendances_table',0);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,6 +258,68 @@ INSERT INTO `products` VALUES (1,'Juicy Couture Juicy Quilted',100.00,26.00,'Jui
 UNLOCK TABLES;
 
 --
+-- Table structure for table `purchase_materials`
+--
+
+DROP TABLE IF EXISTS `purchase_materials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `purchase_materials` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unit_price` decimal(12,0) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `supplier_id` int(11) NOT NULL,
+  `total_amount` decimal(12,0) NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `unit` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `purchase_date` date NOT NULL,
+  `quantity` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `purchase_materials`
+--
+
+LOCK TABLES `purchase_materials` WRITE;
+/*!40000 ALTER TABLE `purchase_materials` DISABLE KEYS */;
+INSERT INTO `purchase_materials` VALUES (3,'Potatoes',25,'2022-02-20 14:36:36','2022-02-20 14:45:11',1,25000,'Potatoes','Kg','2022-02-22',25);
+/*!40000 ALTER TABLE `purchase_materials` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `suppliers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `suppliers`
+--
+
+LOCK TABLES `suppliers` WRITE;
+/*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
+INSERT INTO `suppliers` VALUES (1,'Potato Supplier Ahsan',NULL,'2022-02-20 08:17:40','2022-02-20 14:25:32','Kabul Vegetable Market','0093781234567');
+/*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -231,4 +363,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-18 19:08:12
+-- Dump completed on 2022-02-21  0:56:33

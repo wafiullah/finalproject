@@ -1,14 +1,17 @@
 <template>
     <div>
-        <home-slider></home-slider>
+        <Slider />
+        <NewProducts />
     </div>
 </template>
 
 <script>
 import Slider from "../components/Slider";
+import NewProducts from "../components/NewProducts.vue";
 export default {
     components: {
-        "home-slider": Slider
+        Slider,
+        NewProducts
     }
 };
 </script>

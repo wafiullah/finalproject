@@ -17,10 +17,8 @@
     </div>
     <div class="manager-wrapper">
         <div class="manager-right">
-            @include('partials.alerts')
-            <div class="section-wrapper">
-                <form action="{{route('admin.users')}}" method="GET">
-                    <div class="row">
+            <form action="{{route('admin.users')}}" method="GET">
+                <div class="row">
 
                     <div class="col-sm-3">
                         <div class="form-group">
@@ -37,10 +35,13 @@
                         </div>
                     </div>
                     <div class="col-sm-2">
+                        <button type="reset" class="btn btn-primary" style="margin-top: 25px;">reset</button>
                         <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Search</button>
                     </div>
-                    </div>
+                </div>
                 </form>
+            @include('partials.alerts')
+            <div class="section-wrapper">
                 <div class="table-wrapper">
                     <table class="table display table-condensed table-sm">
                         <thead>

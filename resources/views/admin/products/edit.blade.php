@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
-@section('title') Update Category
+@section('title') Update Product
 @endsection
 
 @section('content')
@@ -7,13 +7,13 @@
     <div class="slim-pageheader">
         <ol class="breadcrumb slim-breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="#">Update Category</a></li>
+            <li class="breadcrumb-item active"><a href="#">Update Product</a></li>
         </ol>
-        <h6 class="slim-pagetitle">Update Category</h6>
+        <h6 class="slim-pagetitle">Update Product</h6>
     </div>
     <!-- slim-pageheader -->
     <div class="section-wrapper">
-        <label class="section-title">Update Category</label>
+        <label class="section-title">Update Product</label>
         <div class="form-layout">
             @include('partials.alerts')
             <form class="form" action="{{ route('admin.products.update',[$product->id]) }}"
