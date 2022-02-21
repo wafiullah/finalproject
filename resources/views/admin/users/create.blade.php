@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
-@section('title') Create User
+@section('title') Create Customer
 @endsection
 
 @section('content')
@@ -7,13 +7,13 @@
     <div class="slim-pageheader">
         <ol class="breadcrumb slim-breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-            <li class="breadcrumb-item active"><a href="#">Create User</a></li>
+            <li class="breadcrumb-item active"><a href="#">Create Customer</a></li>
         </ol>
-        <h6 class="slim-pagetitle">Create User</h6>
+        <h6 class="slim-pagetitle">Create Customer</h6>
     </div>
     <!-- slim-pageheader -->
     <div class="section-wrapper">
-        <label class="section-title">Create User</label>
+        <label class="section-title">Create Customer</label>
         <div class="form-layout">
             @include('partials.alerts')
             <form class="form" action="{{ route('admin.users.store') }}" enctype="multipart/form-data" method="post">
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="form-layout-footer">
-                    <button class="btn btn-primary bd-0" type="submit">Submit Form</button>
+                    <button class="btn btn-primary bd-0" type="submit">Create Customer</button>
                     <a href="{{route('admin.users.index')}}" class="btn btn-secondary bd-0">Cancel</a>
                 </div>
             </form>

@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
-@section('title') Users
+@section('title') Customers
 @endsection
 @push('css')
 <link href="{{asset('assets/lib/datatables/css/jquery.dataTables.css')}}" rel="stylesheet">
@@ -10,9 +10,9 @@
         <div class="slim-pageheader" data-menu="users">
             <ol class="breadcrumb slim-breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Users</li>
+                <li class="breadcrumb-item active" aria-current="page">Customers</li>
             </ol>
-            <h6 class="slim-pagetitle">Users</h6>
+            <h6 class="slim-pagetitle">Customers</h6>
         </div>
     </div>
     <div class="manager-wrapper">
@@ -42,7 +42,7 @@
             @include('partials.alerts')
             <div class="section-wrapper">
                 <a href="{{ route('admin.users.create') }}" class="btn btn-primary mg-b-20 mg-l-20">Add
-                    User</a>
+                    Customer</a>
                 <div class="table-wrapper">
                     <table class="table display table-condensed table-sm">
                         <thead>

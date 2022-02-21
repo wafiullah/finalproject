@@ -2977,180 +2977,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -27013,6 +26839,18 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.userLoggedIn
+                    ? _c(
+                        "li",
+                        [
+                          _c("router-link", { attrs: { to: "/dashboard" } }, [
+                            _vm._v(_vm._s(_vm.loggedInUser.name))
+                          ])
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.userLoggedIn
                     ? _c("li", [
                         _c(
                           "a",
@@ -27116,9 +26954,7 @@ var render = function() {
                       )
                     ])
                   ]
-                ),
-                _vm._v(" "),
-                _vm._m(1)
+                )
               ])
             ]),
             _vm._v(" "),
@@ -27211,197 +27047,6 @@ var staticRenderFns = [
             _c("option", { attrs: { value: "1" } }, [_vm._v("English")]),
             _vm._v(" "),
             _c("option", { attrs: { value: "2" } }, [_vm._v("France")])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header_account_area" }, [
-      _c("div", { staticClass: "header_account_list search_list" }, [
-        _c("a", { attrs: { href: "javascript:void(0)" } }, [
-          _c("i", { staticClass: "ion-ios-search-strong" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "dropdown_search" }, [
-          _c("form", { attrs: { action: "#" } }, [
-            _c("input", {
-              attrs: {
-                placeholder: "Search entire store here ...",
-                type: "text"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "search-category" }, [
-              _c(
-                "select",
-                { staticClass: "bootstrap-select", attrs: { name: "poscats" } },
-                [
-                  _c("option", { attrs: { value: "0" } }, [
-                    _vm._v(
-                      "All\n                                                        categories"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "104" } }, [
-                    _vm._v(
-                      "\n                                                        Fresh Food\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "183" } }, [
-                    _vm._v(
-                      "\n                                                        - - Fresh Fruit\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "187" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Bananas\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "188" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Apples &\n                                                        Pears\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "189" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Berries\n                                                        & Cherries\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "190" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Oranges\n                                                        & Citrus Fruit\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "191" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Grapes\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "184" } }, [
-                    _vm._v(
-                      "\n                                                        - - Fresh Vegetables\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "192" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Potatoes\n                                                        & Sweet Potatoes\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "193" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Onions &\n                                                        Leeks\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "194" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Carrots\n                                                        & Root\n                                                        Vegetables\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "195" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Broccoli\n                                                        & Cauliflower\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "196" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Cabbages\n                                                        & Greens\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "185" } }, [
-                    _vm._v(
-                      "\n                                                        - - Fresh Salad\n                                                        & Dips\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "197" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Lettuce\n                                                        & Salad bags\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "198" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Tomatoes\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "199" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Cucumber\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "200" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Celery\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "201" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Peppers\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "186" } }, [
-                    _vm._v(
-                      "\n                                                        - - Milk, Butter\n                                                        & Eggs\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "202" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Milk\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "203" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Spreads\n                                                        & Margarine\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "204" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Fresh Cream\n                                                        & Custard\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "205" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Eggs\n                                                    "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { value: "206" } }, [
-                    _vm._v(
-                      "\n                                                        - - - - Baking &\n                                                        Cooking\n                                                    "
-                    )
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("button", { attrs: { type: "submit" } }, [
-              _c("i", { staticClass: "ion-ios-search-strong" })
-            ])
           ])
         ])
       ])

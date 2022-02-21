@@ -93,7 +93,7 @@
                     <li class="sidebar-nav-item">
                     <a href="{{route('admin.users.index')}}" class="sidebar-nav-link users"><i
                             class="icon ion-ios-people"></i>
-                        Users</a>
+                        Customers</a>
                 </li>
                 {{-- <li class="sidebar-nav-item with-sub">
                     <a href="" class="sidebar-nav-link"><i class="icon ion-ios-cog"></i> Manage Data</a>
