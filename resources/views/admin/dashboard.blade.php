@@ -16,7 +16,7 @@ Admin Dashboard
             <div class="col-lg-4">
                 <i class="icon ion-ios-people"></i>
                 <div class="dash-content">
-                    <label class="tx-primary">Total Users</label>
+                    <label class="tx-primary">Total Customers</label>
                     <h2>{{$totalUsers}}</h2>
                 </div>
             </div>
