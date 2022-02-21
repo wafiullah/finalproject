@@ -206,7 +206,7 @@
 																		name="Your Review"
 																		placeholder="Message"
 																	></textarea>
-																	<input type="submit" value="Submit" />
+																	<input type="submit" value="Submit to comment" />
 																</div>
 															</div>
 														</div>

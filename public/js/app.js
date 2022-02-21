@@ -29589,7 +29589,7 @@ var render = function() {
                                                                           type:
                                                                             "submit",
                                                                           value:
-                                                                            "Submit"
+                                                                            "Submit to comment"
                                                                         }
                                                                       }
                                                                     )
@@ -29607,7 +29607,7 @@ var render = function() {
                                             ],
                                             null,
                                             false,
-                                            2500291846
+                                            1111362638
                                           )
                                         })
                                       ],
