@@ -64,4 +64,30 @@ class AuthController extends Controller
 
         return response()->noContent();
     }
+
+    public function updateProfile(Request $request){
+
+        $validated = $request->validate([
+            'email' => 'required|string|email',
+            'name' => 'required|string',
+            
+        ]);
+        $user = $request->user();
+
+        if ($request->password != '') {
+            $request->validate([
+                'password' => 'required|string|confirmed',
+                'password_confirmation' => 'required|string',
+            ]);
+            $validated['password'] = Hash::make($request->new_password);
+        }
+
+        $newUser = tap($user)->update($validated);
+
+        return response()->json([
+            'user' => $newUser,
+            'status' => true,
+            'message' => 'Profile successfull updated',
+        ]);
+    }
 }

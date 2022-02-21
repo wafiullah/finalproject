@@ -3791,9 +3791,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -3834,6 +3831,13 @@ __webpack_require__.r(__webpack_exports__);
           });
           console.log(err);
         });
+      });
+    }
+  },
+  beforeCreate: function beforeCreate() {
+    if (JSON.parse(localStorage.getItem("company_user"))) {
+      this.$router.push({
+        name: 'dashboard'
       });
     }
   }
@@ -4597,6 +4601,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vuesimple/vs-toast */ "./node_modules/@vuesimple/vs-toast/dist/vs-toast.esm.js");
 //
 //
 //
@@ -4749,188 +4754,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {},
+  data: function data() {
+    return {
+      userLoggedIn: '',
+      loggedInUser: '',
+      form: {
+        name: null,
+        email: null,
+        password: null,
+        confirm_password: null
+      }
+    };
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this = this;
+
+      this.$refs.form.validate().then(function (success) {
+        if (!success) {
+          return;
+        }
+
+        axios.post(route("user.profile"), _this.form).then(function (res) {
+          if (res.data.status) {
+            _this.form.name = res.data.user.name;
+            _this.form.email = res.data.user.email;
+            localStorage.setItem("company_user", JSON.stringify(res.data.user));
+            _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_0__.default.show({
+              title: "Success",
+              message: res.data.message,
+              variant: "success"
+            });
+          }
+        })["catch"](function (err) {
+          if (err.response.status === 422) {
+            _this.$refs.form.setErrors(err.response.data.errors);
+          }
+
+          _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_0__.default.show({
+            title: "Error!",
+            message: err.response.data.message,
+            variant: "error"
+          });
+        });
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.userLoggedIn = localStorage.getItem('company_user_token');
+    this.loggedInUser = JSON.parse(localStorage.getItem('company_user'));
+    this.form.name = this.loggedInUser.name;
+    this.form.email = this.loggedInUser.email;
+  }
+});
 
 /***/ }),
 
@@ -26863,9 +26742,94 @@ var render = function() {
             _vm._m(0)
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c(
+            "div",
+            { staticClass: "col-md-6 col-lg-2 mt-res-sx-30px mt-res-md-30px" },
+            [
+              _c("div", { staticClass: "single-wedge" }, [
+                _c("h4", { staticClass: "footer-herading" }, [
+                  _vm._v("Information")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "footer-links" }, [
+                  _c("ul", [
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/contact" } }, [
+                          _vm._v(
+                            "Contact Us\n                                        "
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(2),
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-md-6 col-lg-2 mt-res-md-50px mt-res-sx-30px mt-res-md-30px"
+            },
+            [
+              _c("div", { staticClass: "single-wedge" }, [
+                _c("h4", { staticClass: "footer-herading" }, [
+                  _vm._v("Custom Links")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "footer-links" }, [
+                  _c("ul", [
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/shop" } }, [
+                          _vm._v(
+                            "Shop\n                                        "
+                          )
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/register" } }, [
+                          _vm._v("Register")
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/login" } }, [
+                          _vm._v("Login")
+                        ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      [
+                        _c("router-link", { attrs: { to: "/dashboard" } }, [
+                          _vm._v("My Account")
+                        ])
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -26879,20 +26843,28 @@ var render = function() {
                   _vm._v("Newsletter")
                 ]),
                 _vm._v(" "),
-                _vm._m(3),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "img_app" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/icons/app_store.png", alt: "" }
-                    })
-                  ]),
+                  _c(
+                    "a",
+                    { attrs: { href: "https://play.google.com/store/apps" } },
+                    [
+                      _c("img", {
+                        attrs: { src: "/images/icons/app_store.png", alt: "" }
+                      })
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("img", {
-                      attrs: { src: "/images/icons/google_play.png", alt: "" }
-                    })
-                  ])
+                  _c(
+                    "a",
+                    { attrs: { href: "https://play.google.com/store/apps" } },
+                    [
+                      _c("img", {
+                        attrs: { src: "/images/icons/google_play.png", alt: "" }
+                      })
+                    ]
+                  )
                 ])
               ])
             ]
@@ -26904,7 +26876,7 @@ var render = function() {
     _c("div", { staticClass: "footer-bottom" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _vm._m(4),
+          _vm._m(2),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-6 col-lg-8" }, [
             _c("img", {
@@ -26923,113 +26895,34 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "about-footer" }, [
-      _c("p", { staticClass: "text-info" }, [
-        _vm._v(
-          "\n                            We are a team of designers and developers that\n                            create high quality HTML template\n                        "
-        )
-      ]),
-      _vm._v(" "),
       _c("div", { staticClass: "social-info" }, [
         _c("ul", [
           _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
+            _c("a", { attrs: { href: "https://www.facebook.com" } }, [
               _c("i", { staticClass: "ion-social-facebook" })
             ])
           ]),
           _vm._v(" "),
           _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
+            _c("a", { attrs: { href: "https://www.twitter.com" } }, [
               _c("i", { staticClass: "ion-social-twitter" })
             ])
           ]),
           _vm._v(" "),
           _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
+            _c("a", { attrs: { href: "https://www.youtube.com" } }, [
               _c("i", { staticClass: "ion-social-youtube" })
             ])
           ]),
           _vm._v(" "),
           _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", { staticClass: "ion-social-google" })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
+            _c("a", { attrs: { href: "https://www.instagram.com" } }, [
               _c("i", { staticClass: "ion-social-instagram" })
             ])
           ])
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-6 col-lg-2 mt-res-sx-30px mt-res-md-30px" },
-      [
-        _c("div", { staticClass: "single-wedge" }, [
-          _c("h4", { staticClass: "footer-herading" }, [_vm._v("Information")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "footer-links" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "about.html" } }, [_vm._v("About Us")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "contact.html" } }, [
-                  _vm._v("Contact Us")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-md-6 col-lg-2 mt-res-md-50px mt-res-sx-30px mt-res-md-30px"
-      },
-      [
-        _c("div", { staticClass: "single-wedge" }, [
-          _c("h4", { staticClass: "footer-herading" }, [
-            _vm._v("Custom Links")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "footer-links" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("New Products")])
-              ]),
-              _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Signup")])]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "login.html" } }, [_vm._v("Login")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "my-account.html" } }, [
-                  _vm._v("My Account")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
   },
   function() {
     var _vm = this
@@ -28561,11 +28454,7 @@ var render = function() {
                                             }
                                           },
                                           [_vm._v("Remember me")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c("a", { attrs: { href: "#" } }, [
-                                          _vm._v("Forgot Password?")
-                                        ])
+                                        )
                                       ]
                                     ),
                                     _vm._v(" "),
@@ -30148,591 +30037,546 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("section", { staticClass: "breadcrumb-area" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("div", { staticClass: "breadcrumb-content" }, [
-                _c("h1", { staticClass: "breadcrumb-hrading" }, [
-                  _vm._v("Account Page")
-                ]),
-                _vm._v(" "),
-                _c("ul", { staticClass: "breadcrumb-links" }, [
-                  _c("li", [
-                    _c("a", { attrs: { href: "index.html" } }, [_vm._v("Home")])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [_vm._v("My Account")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "checkout-area mtb-60px" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "ml-auto mr-auto col-lg-9" }, [
-              _c("div", { staticClass: "checkout-wrapper" }, [
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "checkout-area mtb-60px" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "ml-auto mr-auto col-lg-9" }, [
+            _c("div", { staticClass: "checkout-wrapper" }, [
+              _c("div", { staticClass: "panel-group", attrs: { id: "faq" } }, [
                 _c(
                   "div",
-                  { staticClass: "panel-group", attrs: { id: "faq" } },
+                  { staticClass: "panel panel-default single-my-account" },
                   [
-                    _c(
-                      "div",
-                      { staticClass: "panel panel-default single-my-account" },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "panel-heading my-account-title" },
-                          [
-                            _c("h3", { staticClass: "panel-title" }, [
-                              _c("span", [_vm._v("1 .")]),
-                              _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    "data-toggle": "collapse",
-                                    "data-parent": "#faq",
-                                    href: "#my-account-1"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "Edit your account information\n                                        "
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "panel-collapse collapse show",
-                            attrs: { id: "my-account-1" }
-                          },
-                          [
-                            _c("div", { staticClass: "panel-body" }, [
-                              _c(
-                                "div",
-                                { staticClass: "myaccount-info-wrapper" },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "account-info-wrapper" },
-                                    [
-                                      _c("h4", [
-                                        _vm._v(
-                                          "\n                                                    My Account Information\n                                                "
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("h5", [
-                                        _vm._v(
-                                          "\n                                                    Your Personal Details\n                                                "
-                                        )
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "row" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-6 col-md-6" },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
-                                          [
-                                            _c("label", [
-                                              _vm._v(
-                                                "First\n                                                            Name"
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "text" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-6 col-md-6" },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
-                                          [
-                                            _c("label", [
-                                              _vm._v(
-                                                "Last\n                                                            Name"
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "text" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-12 col-md-12" },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
-                                          [
-                                            _c("label", [
-                                              _vm._v(
-                                                "Email\n                                                            Address"
-                                              )
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "email" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-6 col-md-6" },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
-                                          [
-                                            _c("label", [_vm._v("Telephone")]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "text" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-6 col-md-6" },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
-                                          [
-                                            _c("label", [_vm._v("Fax")]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "text" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "billing-back-btn" },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "billing-back" },
-                                        [
-                                          _c("a", { attrs: { href: "#" } }, [
-                                            _c("i", {
-                                              staticClass: "fa fa-arrow-up"
-                                            }),
-                                            _vm._v(
-                                              "\n                                                        back"
-                                            )
-                                          ])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "billing-btn" },
-                                        [
-                                          _c(
-                                            "button",
-                                            { attrs: { type: "submit" } },
-                                            [
-                                              _vm._v(
-                                                "\n                                                        Continue\n                                                    "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    ),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "div",
-                      { staticClass: "panel panel-default single-my-account" },
+                      {
+                        staticClass: "panel-collapse collapse show",
+                        attrs: { id: "my-account-1" }
+                      },
                       [
-                        _c(
-                          "div",
-                          { staticClass: "panel-heading my-account-title" },
-                          [
-                            _c("h3", { staticClass: "panel-title" }, [
-                              _c("span", [_vm._v("2 .")]),
+                        _c("div", { staticClass: "panel-body" }, [
+                          _c(
+                            "div",
+                            { staticClass: "myaccount-info-wrapper" },
+                            [
+                              _vm._m(2),
                               _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    "data-toggle": "collapse",
-                                    "data-parent": "#faq",
-                                    href: "#my-account-2"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "Change your password\n                                        "
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "panel-collapse collapse",
-                            attrs: { id: "my-account-2" }
-                          },
-                          [
-                            _c("div", { staticClass: "panel-body" }, [
-                              _c(
-                                "div",
-                                { staticClass: "myaccount-info-wrapper" },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "account-info-wrapper" },
-                                    [
-                                      _c("h4", [_vm._v("Change Password")]),
-                                      _vm._v(" "),
-                                      _c("h5", [_vm._v("Your Password")])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "row" }, [
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-12 col-md-12" },
-                                      [
+                              _c("ValidationObserver", {
+                                ref: "form",
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "default",
+                                    fn: function(ref) {
+                                      var handleSubmit = ref.handleSubmit
+                                      return [
                                         _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
+                                          "form",
+                                          {
+                                            on: {
+                                              submit: function($event) {
+                                                $event.preventDefault()
+                                                return handleSubmit(
+                                                  _vm.onSubmit
+                                                )
+                                              }
+                                            }
+                                          },
                                           [
-                                            _c("label", [_vm._v("Password")]),
-                                            _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "password" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      { staticClass: "col-lg-12 col-md-12" },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "billing-info" },
-                                          [
-                                            _c("label", [
-                                              _vm._v(
-                                                "Password\n                                                            Confirm"
+                                            _c("div", { staticClass: "row" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-lg-6 col-md-6"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "billing-info"
+                                                    },
+                                                    [
+                                                      _c("label", [
+                                                        _vm._v("First Name")
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("ValidationProvider", {
+                                                        attrs: {
+                                                          name: "Name",
+                                                          rules: "required",
+                                                          vid: "name"
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "default",
+                                                              fn: function(
+                                                                ref
+                                                              ) {
+                                                                var errors =
+                                                                  ref.errors
+                                                                return [
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm
+                                                                            .form
+                                                                            .name,
+                                                                        expression:
+                                                                          "form.name"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      name:
+                                                                        "name",
+                                                                      placeholder:
+                                                                        "Name"
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.form
+                                                                          .name
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.$set(
+                                                                          _vm.form,
+                                                                          "name",
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "text-danger text-sm"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          errors[0]
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              }
+                                                            }
+                                                          ],
+                                                          null,
+                                                          true
+                                                        )
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-lg-6 col-md-6"
+                                                },
+                                                [
+                                                  _c("label", [
+                                                    _vm._v("Email")
+                                                  ]),
+                                                  _vm._v(" "),
+                                                  _c("ValidationProvider", {
+                                                    attrs: {
+                                                      name: "Email",
+                                                      rules: "required|email",
+                                                      vid: "email"
+                                                    },
+                                                    scopedSlots: _vm._u(
+                                                      [
+                                                        {
+                                                          key: "default",
+                                                          fn: function(ref) {
+                                                            var errors =
+                                                              ref.errors
+                                                            return [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "billing-info"
+                                                                },
+                                                                [
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm
+                                                                            .form
+                                                                            .email,
+                                                                        expression:
+                                                                          "form.email"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "text",
+                                                                      name:
+                                                                        "email",
+                                                                      placeholder:
+                                                                        "Email"
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.form
+                                                                          .email
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.$set(
+                                                                          _vm.form,
+                                                                          "email",
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "text-danger text-sm"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          errors[0]
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          }
+                                                        }
+                                                      ],
+                                                      null,
+                                                      true
+                                                    )
+                                                  })
+                                                ],
+                                                1
                                               )
                                             ]),
                                             _vm._v(" "),
-                                            _c("input", {
-                                              attrs: { type: "password" }
-                                            })
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "billing-back-btn" },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "billing-back" },
-                                        [
-                                          _c("a", { attrs: { href: "#" } }, [
-                                            _c("i", {
-                                              staticClass: "fa fa-arrow-up"
-                                            }),
-                                            _vm._v(
-                                              "\n                                                        back"
-                                            )
-                                          ])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "billing-btn" },
-                                        [
-                                          _c(
-                                            "button",
-                                            { attrs: { type: "submit" } },
-                                            [
-                                              _vm._v(
-                                                "\n                                                        Continue\n                                                    "
+                                            _c("div", { staticClass: "row" }, [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-lg-12 col-md-12"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "billing-info"
+                                                    },
+                                                    [
+                                                      _c("label", [
+                                                        _vm._v("Password")
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("ValidationProvider", {
+                                                        attrs: {
+                                                          name: "Password",
+                                                          vid: "password",
+                                                          rules:
+                                                            "confirmed:password_confirmation"
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "default",
+                                                              fn: function(
+                                                                ref
+                                                              ) {
+                                                                var errors =
+                                                                  ref.errors
+                                                                return [
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm
+                                                                            .form
+                                                                            .password,
+                                                                        expression:
+                                                                          "form.password"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "password",
+                                                                      name:
+                                                                        "password",
+                                                                      placeholder:
+                                                                        "Password"
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.form
+                                                                          .password
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.$set(
+                                                                          _vm.form,
+                                                                          "password",
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "text-danger text-sm"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          errors[0]
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              }
+                                                            }
+                                                          ],
+                                                          null,
+                                                          true
+                                                        )
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "col-lg-12 col-md-12"
+                                                },
+                                                [
+                                                  _c(
+                                                    "div",
+                                                    {
+                                                      staticClass:
+                                                        "billing-info"
+                                                    },
+                                                    [
+                                                      _c("label", [
+                                                        _vm._v(
+                                                          "Password Confirm"
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c("ValidationProvider", {
+                                                        attrs: {
+                                                          name:
+                                                            "Confirm Password",
+                                                          vid:
+                                                            "password_confirmation"
+                                                        },
+                                                        scopedSlots: _vm._u(
+                                                          [
+                                                            {
+                                                              key: "default",
+                                                              fn: function(
+                                                                ref
+                                                              ) {
+                                                                var errors =
+                                                                  ref.errors
+                                                                return [
+                                                                  _c("input", {
+                                                                    directives: [
+                                                                      {
+                                                                        name:
+                                                                          "model",
+                                                                        rawName:
+                                                                          "v-model",
+                                                                        value:
+                                                                          _vm
+                                                                            .form
+                                                                            .password_confirmation,
+                                                                        expression:
+                                                                          "form.password_confirmation"
+                                                                      }
+                                                                    ],
+                                                                    attrs: {
+                                                                      type:
+                                                                        "password",
+                                                                      name:
+                                                                        "password_confirmation",
+                                                                      placeholder:
+                                                                        "Confirm Password"
+                                                                    },
+                                                                    domProps: {
+                                                                      value:
+                                                                        _vm.form
+                                                                          .password_confirmation
+                                                                    },
+                                                                    on: {
+                                                                      input: function(
+                                                                        $event
+                                                                      ) {
+                                                                        if (
+                                                                          $event
+                                                                            .target
+                                                                            .composing
+                                                                        ) {
+                                                                          return
+                                                                        }
+                                                                        _vm.$set(
+                                                                          _vm.form,
+                                                                          "password_confirmation",
+                                                                          $event
+                                                                            .target
+                                                                            .value
+                                                                        )
+                                                                      }
+                                                                    }
+                                                                  }),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "text-danger text-sm"
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          errors[0]
+                                                                        )
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              }
+                                                            }
+                                                          ],
+                                                          null,
+                                                          true
+                                                        )
+                                                      })
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
                                               )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "panel panel-default single-my-account" },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "panel-heading my-account-title" },
-                          [
-                            _c("h3", { staticClass: "panel-title" }, [
-                              _c("span", [_vm._v("3 .")]),
-                              _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    "data-toggle": "collapse",
-                                    "data-parent": "#faq",
-                                    href: "#my-account-3"
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "Modify your address book\n                                            entries\n                                        "
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "panel-collapse collapse",
-                            attrs: { id: "my-account-3" }
-                          },
-                          [
-                            _c("div", { staticClass: "panel-body" }, [
-                              _c(
-                                "div",
-                                { staticClass: "myaccount-info-wrapper" },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "account-info-wrapper" },
-                                    [
-                                      _c("h4", [
-                                        _vm._v(
-                                          "\n                                                    Address Book Entries\n                                                "
-                                        )
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "entries-wrapper" },
-                                    [
-                                      _c("div", { staticClass: "row" }, [
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
-                                          },
-                                          [
+                                            ]),
+                                            _vm._v(" "),
                                             _c(
                                               "div",
                                               {
-                                                staticClass:
-                                                  "entries-info text-center"
-                                              },
-                                              [
-                                                _c("p", [_vm._v("Jone Deo")]),
-                                                _vm._v(" "),
-                                                _c("p", [_vm._v("hastech")]),
-                                                _vm._v(" "),
-                                                _c("p", [
-                                                  _vm._v(
-                                                    "\n                                                                28 Green\n                                                                Tower,\n                                                            "
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("p", [
-                                                  _vm._v(
-                                                    "\n                                                                Street Name.\n                                                            "
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("p", [
-                                                  _vm._v(
-                                                    "\n                                                                New York\n                                                                City,\n                                                            "
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("p", [_vm._v("USA")])
-                                              ]
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
-                                          },
-                                          [
-                                            _c(
-                                              "div",
-                                              {
-                                                staticClass:
-                                                  "entries-edit-delete text-center"
+                                                staticClass: "billing-back-btn"
                                               },
                                               [
                                                 _c(
-                                                  "a",
+                                                  "div",
                                                   {
-                                                    staticClass: "edit",
-                                                    attrs: { href: "#" }
+                                                    staticClass: "billing-btn"
                                                   },
-                                                  [_vm._v("Edit")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a",
-                                                  { attrs: { href: "#" } },
-                                                  [_vm._v("Delete")]
+                                                  [
+                                                    _c(
+                                                      "button",
+                                                      {
+                                                        attrs: {
+                                                          type: "submit"
+                                                        }
+                                                      },
+                                                      [_vm._v("Update")]
+                                                    )
+                                                  ]
                                                 )
                                               ]
                                             )
                                           ]
                                         )
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "billing-back-btn" },
-                                    [
-                                      _c(
-                                        "div",
-                                        { staticClass: "billing-back" },
-                                        [
-                                          _c("a", { attrs: { href: "#" } }, [
-                                            _c("i", {
-                                              staticClass: "fa fa-arrow-up"
-                                            }),
-                                            _vm._v(
-                                              "\n                                                        back"
-                                            )
-                                          ])
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "billing-btn" },
-                                        [
-                                          _c(
-                                            "button",
-                                            { attrs: { type: "submit" } },
-                                            [
-                                              _vm._v(
-                                                "\n                                                        Continue\n                                                    "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "panel panel-default single-my-account" },
-                      [
-                        _c(
-                          "div",
-                          { staticClass: "panel-heading my-account-title" },
-                          [
-                            _c("h3", { staticClass: "panel-title" }, [
-                              _c("span", [_vm._v("4 .")]),
-                              _vm._v(" "),
-                              _c("a", { attrs: { href: "wishlist.html" } }, [
-                                _vm._v(
-                                  "Modify your wish list\n                                        "
-                                )
-                              ])
-                            ])
-                          ]
-                        )
+                                      ]
+                                    }
+                                  }
+                                ])
+                              })
+                            ],
+                            1
+                          )
+                        ])
                       ]
                     )
                   ]
@@ -30742,6 +30586,64 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "breadcrumb-area" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "breadcrumb-content" }, [
+              _c("h1", { staticClass: "breadcrumb-hrading" }, [
+                _vm._v("Account Page")
+              ]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "breadcrumb-links" }, [
+                _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("Home")])]),
+                _vm._v(" "),
+                _c("li", [_vm._v("My Account")])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading my-account-title" }, [
+      _c("h3", { staticClass: "panel-title" }, [
+        _c("span", [_vm._v("1 .")]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: {
+              "data-toggle": "collapse",
+              "data-parent": "#faq",
+              href: "#my-account-1"
+            }
+          },
+          [_vm._v("Edit your account information\n\t\t\t\t\t\t\t\t\t\t\t")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "account-info-wrapper" }, [
+      _c("h4", [_vm._v("My Account Information")]),
+      _vm._v(" "),
+      _c("h5", [_vm._v("Your Personal Details")])
     ])
   }
 ]

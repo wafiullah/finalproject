@@ -41,10 +41,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('/profile/update', [AdminController::class, 'updateProfile'])->name('profile.update');
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
         Route::get('/profile', [AdminController::class, 'profile'])->name('profile');
-        Route::post('/user/block', [UsersController::class, 'blockUserAccount'])->name('user.block.account');
-        Route::get('/user/unblock/{id}', [UsersController::class, 'unblockUserAccount'])->name('user.unblock.account');
-        Route::delete('/user/delete/{id}', [UsersController::class, 'deleteUser'])->name('user.delete');
-Route::get('/users', [UsersController::class, 'index'])->name('users');
+       
+// Route::get('/users', [UsersController::class, 'index'])->name('users');
 
         Route::resource('products', ProductsController::class);
         Route::resource('suppliers', SupplierController::class);
@@ -52,6 +50,7 @@ Route::get('/users', [UsersController::class, 'index'])->name('users');
         Route::resource('employees', EmployeeController::class);
         Route::resource('attendance', AttendanceController::class);
         Route::resource('orders', OrderController::class);
+        Route::resource('users', UsersController::class);
 
         Route::put('attendance/{attendance?}', [AttendanceController::class,'attendanceUpdate'])->name('attendance-update');
         Route::get('attendanc/monthly', [AttendanceController::class,'attendanceMonthly'])->name('attendance-monthly');

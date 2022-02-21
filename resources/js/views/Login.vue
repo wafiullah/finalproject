@@ -85,9 +85,6 @@
                                                         href="javascript:void(0)"
                                                         >Remember me</a
                                                     >
-                                                    <a href="#"
-                                                        >Forgot Password?</a
-                                                    >
                                                 </div>
                                                 <button type="submit">
                                                     <span>Login</span>
@@ -154,6 +151,13 @@ export default {
                     });
             });
         }
-    }
+    },
+    beforeCreate () {
+        if(JSON.parse(localStorage.getItem("company_user"))){
+              this.$router.push({
+                name: 'dashboard'
+            })
+        }
+    },
 };
 </script>

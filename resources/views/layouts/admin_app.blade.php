@@ -91,7 +91,7 @@
                             Attendance</a>
                     </li>
                     <li class="sidebar-nav-item">
-                    <a href="{{route('admin.users')}}" class="sidebar-nav-link users"><i
+                    <a href="{{route('admin.users.index')}}" class="sidebar-nav-link users"><i
                             class="icon ion-ios-people"></i>
                         Users</a>
                 </li>

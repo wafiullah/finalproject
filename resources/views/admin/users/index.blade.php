@@ -17,7 +17,7 @@
     </div>
     <div class="manager-wrapper">
         <div class="manager-right">
-            <form action="{{route('admin.users')}}" method="GET">
+            <form action="{{route('admin.users.index')}}" method="GET">
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="form-group">
@@ -41,13 +41,14 @@
             </form>
             @include('partials.alerts')
             <div class="section-wrapper">
+                <a href="{{ route('admin.users.create') }}" class="btn btn-primary mg-b-20 mg-l-20">Add
+                    User</a>
                 <div class="table-wrapper">
                     <table class="table display table-condensed table-sm">
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Account</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -57,31 +58,14 @@
                             <tr>
                                 <td>{{$user->name}} </td>
                                 <td>{{$user->email}}</td>
-                                <td class="tx-12">
-                                    @if($user->email_verified_at == "")
-                                    <span class="square-8 bg-warning mg-r-5 rounded-circle"></span> Pending verification
-                                    @else
-                                    <span class="square-8 bg-success mg-r-5 rounded-circle"></span> Email verified
-                                    @endif
-                                </td>
                                 <td>{{$user->created_at}}</td>
                                 <td>
-                                    @if($user->status == 0)
-                                    <a href="#" data-target="#blockAccount" data-toggle="modal"
-                                        class="btn btn-danger btn-sm" data-id="{{$user->id}}"> <i
-                                            class="fa fa-lock"></i>
-                                        Block</a>
-                                    @else
-                                    <a href="{{route('admin.user.unblock.account', $user->id)}}"
-                                        onclick="return confirm('are you sure?')" class="btn btn-success btn-sm"> <i
-                                            class="fa fa-unlock"></i>
-                                        Unblock</a>
-                                    @endif
-                                    <form action="{{ route('admin.user.delete', $user->id) }}" method="post"
+                                    <a href="{{route('admin.users.edit',$user->id)}}"
+                                        class="btn btn-success btn-sm">Edit</a>
+                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="post"
                                         style="display: inline-block;" onsubmit="return confirm('are you sure?')">
                                         @csrf {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
-                                            Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -99,7 +83,7 @@
 <script src="{{asset('assets/lib/datatables/js/datatables.min.js')}}"></script>
 <script src="{{asset('assets/js/dataTable.js')}}"></script>
 <!-- Modal -->
-<div class="modal fade" id="blockAccount" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+{{-- <div class="modal fade" id="blockAccount" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form action="{{route('admin.user.block.account')}}" onsubmit="return confirm('are you sure?')" method="POST">
             <div class="modal-content" style="width: 417px;">
@@ -122,7 +106,7 @@
             </div>
         </form>
     </div>
-</div>
+</div> --}}
 <script>
     $('#blockAccount').on('show.bs.modal', event => {
         var button = $(event.relatedTarget);

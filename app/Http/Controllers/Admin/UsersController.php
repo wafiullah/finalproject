@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Mail;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Mail\UserAccountBlock;
-use App\Mail\UserAccountUnBlock;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -20,51 +18,101 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $users = User::query()
-        ->when($request->email, function ($query, $email) {
-            return $query->where('email', $email);
-        })
-        ->when($request->name, function ($query, $name) {
-            return $query->where('first_name', $name);
-            return $query->Orwhere('last_name', $name);
-        })
-        ->latest()->paginate(10);
+            ->when($request->email, function ($query, $email) {
+                return $query->where('email', $email);
+            })
+            ->when($request->name, function ($query, $name) {
+                return $query->where('first_name', $name);
+                return $query->Orwhere('last_name', $name);
+            })
+            ->latest()->paginate(10);
 
         return view('admin.users.index', compact('users'));
     }
 
-    public function profile($id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $user = User::with('state')->where(['id' => $id])->first();
-        $sales = Sale::where('user_id', $id)->count();
-
-        return view('admin.users.profile', compact('user', 'sales'));
+        return view('admin.users.create');
     }
 
-
-    public function blockUserAccount(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $user = User::find($request->userId);
-        $user->status = 1;
-        $user->save();
+        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'new_password' => 'required|string|min:6',
+            'password_confirmation' => 'required|same:new_password',
+        ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'Account successfully blocked.');
+        $validated['password'] = Hash::make($request->new_password);
+        User::create($validated);
+
+        return redirect()->route('admin.users.index')->with('success', 'User successfully added.');
+
     }
 
-    public function unblockUserAccount($userId)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Supplier  $supplier
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
     {
-        $user = User::find($userId);
-        $user->status = 0;
-        $user->save();
-
-        return redirect()->route('admin.users.index')->with('success', 'Account successfully unblocked.');
+        return view('admin.users.edit', compact('user'));
     }
 
-    public function deleteUser(Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
     {
-        User::find($request->id)->delete();
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'new_password' => 'nullable|string|min:6',
+            'password_confirmation' => 'nullable|same:new_password',
+        ]);
 
+        if ($request->new_password != '') {
+            $request->validate([
+                'new_password' => 'required|string|min:6',
+                'password_confirmation' => 'required|same:new_password',
+            ]);
+            $validated['password'] = Hash::make($request->new_password);
+        }
+
+        $user->update($validated);
+
+        return redirect()->route('admin.users.index')->with('success', 'User successfully updated.');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+        $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'User successfully deleted.');
     }
-
-   
 }

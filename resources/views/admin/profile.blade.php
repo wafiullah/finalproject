@@ -19,8 +19,8 @@
                 @include('partials.alerts')
                 <form class="form" action="{{ route('admin.profile.update') }}" method="post">
                     {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="put">
                     <div class="row mg-b-25">
-                       
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label class="form-control-label">Full Name: <span class="tx-danger">*</span></label>
@@ -28,12 +28,11 @@
                                     placeholder="Full Name">
                             </div>
                         </div>
-                        <!-- col-8 -->
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="current_password">Current Password</label>
-                                <input type="password" class="form-control" id="current_password" placeholder="Current Password"
-                                    name="current_password" value="">
+                                <input type="password" class="form-control" id="current_password"
+                                    placeholder="Current Password" name="current_password" value="">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -46,8 +45,8 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="password_confirmation">Confirm Password</label>
-                                <input type="password" class="form-control" id="password_confirmation" placeholder="Confirm Password"
-                                    name="password_confirmation" value="">
+                                <input type="password" class="form-control" id="password_confirmation"
+                                    placeholder="Confirm Password" name="password_confirmation" value="">
                             </div>
                         </div>
 

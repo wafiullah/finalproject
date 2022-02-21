@@ -15,35 +15,27 @@
                         </div>
                         <!-- footer logo -->
                         <div class="about-footer">
-                            <p class="text-info">
-                                We are a team of designers and developers that
-                                create high quality HTML template
-                            </p>
                             
                             <div class="social-info">
                                 <ul>
                                     <li>
-                                        <a href="#"
+                                        <a href="https://www.facebook.com"
                                             ><i class="ion-social-facebook"></i
                                         ></a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="https://www.twitter.com"
                                             ><i class="ion-social-twitter"></i
                                         ></a>
                                     </li>
                                     <li>
-                                        <a href="#"
+                                        <a href="https://www.youtube.com"
                                             ><i class="ion-social-youtube"></i
                                         ></a>
                                     </li>
+                                   
                                     <li>
-                                        <a href="#"
-                                            ><i class="ion-social-google"></i
-                                        ></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
+                                        <a href="https://www.instagram.com"
                                             ><i class="ion-social-instagram"></i
                                         ></a>
                                     </li>
@@ -59,9 +51,10 @@
                             <h4 class="footer-herading">Information</h4>
                             <div class="footer-links">
                                 <ul>
-                                    <li><a href="about.html">About Us</a></li>
                                     <li>
-                                        <a href="contact.html">Contact Us</a>
+                                         <router-link to="/contact"
+                                                >Contact Us
+                                            </router-link>
                                     </li>
                                 </ul>
                             </div>
@@ -75,11 +68,19 @@
                             <h4 class="footer-herading">Custom Links</h4>
                             <div class="footer-links">
                                 <ul>
-                                    <li><a href="#">New Products</a></li>
-                                    <li><a href="#">Signup</a></li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li>  <router-link to="/shop"
+                                                >Shop
+                                            </router-link></li>
+                                    <li> <router-link to="/register"
+                                                >Register</router-link
+                                            ></li>
+                                    <li> <router-link to="/login"
+                                                >Login</router-link
+                                            ></li>
                                     <li>
-                                        <a href="my-account.html">My Account</a>
+                                        <router-link to="/dashboard"
+                                                >My Account</router-link
+                                            >
                                     </li>
                                 </ul>
                             </div>
@@ -99,12 +100,12 @@
                                 </p>
                             </div>
                             <div class="img_app">
-                                <a href="#"
+                                <a href="https://play.google.com/store/apps"
                                     ><img
                                         :src="'/images/icons/app_store.png'"
                                         alt=""
                                 /></a>
-                                <a href="#"
+                                <a href="https://play.google.com/store/apps"
                                     ><img
                                         :src="'/images/icons/google_play.png'"
                                         alt=""
