@@ -25,3 +25,4 @@ Route::post('user/authenticate', [AuthController::class, 'authenticate'])->name(
 Route::post('user/register', [AuthController::class, 'register'])->name('user.register');
 Route::get('shop/products', [ShopController::class, 'getProducts'])->name('shop.products');
 Route::get('shop/product/{id}', [ShopController::class, 'getSingleProduct'])->name('shop.product');
+Route::post('shop/product/comment', [ShopController::class, 'storeProductComment'])->name('product.comment');

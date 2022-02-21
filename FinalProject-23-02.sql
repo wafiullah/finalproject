@@ -267,13 +267,14 @@ DROP TABLE IF EXISTS `product_comments`;
 CREATE TABLE `product_comments` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `rating` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `rating` int(11) NOT NULL,
   `comment` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,6 +283,7 @@ CREATE TABLE `product_comments` (
 
 LOCK TABLES `product_comments` WRITE;
 /*!40000 ALTER TABLE `product_comments` DISABLE KEYS */;
+INSERT INTO `product_comments` VALUES (1,1,'Consequatur reprehen',4,'Aute eius minima eum','2022-02-21 08:25:22','2022-02-21 08:25:22','lupuxudyl@mailinator.com'),(2,1,'Autem pariatur Cons',0,'Optio unde illo dol','2022-02-21 08:29:28','2022-02-21 08:29:28','qiqa@mailinator.com'),(3,1,'Totam in sunt quibus',0,'Quia sunt dolor hic','2022-02-21 08:29:35','2022-02-21 08:29:35','bexacezan@mailinator.com'),(4,1,'Totam in sunt quibus',3,'Quia sunt dolor hic','2022-02-21 08:29:37','2022-02-21 08:29:37','bexacezan@mailinator.com'),(5,1,'Totam in sunt quibus',5,'Quia sunt dolor hic','2022-02-21 08:29:43','2022-02-21 08:29:43','bexacezan@mailinator.com'),(6,1,'Commodi a fugiat cor',0,'Et laborum non sapie','2022-02-21 08:31:14','2022-02-21 08:31:14','hefotiz@mailinator.com'),(7,1,'Accusantium qui saep',5,'Voluptas omnis labor','2022-02-21 08:32:46','2022-02-21 08:32:46','lesy@mailinator.com'),(8,1,'shoaib',5,'testing','2022-02-21 08:33:53','2022-02-21 08:33:53','mocoti@mailinator.com');
 /*!40000 ALTER TABLE `product_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -423,4 +425,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-21 11:24:04
+-- Dump completed on 2022-02-21 18:40:57
