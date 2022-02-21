@@ -61,6 +61,10 @@
                         Dashboard</a>
                 </li>
                 <li class="sidebar-nav-item">
+                    <a href="{{route('admin.orders.index')}}" class="sidebar-nav-link orders"><i
+                            class="icon ion-ios-list"></i>
+                        Sales</a>
+                    </li>
                     <a href="{{route('admin.products.index')}}" class="sidebar-nav-link products"><i
                             class="icon ion-ios-list"></i>
                         Products</a>

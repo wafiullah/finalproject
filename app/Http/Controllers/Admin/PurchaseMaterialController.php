@@ -67,7 +67,8 @@ class PurchaseMaterialController extends Controller
 
         PurchaseMaterial::create($validated);
 
-        return redirect()->back()->with('success', 'Purchase Material successfully added.');
+return redirect()->route('admin.purchase-materials.index')->with('success', 'Purchase Material successfully added.');
+
 
     }
 
@@ -87,7 +88,8 @@ class PurchaseMaterialController extends Controller
 
         $material = PurchaseMaterial::find($materialId);
         $material->update($validated);
-        return redirect()->back()->with('success', 'Purchase Material successfully updated.');
+return redirect()->route('admin.purchase-materials.index')->with('success', 'Purchase Material successfully updated.');
+
 
     }
 
@@ -100,6 +102,7 @@ class PurchaseMaterialController extends Controller
     public function destroy($materialId)
     {
         PurchaseMaterial::find($materialId)->delete();
-        return redirect()->back()->with('success', 'Material successfully deleted.');
+return redirect()->route('admin.purchase-materials.index')->with('success', 'Material successfully deleted.');
+
     }
 }

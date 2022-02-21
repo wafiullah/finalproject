@@ -64,7 +64,7 @@ CREATE TABLE `attendances` (
   PRIMARY KEY (`id`),
   KEY `attendances_employee_id_foreign` (`employee_id`),
   CONSTRAINT `attendances_employee_id_foreign` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `attendances` (
 
 LOCK TABLES `attendances` WRITE;
 /*!40000 ALTER TABLE `attendances` DISABLE KEYS */;
-INSERT INTO `attendances` VALUES (1,4,1,'2022-02-20','february','2022','2022-02-20 13:47:23','2022-02-20 13:47:23'),(2,5,1,'2022-02-20','february','2022','2022-02-20 13:47:23','2022-02-20 14:20:42');
+INSERT INTO `attendances` VALUES (3,4,1,'2022-01-01','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(4,5,1,'2022-01-01','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(5,5,1,'2022-01-02','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(6,4,0,'2022-01-02','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(7,4,1,'2022-01-03','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(8,5,0,'2022-01-03','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(9,5,1,'2022-01-04','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(10,4,1,'2022-01-04','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(11,4,1,'2022-02-18','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(12,5,1,'2022-02-18','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(13,5,1,'2022-02-19','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(14,4,1,'2022-02-19','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(15,4,1,'2022-02-20','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(16,5,1,'2022-02-20','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(17,5,1,'2022-02-21','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(18,4,1,'2022-02-21','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51');
 /*!40000 ALTER TABLE `attendances` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,6 +170,37 @@ INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `quantity` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `order_date` date NOT NULL,
+  `status` enum('Pending','Delivered','Cancelled') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `amount` decimal(12,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,1,'2022-02-21 00:08:10','2022-02-21 00:39:15',30,1,'2022-02-16','Cancelled',3000.00);
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -224,6 +255,34 @@ LOCK TABLES `personal_access_tokens` WRITE;
 /*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
 INSERT INTO `personal_access_tokens` VALUES (1,'App\\Models\\User',1,'AppToken','69870d639f9095b11ed10c5c1edbe5d071517231a14d82beb4e65a1f72d82983','[\"*\"]',NULL,'2022-01-30 02:40:29','2022-01-30 02:40:29'),(2,'App\\Models\\User',1,'AppToken','eb82a51d35e5caf53b596f42e86b670bdbb0274d6c9b9306c4f5433df265def1','[\"*\"]',NULL,'2022-01-30 02:44:21','2022-01-30 02:44:21'),(3,'App\\Models\\User',1,'AppToken','18f81a2dc7d9db08a3252893567bcb156842c99c66877ba28d269a6d3105bf83','[\"*\"]',NULL,'2022-01-30 02:46:03','2022-01-30 02:46:03'),(4,'App\\Models\\User',1,'AppToken','d29dc03f34cd6d7c0d6ca5b81287bc469d04c9909239cfba23097d9cbc4e0c35','[\"*\"]',NULL,'2022-01-30 02:46:31','2022-01-30 02:46:31'),(5,'App\\Models\\User',1,'AppToken','e2b4da85c5b59ec3655bdd20e3d21687eab04af9dba8ef016446c661d19fc9d0','[\"*\"]',NULL,'2022-01-30 02:47:26','2022-01-30 02:47:26'),(6,'App\\Models\\User',1,'AppToken','20fd5cbfb3b653e94cdb1ed1bf6505dc38a5e107b092022ce84dfa8961052431','[\"*\"]',NULL,'2022-01-30 03:14:57','2022-01-30 03:14:57'),(7,'App\\Models\\User',1,'AppToken','7ec2e5ff39800a8defbd921107612411f6691ad9b42a3c728ff39f8f7f3befe0','[\"*\"]',NULL,'2022-01-30 03:21:05','2022-01-30 03:21:05'),(8,'App\\Models\\User',1,'AppToken','0e73b4afa3ec7b55a59cb606019b4ca8a0cdb4a5ec1194ab8a4ef88a8817aa4a','[\"*\"]',NULL,'2022-01-30 03:22:19','2022-01-30 03:22:19'),(9,'App\\Models\\User',1,'AppToken','f4905c1a9148d2331f05434dcc97df49ae303bab5765cf63cf70f679dd6085d4','[\"*\"]',NULL,'2022-01-30 03:22:27','2022-01-30 03:22:27'),(10,'App\\Models\\User',1,'AppToken','8347ad089730a9777db125cdfd9f57d0254dec427aeac61250e26e8255e8669e','[\"*\"]',NULL,'2022-01-30 03:24:01','2022-01-30 03:24:01');
 /*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product_comments`
+--
+
+DROP TABLE IF EXISTS `product_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `product_comments` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rating` varchar(50) NOT NULL,
+  `comment` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `product_comments`
+--
+
+LOCK TABLES `product_comments` WRITE;
+/*!40000 ALTER TABLE `product_comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `product_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -306,7 +365,7 @@ CREATE TABLE `suppliers` (
   `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mobile` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,7 +374,7 @@ CREATE TABLE `suppliers` (
 
 LOCK TABLES `suppliers` WRITE;
 /*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
-INSERT INTO `suppliers` VALUES (1,'Potato Supplier Ahsan',NULL,'2022-02-20 08:17:40','2022-02-20 14:25:32','Kabul Vegetable Market','0093781234567');
+INSERT INTO `suppliers` VALUES (1,'Potato Supplier Ahsan',NULL,'2022-02-20 08:17:40','2022-02-20 14:25:32','Kabul Vegetable Market','0093781234567'),(2,'Debra Webster','meju@mailinator.com','2022-02-21 00:30:33','2022-02-21 00:30:33','Fugiat ut enim magn','Nihil neque magnam e');
 /*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,7 +397,7 @@ CREATE TABLE `users` (
   `status` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,6 +406,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Nasim Allison','dedijyp@mailinator.com',NULL,'$2y$10$2gBvdDa3TrQk8lETjqTkZupOhvL4IiWohoIAMkNGf/DSGPsoCdC4e',NULL,'2022-02-21 00:07:25','2022-02-21 00:07:25',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,4 +423,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-21  0:56:33
+-- Dump completed on 2022-02-21 11:24:04

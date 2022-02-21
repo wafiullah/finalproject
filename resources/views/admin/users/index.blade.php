@@ -19,7 +19,6 @@
         <div class="manager-right">
             <form action="{{route('admin.users')}}" method="GET">
                 <div class="row">
-
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="">Enter Name</label>
@@ -39,7 +38,7 @@
                         <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Search</button>
                     </div>
                 </div>
-                </form>
+            </form>
             @include('partials.alerts')
             <div class="section-wrapper">
                 <div class="table-wrapper">

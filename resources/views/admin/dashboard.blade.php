@@ -36,5 +36,30 @@ Admin Dashboard
             </div>
         </div>
     </div>
+    <div class="card card-dash-one mt-4">
+        <div class="row no-gutters">
+            <div class="col-lg-4">
+                <i class="icon ion-ios-cart"></i>
+                <div class="dash-content">
+                    <label class="tx-primary">Total Sales</label>
+                    <h2>{{$totalOrders}}</h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <i class="icon ion-ios-cart"></i>
+                <div class="dash-content">
+                    <label class="tx-primary">Total Sales Amount</label>
+                    <h2>${{number_format($totalAmountSales,2)}}</h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <i class="icon ion-ios-cart"></i>
+                <div class="dash-content">
+                    <label class="tx-primary">Total Purchase Material Amount</label>
+                    <h2>${{number_format($totalMaterialPurchaseAmount,2)}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

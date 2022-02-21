@@ -67,7 +67,8 @@ class EmployeeController extends Controller
             $validated['photo'] = $path;
         }
         Employee::create($validated);
-        return redirect()->back()->with('success', 'Employee successfully created.');
+        return redirect()->route('admin.employees.index')->with('success', 'Employee successfully created.');
+
     }
 
     /**
@@ -126,7 +127,8 @@ class EmployeeController extends Controller
         }
 
         $employee->update($validated);
-        return redirect()->back()->with('success', 'Employee successfully updated.');
+        return redirect()->route('admin.employees.index')->with('success', 'Employee successfully updated.');
+
     }
 
     /**
@@ -138,6 +140,7 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->back()->with('success', 'Employee successfully updated.');
+        return redirect()->route('admin.employees.index')->with('success', 'Employee successfully updated.');
+
     }
 }

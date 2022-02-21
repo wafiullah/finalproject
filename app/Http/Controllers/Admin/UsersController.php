@@ -47,7 +47,7 @@ class UsersController extends Controller
         $user->status = 1;
         $user->save();
 
-        return redirect()->back()->with('success', 'Account successfully blocked.');
+        return redirect()->route('admin.users.index')->with('success', 'Account successfully blocked.');
     }
 
     public function unblockUserAccount($userId)
@@ -56,14 +56,14 @@ class UsersController extends Controller
         $user->status = 0;
         $user->save();
 
-        return redirect()->back()->with('success', 'Account successfully unblocked.');
+        return redirect()->route('admin.users.index')->with('success', 'Account successfully unblocked.');
     }
 
     public function deleteUser(Request $request)
     {
         User::find($request->id)->delete();
 
-        return redirect()->back()->with('success', 'User successfully deleted.');
+        return redirect()->route('admin.users.index')->with('success', 'User successfully deleted.');
     }
 
    

@@ -66,7 +66,7 @@ class ProductsController extends Controller
         }
 
         Product::create($request->all());
-        return redirect()->back()->with('success', 'Product successfully added.');
+        return redirect()->route('admin.products.index')->with('success', 'Product successfully added.');
     }
 
     /**
@@ -129,7 +129,7 @@ class ProductsController extends Controller
         }
 
         $product->update($request->all());
-        return redirect()->back()->with('message', 'Product successfully updated.');
+        return redirect()->route('admin.products.index')->with('message', 'Product successfully updated.');
     }
 
     /**
@@ -141,6 +141,6 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->back()->with('message', 'Product successfully deleted.');
+        return redirect()->route('admin.products.index')->with('message', 'Product successfully deleted.');
     }
 }

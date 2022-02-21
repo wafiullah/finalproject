@@ -23,8 +23,11 @@
                 <a href="{{ route('admin.attendance.create') }}" class="btn btn-primary mg-b-20 mg-l-20">Take
                     Attendance</a>
 
+                    <a href="{{ route('admin.attendance-monthly') }}" class="btn btn-primary mg-b-20 mg-l-20">
+                        Monthly Attendance</a>
+
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table table-bordered table-striped text-center">
+                    <table id="datatable1" class="table table-bordered table-striped text-center" style="width: 100%">
                         <thead>
                             <tr>
                                 <th>Serial</th>
@@ -48,21 +51,21 @@
                                         btn-info">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </a>
-                                    <button class="btn btn-danger" type="button"
-                                        onclick="deleteItem({{ date("Ymd", strtotime($date->date)) }})">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
                                     <form id="delete-form-{{ date("Ymd", strtotime($date->date)) }}"
+                                        style="display: contents;"
                                         action="{{ route('admin.attendance.destroy', date("Y-m-d", strtotime($date->date))) }}"
-                                        method="post" style="display:none;">
+                                        method="post">
                                         @csrf
                                         @method('DELETE')
+                                        <button class="btn btn-danger" type="submit"
+                                            onclick="deleteItem({{ date("Ymd", strtotime($date->date)) }})">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
-
                     </table>
                 </div>
             </div>

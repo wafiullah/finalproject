@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\AttendanceController;
+
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\OrderController;
+
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\AttendanceController;
+
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
 use App\Http\Controllers\Admin\PurchaseMaterialController;
@@ -41,14 +44,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::post('/user/block', [UsersController::class, 'blockUserAccount'])->name('user.block.account');
         Route::get('/user/unblock/{id}', [UsersController::class, 'unblockUserAccount'])->name('user.unblock.account');
         Route::delete('/user/delete/{id}', [UsersController::class, 'deleteUser'])->name('user.delete');
-        Route::get('/users', [UsersController::class, 'index'])->name('users');
-        Route::resource('categories', CategoriesController::class);
+Route::get('/users', [UsersController::class, 'index'])->name('users');
+
         Route::resource('products', ProductsController::class);
         Route::resource('suppliers', SupplierController::class);
         Route::resource('purchase-materials', PurchaseMaterialController::class);
         Route::resource('employees', EmployeeController::class);
         Route::resource('attendance', AttendanceController::class);
-        Route::put('attendance/{attendance?}', [AttendanceController::class,'attendanceUpdate'])->name('attendace-update');
+        Route::resource('orders', OrderController::class);
+
+        Route::put('attendance/{attendance?}', [AttendanceController::class,'attendanceUpdate'])->name('attendance-update');
+        Route::get('attendanc/monthly', [AttendanceController::class,'attendanceMonthly'])->name('attendance-monthly');
 
     });
 });

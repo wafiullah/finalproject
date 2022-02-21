@@ -15,7 +15,7 @@
         <label class="section-title">Update Attendance</label>
         <div class="form-layout">
             @include('partials.alerts')
-            <form action="{{ route('admin.attendace-update') }}" method="post">
+            <form action="{{ route('admin.attendance-update') }}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="card-body">

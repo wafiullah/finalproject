@@ -18,6 +18,7 @@ class AttendanceController extends Controller
     public function index()
     {
         $dates = Attendance::latest()->groupBy('date')->get();
+
         return view('admin.attendance.index', compact('dates'));
     }
 
@@ -133,5 +134,26 @@ class AttendanceController extends Controller
 
         return redirect()->back()->with('success', 'Attendance Deleted Successfully.');
 
+    }
+
+    public function attendanceMonthly(Request $request){
+
+        $attendances = Attendance::query()
+        ->whereBetween('date', [$request->start_date,$request->end_date])
+        ->with('employee')
+        ->get();
+
+        $totalAbsents = $attendances->filter(function($item){
+            if(!$item->attendance){
+                return  true;
+            }
+        })->count();
+        $totalPresent = $attendances->filter(function($item){
+            if($item->attendance){
+                return  true;
+            }
+        })->count();
+
+        return view('admin.attendance.monthly', compact('attendances','totalPresent','totalAbsents'));
     }
 }
