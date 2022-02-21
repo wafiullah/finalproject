@@ -4509,6 +4509,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4521,6 +4527,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      userLoggedIn: '',
+      loggedInUser: '',
       form: {
         rating: 0,
         name: null,
@@ -4542,19 +4550,19 @@ __webpack_require__.r(__webpack_exports__);
 
         if (!_this.form.rating) {
           _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_3__.default.show({
-            title: "Error!",
+            title: 'Error!',
             message: 'Please select rating',
-            variant: "error"
+            variant: 'error'
           });
           return false;
         }
 
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post(route("product.comment"), _this.form).then(function (res) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post(route('product.comment'), _this.form).then(function (res) {
           if (res.data.status) {
             _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_3__.default.show({
-              title: "Success",
+              title: 'Success',
               message: res.data.message,
-              variant: "success"
+              variant: 'success'
             });
 
             _this.getSingleProduct();
@@ -4565,9 +4573,9 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_3__.default.show({
-            title: "Error!",
+            title: 'Error!',
             message: err.response.data.message,
-            variant: "error"
+            variant: 'error'
           });
           console.log(err);
         });
@@ -4584,6 +4592,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.loggedInUser = JSON.parse(localStorage.getItem('company_user'));
+
+    if (this.loggedInUser) {
+      this.form.name = this.loggedInUser.name;
+      this.form.email = this.loggedInUser.email;
+    }
+
     this.getSingleProduct();
   }
 });
@@ -29423,7 +29438,7 @@ var render = function() {
                                 return _c(
                                   "div",
                                   {
-                                    staticClass: "single-review ",
+                                    staticClass: "single-review",
                                     attrs: { "v-key": index }
                                   },
                                   [
@@ -29525,397 +29540,416 @@ var render = function() {
                               "div",
                               { staticClass: "ratting-form-wrapper pl-50" },
                               [
-                                _c("h3", [_vm._v("Add a Review")]),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  { staticClass: "ratting-form" },
-                                  [
-                                    _c("ValidationObserver", {
-                                      ref: "form",
-                                      scopedSlots: _vm._u(
-                                        [
-                                          {
-                                            key: "default",
-                                            fn: function(ref) {
-                                              var handleSubmit =
-                                                ref.handleSubmit
-                                              return [
-                                                _c(
-                                                  "form",
-                                                  {
-                                                    on: {
-                                                      submit: function($event) {
-                                                        $event.preventDefault()
-                                                        return handleSubmit(
-                                                          _vm.onSubmit
-                                                        )
-                                                      }
-                                                    }
-                                                  },
-                                                  [
+                                _vm.loggedInUser
+                                  ? _c(
+                                      "div",
+                                      { staticClass: "ratting-form" },
+                                      [
+                                        _c("h3", [_vm._v("Add a Review")]),
+                                        _vm._v(" "),
+                                        _c("ValidationObserver", {
+                                          ref: "form",
+                                          scopedSlots: _vm._u(
+                                            [
+                                              {
+                                                key: "default",
+                                                fn: function(ref) {
+                                                  var handleSubmit =
+                                                    ref.handleSubmit
+                                                  return [
                                                     _c(
-                                                      "div",
+                                                      "form",
                                                       {
-                                                        staticClass: "star-box"
+                                                        on: {
+                                                          submit: function(
+                                                            $event
+                                                          ) {
+                                                            $event.preventDefault()
+                                                            return handleSubmit(
+                                                              _vm.onSubmit
+                                                            )
+                                                          }
+                                                        }
                                                       },
                                                       [
-                                                        _c("span", [
-                                                          _vm._v(
-                                                            " Your rating: "
-                                                          )
-                                                        ]),
-                                                        _vm._v(" "),
                                                         _c(
                                                           "div",
                                                           {
                                                             staticClass:
-                                                              "rating-product"
+                                                              "star-box"
                                                           },
                                                           [
-                                                            _c("star-rating", {
-                                                              attrs: {
-                                                                "star-size": 20,
-                                                                "show-rating": false
-                                                              },
-                                                              model: {
-                                                                value:
-                                                                  _vm.form
-                                                                    .rating,
-                                                                callback: function(
-                                                                  $$v
-                                                                ) {
-                                                                  _vm.$set(
-                                                                    _vm.form,
-                                                                    "rating",
-                                                                    $$v
-                                                                  )
-                                                                },
-                                                                expression:
-                                                                  "form.rating"
-                                                              }
-                                                            })
-                                                          ],
-                                                          1
-                                                        )
-                                                      ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                      "div",
-                                                      { staticClass: "row" },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-md-6"
-                                                          },
-                                                          [
+                                                            _c("span", [
+                                                              _vm._v(
+                                                                " Your rating: "
+                                                              )
+                                                            ]),
+                                                            _vm._v(" "),
                                                             _c(
                                                               "div",
                                                               {
                                                                 staticClass:
-                                                                  "rating-form-style mb-10"
+                                                                  "rating-product"
                                                               },
                                                               [
                                                                 _c(
-                                                                  "ValidationProvider",
+                                                                  "star-rating",
                                                                   {
                                                                     attrs: {
-                                                                      name:
-                                                                        "Name",
-                                                                      rules:
-                                                                        "required",
-                                                                      vid:
-                                                                        "name"
+                                                                      "star-size": 20,
+                                                                      "show-rating": false
                                                                     },
-                                                                    scopedSlots: _vm._u(
-                                                                      [
-                                                                        {
-                                                                          key:
-                                                                            "default",
-                                                                          fn: function(
-                                                                            ref
-                                                                          ) {
-                                                                            var errors =
-                                                                              ref.errors
-                                                                            return [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .form
-                                                                                          .name,
-                                                                                      expression:
-                                                                                        "form.name"
-                                                                                    }
-                                                                                  ],
-                                                                                  attrs: {
-                                                                                    placeholder:
-                                                                                      "Name",
-                                                                                    type:
-                                                                                      "text"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .form
-                                                                                        .name
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      if (
-                                                                                        $event
-                                                                                          .target
-                                                                                          .composing
-                                                                                      ) {
-                                                                                        return
-                                                                                      }
-                                                                                      _vm.$set(
-                                                                                        _vm.form,
-                                                                                        "name",
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
-                                                                                      )
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "span",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "text-danger text-sm"
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                                      _vm._s(
-                                                                                        errors[0]
-                                                                                      ) +
-                                                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          }
-                                                                        }
-                                                                      ],
-                                                                      null,
-                                                                      true
-                                                                    )
-                                                                  }
-                                                                )
-                                                              ],
-                                                              1
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-md-6"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "rating-form-style mb-10"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "ValidationProvider",
-                                                                  {
-                                                                    attrs: {
-                                                                      name:
-                                                                        "Email",
-                                                                      rules:
-                                                                        "required|email",
-                                                                      vid:
-                                                                        "email"
-                                                                    },
-                                                                    scopedSlots: _vm._u(
-                                                                      [
-                                                                        {
-                                                                          key:
-                                                                            "default",
-                                                                          fn: function(
-                                                                            ref
-                                                                          ) {
-                                                                            var errors =
-                                                                              ref.errors
-                                                                            return [
-                                                                              _c(
-                                                                                "input",
-                                                                                {
-                                                                                  directives: [
-                                                                                    {
-                                                                                      name:
-                                                                                        "model",
-                                                                                      rawName:
-                                                                                        "v-model",
-                                                                                      value:
-                                                                                        _vm
-                                                                                          .form
-                                                                                          .email,
-                                                                                      expression:
-                                                                                        "form.email"
-                                                                                    }
-                                                                                  ],
-                                                                                  attrs: {
-                                                                                    placeholder:
-                                                                                      "Email",
-                                                                                    type:
-                                                                                      "email"
-                                                                                  },
-                                                                                  domProps: {
-                                                                                    value:
-                                                                                      _vm
-                                                                                        .form
-                                                                                        .email
-                                                                                  },
-                                                                                  on: {
-                                                                                    input: function(
-                                                                                      $event
-                                                                                    ) {
-                                                                                      if (
-                                                                                        $event
-                                                                                          .target
-                                                                                          .composing
-                                                                                      ) {
-                                                                                        return
-                                                                                      }
-                                                                                      _vm.$set(
-                                                                                        _vm.form,
-                                                                                        "email",
-                                                                                        $event
-                                                                                          .target
-                                                                                          .value
-                                                                                      )
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              ),
-                                                                              _vm._v(
-                                                                                " "
-                                                                              ),
-                                                                              _c(
-                                                                                "span",
-                                                                                {
-                                                                                  staticClass:
-                                                                                    "text-danger text-sm"
-                                                                                },
-                                                                                [
-                                                                                  _vm._v(
-                                                                                    "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" +
-                                                                                      _vm._s(
-                                                                                        errors[0]
-                                                                                      ) +
-                                                                                      "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
-                                                                                  )
-                                                                                ]
-                                                                              )
-                                                                            ]
-                                                                          }
-                                                                        }
-                                                                      ],
-                                                                      null,
-                                                                      true
-                                                                    )
-                                                                  }
-                                                                )
-                                                              ],
-                                                              1
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "col-md-12"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "rating-form-style form-submit"
-                                                              },
-                                                              [
-                                                                _c("textarea", {
-                                                                  directives: [
-                                                                    {
-                                                                      name:
-                                                                        "model",
-                                                                      rawName:
-                                                                        "v-model",
+                                                                    model: {
                                                                       value:
                                                                         _vm.form
-                                                                          .comment,
-                                                                      expression:
-                                                                        "form.comment"
-                                                                    }
-                                                                  ],
-                                                                  attrs: {
-                                                                    name:
-                                                                      "Your Review",
-                                                                    placeholder:
-                                                                      "Message"
-                                                                  },
-                                                                  domProps: {
-                                                                    value:
-                                                                      _vm.form
-                                                                        .comment
-                                                                  },
-                                                                  on: {
-                                                                    input: function(
-                                                                      $event
-                                                                    ) {
-                                                                      if (
-                                                                        $event
-                                                                          .target
-                                                                          .composing
+                                                                          .rating,
+                                                                      callback: function(
+                                                                        $$v
                                                                       ) {
-                                                                        return
-                                                                      }
-                                                                      _vm.$set(
-                                                                        _vm.form,
-                                                                        "comment",
-                                                                        $event
-                                                                          .target
-                                                                          .value
-                                                                      )
+                                                                        _vm.$set(
+                                                                          _vm.form,
+                                                                          "rating",
+                                                                          $$v
+                                                                        )
+                                                                      },
+                                                                      expression:
+                                                                        "form.rating"
                                                                     }
                                                                   }
-                                                                }),
-                                                                _vm._v(" "),
-                                                                _c("input", {
-                                                                  attrs: {
-                                                                    type:
-                                                                      "submit",
-                                                                    value:
-                                                                      "Submit"
-                                                                  }
-                                                                })
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ]
+                                                        ),
+                                                        _vm._v(" "),
+                                                        _c(
+                                                          "div",
+                                                          {
+                                                            staticClass: "row"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "col-md-6"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "rating-form-style mb-10"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "ValidationProvider",
+                                                                      {
+                                                                        attrs: {
+                                                                          name:
+                                                                            "Name",
+                                                                          rules:
+                                                                            "required",
+                                                                          vid:
+                                                                            "name"
+                                                                        },
+                                                                        scopedSlots: _vm._u(
+                                                                          [
+                                                                            {
+                                                                              key:
+                                                                                "default",
+                                                                              fn: function(
+                                                                                ref
+                                                                              ) {
+                                                                                var errors =
+                                                                                  ref.errors
+                                                                                return [
+                                                                                  _c(
+                                                                                    "input",
+                                                                                    {
+                                                                                      directives: [
+                                                                                        {
+                                                                                          name:
+                                                                                            "model",
+                                                                                          rawName:
+                                                                                            "v-model",
+                                                                                          value:
+                                                                                            _vm
+                                                                                              .form
+                                                                                              .name,
+                                                                                          expression:
+                                                                                            "form.name"
+                                                                                        }
+                                                                                      ],
+                                                                                      attrs: {
+                                                                                        placeholder:
+                                                                                          "Name",
+                                                                                        type:
+                                                                                          "text"
+                                                                                      },
+                                                                                      domProps: {
+                                                                                        value:
+                                                                                          _vm
+                                                                                            .form
+                                                                                            .name
+                                                                                      },
+                                                                                      on: {
+                                                                                        input: function(
+                                                                                          $event
+                                                                                        ) {
+                                                                                          if (
+                                                                                            $event
+                                                                                              .target
+                                                                                              .composing
+                                                                                          ) {
+                                                                                            return
+                                                                                          }
+                                                                                          _vm.$set(
+                                                                                            _vm.form,
+                                                                                            "name",
+                                                                                            $event
+                                                                                              .target
+                                                                                              .value
+                                                                                          )
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "span",
+                                                                                    {
+                                                                                      staticClass:
+                                                                                        "text-danger text-sm"
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                          _vm._s(
+                                                                                            errors[0]
+                                                                                          ) +
+                                                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                ]
+                                                                              }
+                                                                            }
+                                                                          ],
+                                                                          null,
+                                                                          true
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "col-md-6"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "rating-form-style mb-10"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "ValidationProvider",
+                                                                      {
+                                                                        attrs: {
+                                                                          name:
+                                                                            "Email",
+                                                                          rules:
+                                                                            "required|email",
+                                                                          vid:
+                                                                            "email"
+                                                                        },
+                                                                        scopedSlots: _vm._u(
+                                                                          [
+                                                                            {
+                                                                              key:
+                                                                                "default",
+                                                                              fn: function(
+                                                                                ref
+                                                                              ) {
+                                                                                var errors =
+                                                                                  ref.errors
+                                                                                return [
+                                                                                  _c(
+                                                                                    "input",
+                                                                                    {
+                                                                                      directives: [
+                                                                                        {
+                                                                                          name:
+                                                                                            "model",
+                                                                                          rawName:
+                                                                                            "v-model",
+                                                                                          value:
+                                                                                            _vm
+                                                                                              .form
+                                                                                              .email,
+                                                                                          expression:
+                                                                                            "form.email"
+                                                                                        }
+                                                                                      ],
+                                                                                      attrs: {
+                                                                                        placeholder:
+                                                                                          "Email",
+                                                                                        type:
+                                                                                          "email"
+                                                                                      },
+                                                                                      domProps: {
+                                                                                        value:
+                                                                                          _vm
+                                                                                            .form
+                                                                                            .email
+                                                                                      },
+                                                                                      on: {
+                                                                                        input: function(
+                                                                                          $event
+                                                                                        ) {
+                                                                                          if (
+                                                                                            $event
+                                                                                              .target
+                                                                                              .composing
+                                                                                          ) {
+                                                                                            return
+                                                                                          }
+                                                                                          _vm.$set(
+                                                                                            _vm.form,
+                                                                                            "email",
+                                                                                            $event
+                                                                                              .target
+                                                                                              .value
+                                                                                          )
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "span",
+                                                                                    {
+                                                                                      staticClass:
+                                                                                        "text-danger text-sm"
+                                                                                    },
+                                                                                    [
+                                                                                      _vm._v(
+                                                                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                                                                          _vm._s(
+                                                                                            errors[0]
+                                                                                          ) +
+                                                                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t"
+                                                                                      )
+                                                                                    ]
+                                                                                  )
+                                                                                ]
+                                                                              }
+                                                                            }
+                                                                          ],
+                                                                          null,
+                                                                          true
+                                                                        )
+                                                                      }
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c(
+                                                              "div",
+                                                              {
+                                                                staticClass:
+                                                                  "col-md-12"
+                                                              },
+                                                              [
+                                                                _c(
+                                                                  "div",
+                                                                  {
+                                                                    staticClass:
+                                                                      "rating-form-style form-submit"
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "textarea",
+                                                                      {
+                                                                        directives: [
+                                                                          {
+                                                                            name:
+                                                                              "model",
+                                                                            rawName:
+                                                                              "v-model",
+                                                                            value:
+                                                                              _vm
+                                                                                .form
+                                                                                .comment,
+                                                                            expression:
+                                                                              "form.comment"
+                                                                          }
+                                                                        ],
+                                                                        attrs: {
+                                                                          name:
+                                                                            "Your Review",
+                                                                          placeholder:
+                                                                            "Message"
+                                                                        },
+                                                                        domProps: {
+                                                                          value:
+                                                                            _vm
+                                                                              .form
+                                                                              .comment
+                                                                        },
+                                                                        on: {
+                                                                          input: function(
+                                                                            $event
+                                                                          ) {
+                                                                            if (
+                                                                              $event
+                                                                                .target
+                                                                                .composing
+                                                                            ) {
+                                                                              return
+                                                                            }
+                                                                            _vm.$set(
+                                                                              _vm.form,
+                                                                              "comment",
+                                                                              $event
+                                                                                .target
+                                                                                .value
+                                                                            )
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "input",
+                                                                      {
+                                                                        attrs: {
+                                                                          type:
+                                                                            "submit",
+                                                                          value:
+                                                                            "Submit"
+                                                                        }
+                                                                      }
+                                                                    )
+                                                                  ]
+                                                                )
                                                               ]
                                                             )
                                                           ]
@@ -29923,19 +29957,30 @@ var render = function() {
                                                       ]
                                                     )
                                                   ]
-                                                )
-                                              ]
-                                            }
-                                          }
-                                        ],
-                                        null,
-                                        false,
-                                        2500291846
-                                      )
-                                    })
-                                  ],
-                                  1
-                                )
+                                                }
+                                              }
+                                            ],
+                                            null,
+                                            false,
+                                            2500291846
+                                          )
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  : _c(
+                                      "h3",
+                                      [
+                                        _vm._v("Please "),
+                                        _c(
+                                          "router-link",
+                                          { attrs: { to: "/login" } },
+                                          [_vm._v("Login")]
+                                        ),
+                                        _vm._v(" to give a comment.")
+                                      ],
+                                      1
+                                    )
                               ]
                             )
                           ])

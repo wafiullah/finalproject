@@ -42,14 +42,16 @@
 							<div class="pro-details-rating-wrap">
 								<div class="rating-product">
 									<star-rating
-																	v-model="item.comments_avg_rating"
-																	:star-size="20"
-                                                                    :read-only="true"
-																	:show-rating="false"
-																></star-rating>
+										v-model="item.comments_avg_rating"
+										:star-size="20"
+										:read-only="true"
+										:show-rating="false"
+									></star-rating>
 								</div>
 								<span class="read-review">
-									<a class="reviews" href="#">Read reviews ({{item.comments.length  }})</a>
+									<a class="reviews" href="#"
+										>Read reviews ({{ item.comments.length }})</a
+									>
 								</span>
 							</div>
 							<div class="pricing-meta">
@@ -110,7 +112,11 @@
 								<div class="row">
 									<div class="col-lg-7">
 										<div class="review-wrapper">
-											<div class="single-review " v-for="(comment, index) in item.comments" :v-key="index">
+											<div
+												class="single-review"
+												v-for="(comment, index) in item.comments"
+												:v-key="index"
+											>
 												<div class="review-img">
 													<img src="assets/images/testimonial-image/2.png" alt />
 												</div>
@@ -118,7 +124,7 @@
 													<div class="review-top-wrap">
 														<div class="review-left">
 															<div class="review-name">
-																<h4>{{comment.name}}</h4>
+																<h4>{{ comment.name }}</h4>
 															</div>
 															<div class="rating-product">
 																<star-rating
@@ -131,7 +137,7 @@
 													</div>
 													<div class="review-bottom">
 														<p>
-															{{comment.comment}}
+															{{ comment.comment }}
 														</p>
 													</div>
 												</div>
@@ -140,15 +146,11 @@
 									</div>
 									<div class="col-lg-5">
 										<div class="ratting-form-wrapper pl-50">
+											<div class="ratting-form" v-if="loggedInUser">
 											<h3>Add a Review</h3>
-											<div class="ratting-form">
 												<ValidationObserver ref="form" v-slot="{ handleSubmit }">
-													 <form
-                                            @submit.prevent="
-                                                handleSubmit(onSubmit)
-                                            "
-                                        >
-														<div class="star-box">
+													<form @submit.prevent="handleSubmit(onSubmit)" >
+														<div class="star-box" >
 															<span> Your rating: </span>
 															<div class="rating-product">
 																<star-rating
@@ -158,8 +160,8 @@
 																></star-rating>
 															</div>
 														</div>
-														<div class="row">
-															<div class="col-md-6">
+														<div class="row" >
+															<div class="col-md-6" >
 																<div class="rating-form-style mb-10">
 																	<ValidationProvider
 																		name="Name"
@@ -178,7 +180,7 @@
 																	</ValidationProvider>
 																</div>
 															</div>
-															<div class="col-md-6">
+															<div class="col-md-6" >
 																<div class="rating-form-style mb-10">
 																	<ValidationProvider
 																		name="Email"
@@ -200,7 +202,7 @@
 															<div class="col-md-12">
 																<div class="rating-form-style form-submit">
 																	<textarea
-                                                                        v-model="form.comment"
+																		v-model="form.comment"
 																		name="Your Review"
 																		placeholder="Message"
 																	></textarea>
@@ -208,9 +210,13 @@
 																</div>
 															</div>
 														</div>
+														
 													</form>
 												</ValidationObserver>
 											</div>
+											<h3 v-else>Please <router-link to="/login"
+                                                >Login</router-link
+                                            > to give a comment.</h3>
 										</div>
 									</div>
 								</div>
@@ -226,7 +232,7 @@
 import axios from 'axios';
 import { Tabs, Tab } from 'vue-tabs-component';
 import StarRating from 'vue-star-rating';
-import VsToast from "@vuesimple/vs-toast";
+import VsToast from '@vuesimple/vs-toast';
 
 export default {
 	components: {
@@ -236,56 +242,58 @@ export default {
 	},
 	data() {
 		return {
-            form: {
-                rating: 0,
-                name: null,
-                email: null,
-                comment: null,
-                product_id: this.$route.params.id
-            },
+			userLoggedIn: '',
+			loggedInUser: '',
+			form: {
+				rating: 0,
+				name: null,
+				email: null,
+				comment: null,
+				product_id: this.$route.params.id,
+			},
 			item: null,
 		};
 	},
 	methods: {
-        onSubmit() {
-            this.$refs.form.validate().then(success => {
-                if (!success) {
-                    return;
-                }
+		onSubmit() {
+			this.$refs.form.validate().then((success) => {
+				if (!success) {
+					return;
+				}
 
-                if(!this.form.rating){
-                   VsToast.show({
-                            title: "Error!",
-                            message: 'Please select rating',
-                            variant: "error"
-                        }); 
-                        return false;
-                }
-                axios
-                    .post(route("product.comment"), this.form)
-                    .then(res => {
-                        if (res.data.status) {
-                            VsToast.show({
-                                title: "Success",
-                                message: res.data.message,
-                                variant: "success"
-                            });
-                            this.getSingleProduct();
-                        }
-                    })
-                    .catch(err => {
-                        if (err.response.status === 422) {
-                            this.$refs.form.setErrors(err.response.data.errors);
-                        }
-                        VsToast.show({
-                            title: "Error!",
-                            message: err.response.data.message,
-                            variant: "error"
-                        });
-                        console.log(err);
-                    });
-            });
-        },
+				if (!this.form.rating) {
+					VsToast.show({
+						title: 'Error!',
+						message: 'Please select rating',
+						variant: 'error',
+					});
+					return false;
+				}
+				axios
+					.post(route('product.comment'), this.form)
+					.then((res) => {
+						if (res.data.status) {
+							VsToast.show({
+								title: 'Success',
+								message: res.data.message,
+								variant: 'success',
+							});
+							this.getSingleProduct();
+						}
+					})
+					.catch((err) => {
+						if (err.response.status === 422) {
+							this.$refs.form.setErrors(err.response.data.errors);
+						}
+						VsToast.show({
+							title: 'Error!',
+							message: err.response.data.message,
+							variant: 'error',
+						});
+						console.log(err);
+					});
+			});
+		},
 		getSingleProduct() {
 			axios
 				.get(route('shop.product', { id: this.$route.params.id }))
@@ -297,6 +305,11 @@ export default {
 		},
 	},
 	mounted() {
+		this.loggedInUser = JSON.parse(localStorage.getItem('company_user'));
+		if(this.loggedInUser){
+			this.form.name = this.loggedInUser.name;
+			this.form.email = this.loggedInUser.email;
+		}
 		this.getSingleProduct();
 	},
 };
