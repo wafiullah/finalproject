@@ -136,24 +136,43 @@ class AttendanceController extends Controller
 
     }
 
-    public function attendanceMonthly(Request $request){
+    public function attendanceMonthly(Request $request)
+    {
 
         $attendances = Attendance::query()
-        ->whereBetween('date', [$request->start_date,$request->end_date])
-        ->with('employee')
-        ->get();
+            ->with('employee')
+            ->select('attendance','date', 'employee_id', \DB::raw('count(*) as total'))
+            ->whereBetween('date', [$request->start_date, $request->end_date])
+            ->groupBy('attendance','employee_id')
+            ->get()->toArray();
+        // dd($attendances);
+        $array = [];
+        foreach ($attendances as $key => $attendance) {
+            if(!in_array($attendance['employee_id'], $array)){
+                $employee = [
+                    'employee' => $attendance['employee'],
+                    'attendance' => $attendance['attendance'],
+                    'employee_id' => $attendance['employee_id'],
 
-        $totalAbsents = $attendances->filter(function($item){
-            if(!$item->attendance){
-                return  true;
+                ];
             }
-        })->count();
-        $totalPresent = $attendances->filter(function($item){
-            if($item->attendance){
-                return  true;
-            }
-        })->count();
+            $attendanceData = [
+                'present' => $attendance['attendance'] == 1 ? $attendance['total'] : 0,
+                'absent' => $attendance['attendance'] == 0 ? $attendance['total'] : 0,
+            ];
+            $array[$key] = array_merge($employee, $attendanceData);
+        }
+        // dd($array);
+        $monthlyAttendances = $this->_group_by($array,'employee_id');
+        // dd($monthlyAttendances);
+        return view('admin.attendance.monthly', compact('monthlyAttendances'));
+    }
 
-        return view('admin.attendance.monthly', compact('attendances','totalPresent','totalAbsents'));
+    public function _group_by($array, $key) {
+        $return = array();
+        foreach($array as $val) {
+            $return[$val[$key]][] = $val;
+        }
+        return $return;
     }
 }

@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AttendanceController;
 
 use App\Http\Controllers\Admin\ResetPasswordController;
+use App\Http\Controllers\Admin\ContactInquiryController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
 use App\Http\Controllers\Admin\PurchaseMaterialController;
 
@@ -51,6 +52,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('attendance', AttendanceController::class);
         Route::resource('orders', OrderController::class);
         Route::resource('users', UsersController::class);
+        Route::resource('contact-inquiries', ContactInquiryController::class);
 
         Route::put('attendance/{attendance?}', [AttendanceController::class,'attendanceUpdate'])->name('attendance-update');
         Route::get('attendanc/monthly', [AttendanceController::class,'attendanceMonthly'])->name('attendance-monthly');

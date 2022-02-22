@@ -64,16 +64,16 @@
                     <a href="{{route('admin.orders.index')}}" class="sidebar-nav-link sales"><i
                             class="icon ion-ios-list"></i>
                         Sales</a>
-                    </li>
-                    <li class="sidebar-nav-item">
+                </li>
+                <li class="sidebar-nav-item">
                     <a href="{{route('admin.products.index')}}" class="sidebar-nav-link products"><i
                             class="icon ion-ios-list"></i>
                         Products</a>
-                    </li>
-                    <li class="sidebar-nav-item">
-                        <a href="{{route('admin.purchase-materials.index')}}"
-                            class="sidebar-nav-link purchase-materials"><i class="icon ion-ios-list"></i>
-                            Purchase Materials</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="{{route('admin.purchase-materials.index')}}" class="sidebar-nav-link purchase-materials"><i
+                            class="icon ion-ios-list"></i>
+                        Purchase Materials</a>
                     </li>
                     <li class="sidebar-nav-item">
                         <a href="{{route('admin.suppliers.index')}}" class="sidebar-nav-link suppliers"><i
@@ -95,12 +95,17 @@
                             class="icon ion-ios-people"></i>
                         Customers</a>
                 </li>
+                <li class="sidebar-nav-item">
+                    <a href="{{route('admin.contact-inquiries.index')}}" class="sidebar-nav-link users"><i
+                            class="icon ion-ios-people"></i>
+                        Contact Inquiries</a>
+                </li>
                 {{-- <li class="sidebar-nav-item with-sub">
                     <a href="" class="sidebar-nav-link"><i class="icon ion-ios-cog"></i> Manage Data</a>
                     <ul class="nav sidebar-nav-sub">
                         <li class="nav-sub-item"> <a href="{{route('admin.categories.index')}}" class="nav-sub-link">
-                                Manage Categories</a> </li>
-                    </ul>
+                Manage Categories</a> </li>
+                </ul>
                 </li> --}}
             </ul>
         </div>

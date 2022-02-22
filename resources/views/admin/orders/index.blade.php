@@ -38,9 +38,9 @@
                         <tbody>
                             @forelse ($orders as $order)
                             <tr>
-                                <td>{{$order->product->title}}</td>
+                                <td>{{optional($order->product)->title}}</td>
                                 <td>{{$order->quantity}}</td>
-                                <td>{{$order->user->name}}</td>
+                                <td>{{optional($order->user)->name}}</td>
                                 <td>{{$order->order_date}}</td>
                                 <td>{{$order->amount}}</td>
                                 <td>

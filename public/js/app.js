@@ -3246,6 +3246,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vuesimple/vs-toast */ "./node_modules/@vuesimple/vs-toast/dist/vs-toast.esm.js");
 //
 //
 //
@@ -3450,13 +3451,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       formData: {
         name: "",
-        eamil: "",
+        email: "",
         subject: "",
         message: ""
       }
@@ -3464,7 +3465,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onSubmit: function onSubmit() {
-      console.log(this.formData);
+      var _this = this;
+
+      this.$refs.form.validate().then(function (success) {
+        if (!success) {
+          return;
+        }
+
+        axios.post(route("contact.store"), _this.formData).then(function (res) {
+          console.log(res.data);
+
+          if (res.data.status) {
+            _this.resetForm();
+
+            _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_0__.default.show({
+              title: "Success",
+              message: res.data.message,
+              variant: "success"
+            });
+          }
+        })["catch"](function (err) {
+          if (err.response.status === 422) {
+            _this.$refs.form.setErrors(err.response.data.errors);
+          }
+
+          _vuesimple_vs_toast__WEBPACK_IMPORTED_MODULE_0__.default.show({
+            title: "Error!",
+            message: err.response.data.message,
+            variant: "error"
+          });
+          console.log(err);
+        });
+      });
+    },
+    resetForm: function resetForm() {
+      this.formData.name = null;
+      this.formData.email = null;
+      this.formData.subject = null;
+      this.formData.message = null;
     }
   }
 });
@@ -27040,14 +27078,6 @@ var staticRenderFns = [
           _c("a", { attrs: { href: "/admin/login", target: "_blank" } }, [
             _vm._v("Admin Panel")
           ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "top-10px mr-15px" }, [
-          _c("select", [
-            _c("option", { attrs: { value: "1" } }, [_vm._v("English")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("France")])
-          ])
         ])
       ])
     ])
@@ -27437,6 +27467,7 @@ var render = function() {
               _vm._m(1),
               _vm._v(" "),
               _c("ValidationObserver", {
+                ref: "form",
                 scopedSlots: _vm._u([
                   {
                     key: "default",
@@ -27464,7 +27495,7 @@ var render = function() {
                                     _c("ValidationProvider", {
                                       attrs: {
                                         name: "Name",
-                                        rules: "required|alpha"
+                                        rules: "required"
                                       },
                                       scopedSlots: _vm._u(
                                         [

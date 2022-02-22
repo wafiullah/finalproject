@@ -41,7 +41,7 @@
                             <tr>
                                 <td>{{$material->title}}</td>
                                 <td>{{$material->unit_price}}</td>
-                                <td>{{$material->supplier->name}}</td>
+                                <td>{{optional($material->supplier)->name}}</td>
                                 <td>{{$material->total_amount}}</td>
                                 <td>{{$material->unit}}</td>
                                 <td>{{$material->quantity}}</td>

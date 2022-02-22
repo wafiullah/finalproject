@@ -51,7 +51,7 @@
 
                                         <!-- Currency End -->
                                         <!-- Language Start -->
-                                        <li class="top-10px mr-15px">
+                                        <!-- <li class="top-10px mr-15px">
                                             <select>
                                                 <option value="1"
                                                     >English</option
@@ -60,7 +60,7 @@
                                                     >France</option
                                                 >
                                             </select>
-                                        </li>
+                                        </li> -->
                                         <!-- Language End -->
                                     </ul>
                                 </div>

@@ -23,7 +23,7 @@
             @include('partials.alerts')
             <div class="section-wrapper">
                 <form action="{{route('admin.attendance-monthly')}}" method="GET">
-                    <div class="row no-gutters">
+                    {{-- <div class="row no-gutters">
                         <div class="col-lg-3">
                             <div class="dash-content">
                                 <label class="tx-primary">Total Absents</label>
@@ -36,7 +36,7 @@
                                 <h2>{{$totalPresent}}</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
@@ -53,10 +53,10 @@
                             </div>
                         </div>
                         <div class="col-sm-2">
-                            <a href="{{ route('admin.attendance-monthly') }}" class="btn btn-primary"
+                            <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Search</button>
+                            <a href="{{ route('admin.attendance-monthly') }}" class="btn btn-danger"
                                 style="margin-top: 25px;">Reset
                             </a>
-                            <button type="submit" class="btn btn-primary" style="margin-top: 25px;">Search</button>
                         </div>
                     </div>
                 </form>
@@ -67,24 +67,36 @@
                                 <th>Serial</th>
                                 <th>Name</th>
                                 <th>Photo</th>
-                                <th>Attendance</th>
+                                <th>Present</th>
+                                <th>Absent</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($attendances as $key => $attendance)
+                            @foreach($monthlyAttendances as $key => $attendance)
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{ $attendance->employee->name }}</td>
+                                <td>{{ $attendance[0]['employee']['name'] }}</td>
                                 <td>
                                     <img width="40" height="40" class="img-fluid img-rounded"
-                                        src="{{ $attendance->employee->photo }}"
-                                        alt="{{ $attendance->employee->name }}">
+                                        src="{{ $attendance[0]['employee']['photo'] }}"
+                                        alt="{{ $attendance[0]['employee']['name'] }}">
                                 </td>
                                 <td>
-                                    @if($attendance->attendance == '1')
-                                    <span class="badge badge-success">Present</span>
+                                    @if($attendance[0]['attendance'] == 1)
+                                    <span class="badge badge-success">{{ $attendance[0]['present'] }}</span>
+                                    @elseif(isset( $attendance[1]) && $attendance[1]['attendance'] == 1)
+                                    <span class="badge badge-success">{{ $attendance[1]['present'] }}</span>
                                     @else
-                                    <span class="badge badge-danger">Absent</span>
+                                    <span class="badge badge-success">0</span>
+                                    @endif
+                                    </td>
+                                    <td>
+                                        @if($attendance[0]['attendance'] == 0)
+                                        <span class="badge badge-danger">{{ $attendance[0]['absent'] }}</span>
+                                        @elseif(isset( $attendance[1]) && $attendance[1]['attendance'] == 0)
+                                        <span class="badge badge-danger">{{ $attendance[1]['absent'] }}</span>
+                                        @else
+                                        <span class="badge badge-danger">0</span>
                                     @endif
                                 </td>
                             </tr>

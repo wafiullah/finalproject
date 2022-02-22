@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\User\AuthController;
 
 /*
@@ -28,3 +29,5 @@ Route::post('user/profile', [AuthController::class, 'updateProfile'])->name('use
 Route::get('shop/products', [ShopController::class, 'getProducts'])->name('shop.products');
 Route::get('shop/product/{id}', [ShopController::class, 'getSingleProduct'])->name('shop.product');
 Route::post('shop/product/comment', [ShopController::class, 'storeProductComment'])->name('product.comment');
+Route::post('contact', [PagesController::class, 'storeContactInquiry'])->name('contact.store');
+

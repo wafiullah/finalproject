@@ -92,7 +92,7 @@
                             <h2>Get In Touch</h2>
                         </div>
 
-                        <ValidationObserver v-slot="{ handleSubmit }">
+                        <ValidationObserver v-slot="{ handleSubmit }" ref="form">
                             <form
                                 @submit.prevent="handleSubmit(onSubmit)"
                                 class="contact-form-style"
@@ -102,7 +102,7 @@
                                         <div class="form-group">
                                             <ValidationProvider
                                                 name="Name"
-                                                rules="required|alpha"
+                                                rules="required"
                                                 v-slot="{ errors }"
                                             >
                                                 <input
@@ -202,14 +202,14 @@
         </div>
     </div>
 </template>
-
 <script>
+import VsToast from "@vuesimple/vs-toast";
 export default {
     data() {
         return {
             formData: {
                 name: "",
-                eamil: "",
+                email: "",
                 subject: "",
                 message: ""
             }
@@ -217,7 +217,42 @@ export default {
     },
     methods: {
         onSubmit() {
-            console.log(this.formData);
+            this.$refs.form.validate().then(success => {
+                if (!success) {
+                    return;
+                }
+                axios
+                    .post(route("contact.store"), this.formData)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.status) {
+                           this.resetForm();
+                            VsToast.show({
+                                title: "Success",
+                                message: res.data.message,
+                                variant: "success"
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        if (err.response.status === 422) {
+                            this.$refs.form.setErrors(err.response.data.errors);
+                        }
+
+                        VsToast.show({
+                            title: "Error!",
+                            message: err.response.data.message,
+                            variant: "error"
+                        });
+                        console.log(err);
+                    });
+            });
+        },
+        resetForm(){
+            this.formData.name = null;
+            this.formData.email = null;
+            this.formData.subject = null;
+            this.formData.message = null;
         }
     }
 };
