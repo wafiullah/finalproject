@@ -26,8 +26,8 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Address</th>
-                                <th>Mobile</th>
+                                <th>Subject</th>
+                                <th>Message</th>
                                 <th>Date</th>
                                 <th>Actions</th>
                             </tr>
