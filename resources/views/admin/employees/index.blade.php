@@ -78,7 +78,11 @@
                                 <td>{{$employee->salary}}</td>
                                 <td>{{$employee->experience}}</td>
                                 <td>{{$employee->joining_date}}</td>
-                                <td><a href="{{route('admin.employees.edit',$employee->id)}}"
+                                <td>
+                                    <a href="{{route('admin.employee-salary.index',['id' => $employee->id])}}"
+                                        class="btn btn-success btn-sm">Generate Salary</a>
+
+                                    <a href="{{route('admin.employees.edit',$employee->id)}}"
                                         class="btn btn-success btn-sm">Edit</a>
                                     <form action="{{ route('admin.employees.destroy', $employee->id) }}" method="post"
                                         style="display: inline-block;" onsubmit="return confirm('are you sure?')">

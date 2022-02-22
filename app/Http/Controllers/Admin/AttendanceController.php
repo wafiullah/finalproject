@@ -173,4 +173,39 @@ class AttendanceController extends Controller
         }
         return $return;
     }
+
+    public function employeeAttendance(Request $request)
+    {
+
+        $attendances = Attendance::where([
+            'employee_id' => $request->id,
+            'month' => $request->month,
+            'year' => $request->year,
+        ])->with('employee')->get();
+
+        $totalAbsents = $attendances->filter(function ($item) {
+            if (!$item->attendance) {
+                return true;
+            }
+        })->count();
+        $totalPresent = $attendances->filter(function ($item) {
+            if ($item->attendance) {
+                return true;
+            }
+        })->count();
+
+        $employee = Employee::where(['id' => $request->id])->first();
+
+        $salaryDeductionPerAbsent = 1000;
+        $deductedSalary = $salaryDeductionPerAbsent * $totalAbsents;
+        $generatedSalary = $employee->salary -$deductedSalary;
+        return response()->json([
+            'attendances' => $attendances,
+            'totalAbsents' => $totalAbsents,
+            'totalPresent' => $totalPresent,
+            'employee' => $employee,
+            'generatedSalary' => $generatedSalary,
+            'deductedSalary' => $deductedSalary,
+        ]);
+    }
 }

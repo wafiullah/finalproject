@@ -107,6 +107,37 @@ INSERT INTO `contact_inquiries` VALUES (1,'Reprehenderit omnis','nawacuj@mailina
 UNLOCK TABLES;
 
 --
+-- Table structure for table `employee_salaries`
+--
+
+DROP TABLE IF EXISTS `employee_salaries`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employee_salaries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `employee_id` int(11) DEFAULT NULL,
+  `month` varchar(50) DEFAULT NULL,
+  `year` varchar(50) DEFAULT NULL,
+  `absents` int(11) DEFAULT NULL,
+  `presents` int(11) DEFAULT NULL,
+  `generated_salary` decimal(12,2) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deducted_salary` decimal(12,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee_salaries`
+--
+
+LOCK TABLES `employee_salaries` WRITE;
+/*!40000 ALTER TABLE `employee_salaries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employee_salaries` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `employees`
 --
 
@@ -334,7 +365,7 @@ CREATE TABLE `products` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -343,7 +374,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Juicy Couture Juicy Quilted',100.00,26.00,'Juicy Couture Juicy Quilted','/images/product-1.jpg',NULL,'2022-02-15 12:50:23','2022-02-15 12:50:23'),(2,'Originals Kaval Windbr',300.00,50.00,'Originals Kaval Windbr','/images/product-13.jpg',NULL,'2022-02-15 13:12:46','2022-02-15 13:12:46');
+INSERT INTO `products` VALUES (1,'Juicy Couture Juicy Quilted',100.00,26.00,'Juicy Couture Juicy Quilted','/images/product-1.jpg',NULL,'2022-02-15 12:50:23','2022-02-15 12:50:23'),(2,'Originals Kaval Windbr',300.00,50.00,'Originals Kaval Windbr','/images/product-13.jpg',NULL,'2022-02-15 13:12:46','2022-02-15 13:12:46'),(3,'Test Product',100.00,99.00,'Test','/images/13.jpg',NULL,'2022-02-22 08:32:20','2022-02-22 08:32:20');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,4 +485,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-22 17:38:38
+-- Dump completed on 2022-02-22 23:29:52

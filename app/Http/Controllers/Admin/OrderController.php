@@ -56,7 +56,7 @@ class OrderController extends Controller
             'status' => 'required',
             'amount' => 'required',
         ]);
-
+        
         Order::create($validated);
         return redirect()->route('admin.orders.index')->with('success', 'Order successfully created.');
 

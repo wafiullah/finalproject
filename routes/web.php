@@ -7,12 +7,13 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\OrderController;
 
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\SalaryController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\AttendanceController;
 
+use App\Http\Controllers\Admin\AttendanceController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\ContactInquiryController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
@@ -53,9 +54,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::resource('orders', OrderController::class);
         Route::resource('users', UsersController::class);
         Route::resource('contact-inquiries', ContactInquiryController::class);
+        Route::resource('employee-salary', SalaryController::class);
 
         Route::put('attendance/{attendance?}', [AttendanceController::class,'attendanceUpdate'])->name('attendance-update');
         Route::get('attendanc/monthly', [AttendanceController::class,'attendanceMonthly'])->name('attendance-monthly');
+        Route::get('employee/attendance', [AttendanceController::class,'employeeAttendance'])->name('employee.attendance');
 
     });
 });

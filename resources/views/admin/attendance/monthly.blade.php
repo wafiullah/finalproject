@@ -66,9 +66,11 @@
                             <tr>
                                 <th>Serial</th>
                                 <th>Name</th>
+                                <th>Salary</th>
                                 <th>Photo</th>
                                 <th>Present</th>
                                 <th>Absent</th>
+                                <th>Generated Salary</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,9 +78,14 @@
                             $count=1;
                             @endphp
                             @foreach($monthlyAttendances as $key => $attendance)
+                            @php
+                            $salaryDeduction=1000;
+                            $salaryDeducted=$attendance[0]['employee']['salary'];
+                            @endphp
                             <tr>
                                 <td>{{ $count }}</td>
                                 <td>{{ $attendance[0]['employee']['name'] }}</td>
+                                <td>{{ $attendance[0]['employee']['salary'] }}</td>
                                 <td>
                                     <img width="40" height="40" class="img-fluid img-rounded"
                                         src="{{ $attendance[0]['employee']['photo'] }}"
@@ -96,7 +103,13 @@
                                     <td>
                                         @if($attendance[0]['attendance'] == 0)
                                         <span class="badge badge-danger">{{ $attendance[0]['absent'] }}</span>
+                                        @php
+                                        $salaryDeducted = $attendance[0]['employee']['salary'] - $salaryDeduction;
+                                        @endphp
                                         @elseif(isset( $attendance[1]) && $attendance[1]['attendance'] == 0)
+                                        @php
+                                        $salaryDeducted = $attendance[0]['employee']['salary'] - $salaryDeduction;
+                                        @endphp
                                         <span class="badge badge-danger">{{ $attendance[1]['absent'] }}</span>
                                         @else
                                         <span class="badge badge-danger">0</span>

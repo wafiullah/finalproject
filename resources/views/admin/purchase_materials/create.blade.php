@@ -6,7 +6,7 @@
 @endpush
 @section('content')
 <div class="container">
-    <div class="slim-pageheader">
+    <div class="slim-pageheader" data-menu="purchase-materials">
         <ol class="breadcrumb slim-breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
             <li class="breadcrumb-item active"><a href="#">Add Material</a></li>
