@@ -72,9 +72,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $count=1;
+                            @endphp
                             @foreach($monthlyAttendances as $key => $attendance)
                             <tr>
-                                <td>{{ $key+1 }}</td>
+                                <td>{{ $count }}</td>
                                 <td>{{ $attendance[0]['employee']['name'] }}</td>
                                 <td>
                                     <img width="40" height="40" class="img-fluid img-rounded"
@@ -100,6 +103,9 @@
                                     @endif
                                 </td>
                             </tr>
+                            @php
+                            $count++;
+                            @endphp
                             @endforeach
                         </tbody>
                     </table>

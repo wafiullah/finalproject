@@ -27,7 +27,8 @@
                             <select class="form-control" name="product_id" id="product_id">
                                 <option value="">Select Product</option>
                                 @foreach ($products as $product)
-                                <option value="{{ $product->id }}" @if ($product->id == $order->product_id)
+                                <option value="{{ $product->id }}" price="{{ $product->discounted_price }}"
+                                    @if($product->id == $order->product_id)
                                     selected
                                     @endif>{{ $product->title }}</option>
                                 @endforeach
@@ -37,14 +38,14 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="quantity"
+                            <input class="form-control" type="number" min="1" id="quantity" required name="quantity"
                                 value="{{ $order->quantity }}" placeholder="Quantity">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Amount: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="amount"
+                            <input class="form-control" type="number" id="total_amount" required name="amount"
                                 value="{{ $order->amount }}" placeholder="Amount">
                         </div>
                     </div>
@@ -93,4 +94,28 @@
 </div>
 @endsection
 @push('js')
+<script src="{{ asset('assets/lib/jquery-ui/js/jquery-ui.js') }}"></script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+    $('#product_id').change(function (e) {
+        e.preventDefault();
+        calculateTotalAmount();
+    });
+
+    $("#quantity").on('change keyup', function (e) {
+        calculateTotalAmount();
+    });
+    calculateTotalAmount();
+
+    function calculateTotalAmount() {
+        var totalAmount = 0;
+        var productPrice = parseInt($('#product_id').find(':selected').attr('price'));
+        var quantity = $("#quantity").val();
+        $("#total_amount").val(quantity * productPrice);
+    }
+</script>
 @endpush

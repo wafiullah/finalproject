@@ -141,14 +141,13 @@ class AttendanceController extends Controller
 
         $attendances = Attendance::query()
             ->with('employee')
-            ->select('attendance','date', 'employee_id', \DB::raw('count(*) as total'))
+            ->select('attendance', 'date', 'employee_id', \DB::raw('count(*) as total'))
             ->whereBetween('date', [$request->start_date, $request->end_date])
-            ->groupBy('attendance','employee_id')
+            ->groupBy('attendance', 'employee_id')
             ->get()->toArray();
-        // dd($attendances);
         $array = [];
         foreach ($attendances as $key => $attendance) {
-            if(!in_array($attendance['employee_id'], $array)){
+            if (!in_array($attendance['employee_id'], $array)) {
                 $employee = [
                     'employee' => $attendance['employee'],
                     'attendance' => $attendance['attendance'],
@@ -162,15 +161,14 @@ class AttendanceController extends Controller
             ];
             $array[$key] = array_merge($employee, $attendanceData);
         }
-        // dd($array);
-        $monthlyAttendances = $this->_group_by($array,'employee_id');
-        // dd($monthlyAttendances);
+        $monthlyAttendances = $this->_group_by($array, 'employee_id');
         return view('admin.attendance.monthly', compact('monthlyAttendances'));
     }
 
-    public function _group_by($array, $key) {
+    public function _group_by($array, $key)
+    {
         $return = array();
-        foreach($array as $val) {
+        foreach ($array as $val) {
             $return[$val[$key]][] = $val;
         }
         return $return;

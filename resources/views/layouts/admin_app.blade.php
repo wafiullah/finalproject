@@ -96,7 +96,7 @@
                         Customers</a>
                 </li>
                 <li class="sidebar-nav-item">
-                    <a href="{{route('admin.contact-inquiries.index')}}" class="sidebar-nav-link users"><i
+                    <a href="{{route('admin.contact-inquiries.index')}}" class="sidebar-nav-link contact"><i
                             class="icon ion-ios-people"></i>
                         Contact Inquiries</a>
                 </li>

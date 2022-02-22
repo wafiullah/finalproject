@@ -37,6 +37,7 @@
                         <div class="form-group">
                             <label for="">Select Unit</label>
                             <select class="form-control" name="unit" id="unit">
+                                <option value="Lt">Littre</option>
                                 <option value="Kg">Kilogram</option>
                                 <option value="t">Tonne</option>
                                 <option value="Gt">Gigatonne</option>
@@ -53,21 +54,21 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="quantity"
+                            <input class="form-control" type="number" min="1" id="quantity" required name="quantity"
                                 value="{{ old('quantity') }}" placeholder="Quantity">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Unit Price: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="unit_price"
+                            <input class="form-control" type="number" id="unit_price" required name="unit_price"
                                 value="{{ old('unit_price') }}" placeholder="Unit Price">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Total Amount: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="total_amount"
+                            <input class="form-control" type="number" id="total_amount" required name="total_amount"
                                 value="{{ old('total_amount') }}" placeholder="Total Amount">
                         </div>
                     </div>
@@ -105,5 +106,18 @@
             dateFormat: 'yy-mm-dd'
         });
     });
+$("#quantity").on('change keyup', function (e) {
+calculateTotalAmount();
+});
+$("#unit_price").on('change keyup', function (e) {
+calculateTotalAmount();
+});
+
+function calculateTotalAmount() {
+var totalAmount = 0;
+var unitPrice = parseInt($('#unit_price').val());
+var quantity = $("#quantity").val();
+$("#total_amount").val(quantity * unitPrice);
+}
 </script>
 @endpush

@@ -161,44 +161,7 @@
 															</div>
 														</div>
 														<div class="row" >
-															<div class="col-md-6" >
-																<div class="rating-form-style mb-10">
-																	<ValidationProvider
-																		name="Name"
-																		rules="required"
-																		v-slot="{ errors }"
-																		vid="name"
-																	>
-																		<input
-																			placeholder="Name"
-																			type="text"
-																			v-model="form.name"
-																		/>
-																		<span class="text-danger text-sm">
-																			{{ errors[0] }}
-																		</span>
-																	</ValidationProvider>
-																</div>
-															</div>
-															<div class="col-md-6" >
-																<div class="rating-form-style mb-10">
-																	<ValidationProvider
-																		name="Email"
-																		rules="required|email"
-																		v-slot="{ errors }"
-																		vid="email"
-																	>
-																		<input
-																			placeholder="Email"
-																			type="email"
-																			v-model="form.email"
-																		/>
-																		<span class="text-danger text-sm">
-																			{{ errors[0] }}
-																		</span>
-																	</ValidationProvider>
-																</div>
-															</div>
+															
 															<div class="col-md-12">
 																<div class="rating-form-style form-submit">
 																	<textarea

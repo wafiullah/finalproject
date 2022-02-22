@@ -27,7 +27,8 @@
                             <select class="form-control" name="product_id" id="product_id">
                                 <option value="">Select Product</option>
                                 @foreach ($products as $product)
-                                <option value="{{ $product->id }}">{{ $product->title }}</option>
+                                <option value="{{ $product->id }}" price="{{ $product->discounted_price }}">
+                                    {{ $product->title }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -35,15 +36,15 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Quantity: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="quantity"
+                            <input class="form-control" type="number" min="1" required id="quantity" name="quantity"
                                 value="{{ old('quantity') }}" placeholder="Quantity">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label">Amount: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" required name="amount" value="{{ old('amount') }}"
-                                placeholder="Amount">
+                            <label class="form-control-label">Total Amount: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="number" id="total_amount" required name="amount"
+                                value="{{ old('amount') }}" placeholder="Amount">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -93,5 +94,21 @@
             dateFormat: 'yy-mm-dd'
         });
     });
+    $('#product_id').change(function (e) {
+    e.preventDefault();
+    calculateTotalAmount();
+    });
+
+    $("#quantity").on('change keyup', function (e) {
+    calculateTotalAmount();
+    });
+
+    function calculateTotalAmount() {
+    var totalAmount = 0;
+    var productPrice = parseInt($('#product_id').find(':selected').attr('price'));
+    var quantity = $("#quantity").val();
+    $("#total_amount").val(quantity * productPrice);
+    }
+
 </script>
 @endpush
