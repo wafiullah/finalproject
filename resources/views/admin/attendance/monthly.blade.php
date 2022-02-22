@@ -70,7 +70,6 @@
                                 <th>Photo</th>
                                 <th>Present</th>
                                 <th>Absent</th>
-                                <th>Generated Salary</th>
                             </tr>
                         </thead>
                         <tbody>
