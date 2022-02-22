@@ -73,8 +73,37 @@ CREATE TABLE `attendances` (
 
 LOCK TABLES `attendances` WRITE;
 /*!40000 ALTER TABLE `attendances` DISABLE KEYS */;
-INSERT INTO `attendances` VALUES (3,4,1,'2022-01-01','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(4,5,1,'2022-01-01','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(5,5,1,'2022-01-02','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(6,4,0,'2022-01-02','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(7,4,1,'2022-01-03','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(8,5,0,'2022-01-03','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(9,5,1,'2022-01-04','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(10,4,1,'2022-01-04','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(11,4,1,'2022-02-18','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(12,5,1,'2022-02-18','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(13,5,1,'2022-02-19','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(14,4,1,'2022-02-19','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(15,4,1,'2022-02-20','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(16,5,1,'2022-02-20','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(17,5,1,'2022-02-21','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(18,4,1,'2022-02-21','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51');
+INSERT INTO `attendances` VALUES (3,4,0,'2022-01-01','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(4,5,0,'2022-01-01','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(5,5,1,'2022-01-02','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(6,4,0,'2022-01-02','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(7,4,1,'2022-01-03','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(8,5,0,'2022-01-03','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(9,5,1,'2022-01-04','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(10,4,1,'2022-01-04','januarary','2022','2022-01-01 00:35:51','2022-02-21 00:35:51'),(11,4,1,'2022-02-18','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(12,5,1,'2022-02-18','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(13,5,0,'2022-02-19','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(14,4,1,'2022-02-19','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(15,4,1,'2022-02-20','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(16,5,1,'2022-02-20','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(17,5,1,'2022-02-21','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51'),(18,4,1,'2022-02-21','february','2022','2022-02-21 00:35:51','2022-02-21 00:35:51');
 /*!40000 ALTER TABLE `attendances` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contact_inquiries`
+--
+
+DROP TABLE IF EXISTS `contact_inquiries`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contact_inquiries` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `subject` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contact_inquiries`
+--
+
+LOCK TABLES `contact_inquiries` WRITE;
+/*!40000 ALTER TABLE `contact_inquiries` DISABLE KEYS */;
+INSERT INTO `contact_inquiries` VALUES (1,'Reprehenderit omnis','nawacuj@mailinator.com','2022-02-22 05:55:23','2022-02-22 05:55:23','Non molestias dolori','Vel nobis et deserun'),(2,'Nostrum sit anim qu','redazewox@mailinator.com','2022-02-22 05:55:58','2022-02-22 05:55:58','Beatae nisi molestia','Et minus dolor ex ut'),(3,'Enim labore veritati','hytawer@mailinator.com','2022-02-22 05:56:39','2022-02-22 05:56:39','Et in excepturi fugi','Autem in amet aut i'),(4,'Pariatur Aliquid nu','xaqa@mailinator.com','2022-02-22 05:57:12','2022-02-22 05:57:12','Animi vel proident','Nihil numquam enim e');
+/*!40000 ALTER TABLE `contact_inquiries` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -187,7 +216,7 @@ CREATE TABLE `orders` (
   `status` enum('Pending','Delivered','Cancelled') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount` decimal(12,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -196,7 +225,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,1,'2022-02-21 00:08:10','2022-02-21 00:39:15',30,1,'2022-02-16','Cancelled',3000.00);
+INSERT INTO `orders` VALUES (1,1,'2022-02-21 00:08:10','2022-02-22 05:31:58',301,1,'2022-02-16','Cancelled',3000.00),(2,1,'2022-02-22 05:32:13','2022-02-22 05:32:13',12,2,'2022-02-16','Pending',1222.00);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,7 +273,7 @@ CREATE TABLE `personal_access_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +282,7 @@ CREATE TABLE `personal_access_tokens` (
 
 LOCK TABLES `personal_access_tokens` WRITE;
 /*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
-INSERT INTO `personal_access_tokens` VALUES (1,'App\\Models\\User',1,'AppToken','69870d639f9095b11ed10c5c1edbe5d071517231a14d82beb4e65a1f72d82983','[\"*\"]',NULL,'2022-01-30 02:40:29','2022-01-30 02:40:29'),(2,'App\\Models\\User',1,'AppToken','eb82a51d35e5caf53b596f42e86b670bdbb0274d6c9b9306c4f5433df265def1','[\"*\"]',NULL,'2022-01-30 02:44:21','2022-01-30 02:44:21'),(3,'App\\Models\\User',1,'AppToken','18f81a2dc7d9db08a3252893567bcb156842c99c66877ba28d269a6d3105bf83','[\"*\"]',NULL,'2022-01-30 02:46:03','2022-01-30 02:46:03'),(4,'App\\Models\\User',1,'AppToken','d29dc03f34cd6d7c0d6ca5b81287bc469d04c9909239cfba23097d9cbc4e0c35','[\"*\"]',NULL,'2022-01-30 02:46:31','2022-01-30 02:46:31'),(5,'App\\Models\\User',1,'AppToken','e2b4da85c5b59ec3655bdd20e3d21687eab04af9dba8ef016446c661d19fc9d0','[\"*\"]',NULL,'2022-01-30 02:47:26','2022-01-30 02:47:26'),(6,'App\\Models\\User',1,'AppToken','20fd5cbfb3b653e94cdb1ed1bf6505dc38a5e107b092022ce84dfa8961052431','[\"*\"]',NULL,'2022-01-30 03:14:57','2022-01-30 03:14:57'),(7,'App\\Models\\User',1,'AppToken','7ec2e5ff39800a8defbd921107612411f6691ad9b42a3c728ff39f8f7f3befe0','[\"*\"]',NULL,'2022-01-30 03:21:05','2022-01-30 03:21:05'),(8,'App\\Models\\User',1,'AppToken','0e73b4afa3ec7b55a59cb606019b4ca8a0cdb4a5ec1194ab8a4ef88a8817aa4a','[\"*\"]',NULL,'2022-01-30 03:22:19','2022-01-30 03:22:19'),(9,'App\\Models\\User',1,'AppToken','f4905c1a9148d2331f05434dcc97df49ae303bab5765cf63cf70f679dd6085d4','[\"*\"]',NULL,'2022-01-30 03:22:27','2022-01-30 03:22:27'),(10,'App\\Models\\User',1,'AppToken','8347ad089730a9777db125cdfd9f57d0254dec427aeac61250e26e8255e8669e','[\"*\"]',NULL,'2022-01-30 03:24:01','2022-01-30 03:24:01');
+INSERT INTO `personal_access_tokens` VALUES (1,'App\\Models\\User',1,'AppToken','69870d639f9095b11ed10c5c1edbe5d071517231a14d82beb4e65a1f72d82983','[\"*\"]',NULL,'2022-01-30 02:40:29','2022-01-30 02:40:29'),(2,'App\\Models\\User',1,'AppToken','eb82a51d35e5caf53b596f42e86b670bdbb0274d6c9b9306c4f5433df265def1','[\"*\"]',NULL,'2022-01-30 02:44:21','2022-01-30 02:44:21'),(3,'App\\Models\\User',1,'AppToken','18f81a2dc7d9db08a3252893567bcb156842c99c66877ba28d269a6d3105bf83','[\"*\"]',NULL,'2022-01-30 02:46:03','2022-01-30 02:46:03'),(4,'App\\Models\\User',1,'AppToken','d29dc03f34cd6d7c0d6ca5b81287bc469d04c9909239cfba23097d9cbc4e0c35','[\"*\"]',NULL,'2022-01-30 02:46:31','2022-01-30 02:46:31'),(5,'App\\Models\\User',1,'AppToken','e2b4da85c5b59ec3655bdd20e3d21687eab04af9dba8ef016446c661d19fc9d0','[\"*\"]',NULL,'2022-01-30 02:47:26','2022-01-30 02:47:26'),(6,'App\\Models\\User',1,'AppToken','20fd5cbfb3b653e94cdb1ed1bf6505dc38a5e107b092022ce84dfa8961052431','[\"*\"]',NULL,'2022-01-30 03:14:57','2022-01-30 03:14:57'),(7,'App\\Models\\User',1,'AppToken','7ec2e5ff39800a8defbd921107612411f6691ad9b42a3c728ff39f8f7f3befe0','[\"*\"]',NULL,'2022-01-30 03:21:05','2022-01-30 03:21:05'),(8,'App\\Models\\User',1,'AppToken','0e73b4afa3ec7b55a59cb606019b4ca8a0cdb4a5ec1194ab8a4ef88a8817aa4a','[\"*\"]',NULL,'2022-01-30 03:22:19','2022-01-30 03:22:19'),(9,'App\\Models\\User',1,'AppToken','f4905c1a9148d2331f05434dcc97df49ae303bab5765cf63cf70f679dd6085d4','[\"*\"]',NULL,'2022-01-30 03:22:27','2022-01-30 03:22:27'),(10,'App\\Models\\User',1,'AppToken','8347ad089730a9777db125cdfd9f57d0254dec427aeac61250e26e8255e8669e','[\"*\"]',NULL,'2022-01-30 03:24:01','2022-01-30 03:24:01'),(11,'App\\Models\\User',3,'AppToken','f88948c0e6bc79f52bddb56d6b6a597f27a4ac59921b602ba6b881c46785327f','[\"*\"]',NULL,'2022-02-21 10:44:41','2022-02-21 10:44:41'),(12,'App\\Models\\User',3,'AppToken','bcd1f0f4203d0c560ecb1bc13290b75f27454b471798808343cc961ef19997b2','[\"*\"]','2022-02-21 11:54:18','2022-02-21 10:45:27','2022-02-21 11:54:18'),(13,'App\\Models\\User',2,'AppToken','619df246f15b678deadfd90daa9bbbed7189c5bcdc7b8de88fa03f6a3cf49e4f','[\"*\"]','2022-02-21 11:58:03','2022-02-21 11:57:54','2022-02-21 11:58:03'),(14,'App\\Models\\User',2,'AppToken','4df6b30f469299eb626b4a76a6d07764f3615be278d79be4b5598ab31d05f5ab','[\"*\"]',NULL,'2022-02-21 12:02:32','2022-02-21 12:02:32'),(15,'App\\Models\\User',1,'AppToken','2d64b0fedabe3a5aa2615d844e9c2fbb0d8484a4dbde67526a4208696692eed8','[\"*\"]',NULL,'2022-02-21 13:33:44','2022-02-21 13:33:44');
 /*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -274,7 +303,7 @@ CREATE TABLE `product_comments` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -283,7 +312,7 @@ CREATE TABLE `product_comments` (
 
 LOCK TABLES `product_comments` WRITE;
 /*!40000 ALTER TABLE `product_comments` DISABLE KEYS */;
-INSERT INTO `product_comments` VALUES (1,1,'Consequatur reprehen',4,'Aute eius minima eum','2022-02-21 08:25:22','2022-02-21 08:25:22','lupuxudyl@mailinator.com'),(2,1,'Autem pariatur Cons',0,'Optio unde illo dol','2022-02-21 08:29:28','2022-02-21 08:29:28','qiqa@mailinator.com'),(3,1,'Totam in sunt quibus',0,'Quia sunt dolor hic','2022-02-21 08:29:35','2022-02-21 08:29:35','bexacezan@mailinator.com'),(4,1,'Totam in sunt quibus',3,'Quia sunt dolor hic','2022-02-21 08:29:37','2022-02-21 08:29:37','bexacezan@mailinator.com'),(5,1,'Totam in sunt quibus',5,'Quia sunt dolor hic','2022-02-21 08:29:43','2022-02-21 08:29:43','bexacezan@mailinator.com'),(6,1,'Commodi a fugiat cor',0,'Et laborum non sapie','2022-02-21 08:31:14','2022-02-21 08:31:14','hefotiz@mailinator.com'),(7,1,'Accusantium qui saep',5,'Voluptas omnis labor','2022-02-21 08:32:46','2022-02-21 08:32:46','lesy@mailinator.com'),(8,1,'shoaib',5,'testing','2022-02-21 08:33:53','2022-02-21 08:33:53','mocoti@mailinator.com');
+INSERT INTO `product_comments` VALUES (1,1,'Consequatur reprehen',4,'Aute eius minima eum','2022-02-21 08:25:22','2022-02-21 08:25:22','lupuxudyl@mailinator.com'),(2,1,'Autem pariatur Cons',0,'Optio unde illo dol','2022-02-21 08:29:28','2022-02-21 08:29:28','qiqa@mailinator.com'),(3,1,'Totam in sunt quibus',0,'Quia sunt dolor hic','2022-02-21 08:29:35','2022-02-21 08:29:35','bexacezan@mailinator.com'),(4,1,'Totam in sunt quibus',3,'Quia sunt dolor hic','2022-02-21 08:29:37','2022-02-21 08:29:37','bexacezan@mailinator.com'),(5,1,'Totam in sunt quibus',5,'Quia sunt dolor hic','2022-02-21 08:29:43','2022-02-21 08:29:43','bexacezan@mailinator.com'),(6,1,'Commodi a fugiat cor',0,'Et laborum non sapie','2022-02-21 08:31:14','2022-02-21 08:31:14','hefotiz@mailinator.com'),(7,1,'Accusantium qui saep',5,'Voluptas omnis labor','2022-02-21 08:32:46','2022-02-21 08:32:46','lesy@mailinator.com'),(8,1,'shoaib',5,'testing','2022-02-21 08:33:53','2022-02-21 08:33:53','mocoti@mailinator.com'),(9,1,'Yuli Farrell1',5,'test','2022-02-21 12:04:47','2022-02-21 12:04:47','gutulusix@mailinator.com');
 /*!40000 ALTER TABLE `product_comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,7 +428,7 @@ CREATE TABLE `users` (
   `status` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +437,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Nasim Allison','dedijyp@mailinator.com',NULL,'$2y$10$2gBvdDa3TrQk8lETjqTkZupOhvL4IiWohoIAMkNGf/DSGPsoCdC4e',NULL,'2022-02-21 00:07:25','2022-02-21 00:07:25',0);
+INSERT INTO `users` VALUES (1,'Nasim Allison','dedijyp@mailinator.com',NULL,'$2y$10$g7jQUKDznnQqAc6CVJQ1MuCM7v7C4z3U9pYZu.qXrK.atUs/QCIX.',NULL,'2022-02-21 00:07:25','2022-02-21 10:36:36',0),(2,'Yuli Farrell1','gutulusix@mailinator.com',NULL,'$2y$10$5SwDvji3CNEGQSfxMk4Gi.VxOrU5Rup0CK.Ao4I03hix487m4XHji',NULL,'2022-02-21 10:36:50','2022-02-21 11:58:03',0),(3,'Rhona Ferguson1121','cuhycym@mailinator.com',NULL,'$2y$10$BFZkFRz1HlGFivpwgVBaOe4nXmhOy3hCs3qo0m.uJRhqgbB7rG7M6',NULL,'2022-02-21 10:42:24','2022-02-21 11:55:53',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,4 +454,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-21 18:40:57
+-- Dump completed on 2022-02-22 17:38:38
