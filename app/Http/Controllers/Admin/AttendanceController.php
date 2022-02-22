@@ -196,16 +196,33 @@ class AttendanceController extends Controller
 
         $employee = Employee::where(['id' => $request->id])->first();
 
-        $salaryDeductionPerAbsent = 1000;
+        $totalHolidays = $this->dayCount('friday', date('m', strtotime($request->month)), $request->year);
+        $totalDaysInMonth = cal_days_in_month(CAL_GREGORIAN, date('m', strtotime($request->month)), $request->year);
+
+        $salaryDeductionPerAbsent = $employee->salary / ($totalDaysInMonth - $totalHolidays);
         $deductedSalary = $salaryDeductionPerAbsent * $totalAbsents;
-        $generatedSalary = $employee->salary -$deductedSalary;
+        $generatedSalary = $employee->salary - $deductedSalary;
+
         return response()->json([
             'attendances' => $attendances,
             'totalAbsents' => $totalAbsents,
             'totalPresent' => $totalPresent,
             'employee' => $employee,
-            'generatedSalary' => $generatedSalary,
-            'deductedSalary' => $deductedSalary,
+            'generatedSalary' => round($generatedSalary, 2),
+            'deductedSalary' => round($deductedSalary, 2),
         ]);
+    }
+
+    public function dayCount($day, $month, $year)
+    {
+        $totalDay = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        $count = 0;
+        for ($i = 1; $totalDay >= $i; $i++) {
+            if (date('l', strtotime($year . '-' . $month . '-' . $i)) == ucwords($day)) {
+                $count++;
+            }
+        }
+
+        return $count;
     }
 }
