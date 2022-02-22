@@ -47,7 +47,7 @@
                                 <td>{{$salary->year}}</td>
                                 <td>{{$salary->absents}}</td>
                                 <td>{{$salary->presents}}</td>
-                                <td>{{$salary->generated_salary}}</td>
+                                <td>Af {{$salary->generated_salary}}</td>
                                 <td>{{ date("l, d F Y", strtotime($salary->created_at)) }}</td>
                             </tr>
                             @empty @endforelse
@@ -117,7 +117,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label">Generated Salary: <span
+                                <label class="form-control-label">Generated Salary in Af: <span
                                         class="tx-danger">*</span></label>
                                 <input class="form-control" type="number" id="generatedSalary" readonly required
                                     name="generated_salary" value="{{ old('generated_salary') }}">
@@ -125,7 +125,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label class="form-control-label">Deducted Salary: <span
+                                <label class="form-control-label">Deducted Salary in Af: <span
                                         class="tx-danger">*</span></label>
                                 <input class="form-control" type="number" id="deductedSalary" readonly required
                                     name="deducted_salary" value="{{ old('deducted_salary') }}">

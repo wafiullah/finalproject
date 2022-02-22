@@ -44,8 +44,8 @@
             </div>
             <div class="pricing-meta">
                 <ul>
-                    <li class="old-price">${{ item.price }}</li>
-                    <li class="current-price">${{ item.discounted_price }}</li>
+                    <li class="old-price">Af {{ item.price }}</li>
+                    <li class="current-price">Af {{ item.discounted_price }}</li>
                     <li class="discount-price">
                         -{{ calculatePercentage(item) }}%
                     </li>

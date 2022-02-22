@@ -27207,11 +27207,11 @@ var render = function() {
       _c("div", { staticClass: "pricing-meta" }, [
         _c("ul", [
           _c("li", { staticClass: "old-price" }, [
-            _vm._v("$" + _vm._s(_vm.item.price))
+            _vm._v("Af " + _vm._s(_vm.item.price))
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "current-price" }, [
-            _vm._v("$" + _vm._s(_vm.item.discounted_price))
+            _vm._v("Af " + _vm._s(_vm.item.discounted_price))
           ]),
           _vm._v(" "),
           _c("li", { staticClass: "discount-price" }, [

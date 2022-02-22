@@ -30,8 +30,8 @@
                                 <th>Quantity</th>
                                 <th>Customer</th>
                                 <th>Order Date</th>
-                                <th>Status</th>
                                 <th>Amount</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -42,7 +42,7 @@
                                 <td>{{$order->quantity}}</td>
                                 <td>{{optional($order->user)->name}}</td>
                                 <td>{{$order->order_date}}</td>
-                                <td>{{$order->amount}}</td>
+                                <td>Af {{$order->amount}}</td>
                                 <td>
                                     @if($order->status == 'Pending')
                                     <span class="badge badge-warning">{{$order->status}}</span>

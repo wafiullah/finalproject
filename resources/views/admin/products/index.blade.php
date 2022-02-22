@@ -36,8 +36,8 @@
                             @forelse ($products as $product)
                             <tr>
                                 <td>{{$product->title}}</td>
-                                <td>{{$product->price}}</td>
-                                <td>{{$product->discounted_price}}</td>
+                                <td>Af {{$product->price}}</td>
+                                <td>Af {{$product->discounted_price}}</td>
                                 <td><a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-success btn-sm">Edit</a>
                                     <form action="{{ route('admin.products.destroy', $product->id) }}" method="post"
                                         style="display: inline-block;" onsubmit="return confirm('are you sure?')">

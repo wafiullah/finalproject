@@ -42,7 +42,7 @@
                                 <td>{{$material->title}}</td>
                                 <td>{{$material->unit_price}}</td>
                                 <td>{{optional($material->supplier)->name}}</td>
-                                <td>{{$material->total_amount}}</td>
+                                <td>Af {{$material->total_amount}}</td>
                                 <td>{{$material->unit}}</td>
                                 <td>{{$material->quantity}}</td>
                                 <td>{{$material->purchase_date}}</td>

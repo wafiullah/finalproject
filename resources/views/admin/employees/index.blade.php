@@ -75,7 +75,7 @@
                                 <td>{{$employee->state}}</td>
                                 <td>{{$employee->city}}</td>
                                 <td>{{$employee->designation}}</td>
-                                <td>{{$employee->salary}}</td>
+                                <td>Af {{$employee->salary}}</td>
                                 <td>{{$employee->experience}}</td>
                                 <td>{{$employee->joining_date}}</td>
                                 <td>
