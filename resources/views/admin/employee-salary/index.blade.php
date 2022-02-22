@@ -36,7 +36,7 @@
                                 <th>Absents</th>
                                 <th>Presents</th>
                                 <th>Generated Salary</th>
-                                <th>Joining Date</th>
+                                <th>Created Date</th>
                             </tr>
                         </thead>
                         <tbody>
