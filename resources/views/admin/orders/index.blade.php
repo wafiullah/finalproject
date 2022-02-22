@@ -31,7 +31,6 @@
                                 <th>Customer</th>
                                 <th>Order Date</th>
                                 <th>Amount</th>
-                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -43,15 +42,6 @@
                                 <td>{{optional($order->user)->name}}</td>
                                 <td>{{$order->order_date}}</td>
                                 <td>Af {{$order->amount}}</td>
-                                <td>
-                                    @if($order->status == 'Pending')
-                                    <span class="badge badge-warning">{{$order->status}}</span>
-                                    @elseif($order->status == 'Delivered')
-                                    <span class="badge badge-success">{{$order->status}}</span>
-                                    @else
-                                    <span class="badge badge-danger">{{$order->status}}</span>
-                                    @endif
-                                </td>
                                 <td><a href="{{route('admin.orders.edit',$order->id)}}"
                                         class="btn btn-success btn-sm">Edit</a>
                                     <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post"

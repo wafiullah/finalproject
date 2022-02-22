@@ -62,19 +62,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="status">Select Status</label>
-                            <select class="form-control" name="status" id="status">
-                                <option value="">Select Status</option>
-                                @foreach ($statuses as $status)
-                                <option value="{{ $status }}" @if ($status == $order->status)
-                                    selected
-                                    @endif>{{ $status }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
+                   
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Order Date: <span class="tx-danger">*</span></label>

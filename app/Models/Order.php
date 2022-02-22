@@ -19,11 +19,9 @@ class Order extends Model
         'quantity',
         'order_date',
         'user_id',
-        'status',
         'amount',
     ];
 
-    const STATUSES = ['Pending', 'Delivered', 'Cancelled'];
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -60,17 +60,6 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="status">Select Status</label>
-                            <select class="form-control" name="status" id="status">
-                                <option value="">Select Status</option>
-                                @foreach ($statuses as $status)
-                                <option value="{{ $status }}">{{ $status }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
                             <label class="form-control-label">Order Date: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="text" id="datepicker" required name="order_date"
                                 value="{{ old('order_date') }}">

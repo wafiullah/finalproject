@@ -34,8 +34,7 @@ class OrderController extends Controller
     {
         $users = User::all();
         $products = Product::all();
-        $statuses = Order::STATUSES;
-        return view('admin.orders.create', compact('users', 'products', 'statuses'));
+        return view('admin.orders.create', compact('users', 'products'));
 
     }
 
@@ -53,7 +52,6 @@ class OrderController extends Controller
             'quantity' => 'required',
             'order_date' => 'required',
             'user_id' => 'required',
-            'status' => 'required',
             'amount' => 'required',
         ]);
         
@@ -84,8 +82,7 @@ class OrderController extends Controller
 
         $users = User::all();
         $products = Product::all();
-        $statuses = Order::STATUSES;
-        return view('admin.orders.edit', compact('users', 'order', 'products', 'statuses'));
+        return view('admin.orders.edit', compact('users', 'order', 'products'));
     }
 
     /**
@@ -102,7 +99,6 @@ class OrderController extends Controller
             'quantity' => 'required',
             'order_date' => 'required',
             'user_id' => 'required',
-            'status' => 'required',
             'amount' => 'required',
         ]);
 
