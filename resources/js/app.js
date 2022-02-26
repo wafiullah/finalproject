@@ -1,9 +1,11 @@
 require('./bootstrap');
 
 import Vue from 'vue'
-// import VueRouter from 'vue-router'
-// Vue.use(VueRouter)
 
+
+import VueSocialSharing from 'vue-social-sharing'
+
+Vue.use(VueSocialSharing);
 
 
 

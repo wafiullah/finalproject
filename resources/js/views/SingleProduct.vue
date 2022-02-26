@@ -56,7 +56,7 @@
 							</div>
 							<div class="pricing-meta">
 								<ul>
-									<li class="old-price not-cut">${{ item.price }}</li>
+									<li class="old-price not-cut">Af {{ item.price }}</li>
 								</ul>
 							</div>
 							<p>{{ item.description }}</p>
@@ -64,6 +64,40 @@
 							<div class="pro-details-social-info">
 								<span>Share</span>
 								<div class="social-info">
+									<ul>
+										<li>
+											<ShareNetwork
+												network="facebook"
+												:url="currentUrl()"
+												:title="item.title"
+												:description="item.description"
+											>
+												<i class="ion-social-facebook"></i>
+											</ShareNetwork>
+										</li>
+										<li>
+											<ShareNetwork
+												network="twitter"
+												:url="currentUrl()"
+												:title="item.title"
+												:description="item.description"
+											>
+												<i class="ion-social-twitter"></i>
+											</ShareNetwork>
+										</li>
+										<li>
+											<ShareNetwork
+												network="linkedin"
+												:url="currentUrl()"
+												:title="item.title"
+												:description="item.description"
+											>
+												<i class="ion-social-linkedin"></i>
+											</ShareNetwork>
+										</li>
+									</ul>
+								</div>
+								<!-- <div class="social-info">
 									<ul>
 										<li>
 											<a href="#">
@@ -86,7 +120,7 @@
 											</a>
 										</li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -147,10 +181,10 @@
 									<div class="col-lg-5">
 										<div class="ratting-form-wrapper pl-50">
 											<div class="ratting-form" v-if="loggedInUser">
-											<h3>Add a Review</h3>
+												<h3>Add a Review</h3>
 												<ValidationObserver ref="form" v-slot="{ handleSubmit }">
-													<form @submit.prevent="handleSubmit(onSubmit)" >
-														<div class="star-box" >
+													<form @submit.prevent="handleSubmit(onSubmit)">
+														<div class="star-box">
 															<span> Your rating: </span>
 															<div class="rating-product">
 																<star-rating
@@ -160,8 +194,7 @@
 																></star-rating>
 															</div>
 														</div>
-														<div class="row" >
-															
+														<div class="row">
 															<div class="col-md-12">
 																<div class="rating-form-style form-submit">
 																	<textarea
@@ -173,13 +206,13 @@
 																</div>
 															</div>
 														</div>
-														
 													</form>
 												</ValidationObserver>
 											</div>
-											<h3 v-else>Please <router-link to="/login"
-                                                >Login</router-link
-                                            > to give a comment.</h3>
+											<h3 v-else>
+												Please <router-link to="/login">Login</router-link> to give a
+												comment.
+											</h3>
 										</div>
 									</div>
 								</div>
@@ -218,6 +251,9 @@ export default {
 		};
 	},
 	methods: {
+		currentUrl() {
+			return window.location.href;
+		},
 		onSubmit() {
 			this.$refs.form.validate().then((success) => {
 				if (!success) {
@@ -269,7 +305,7 @@ export default {
 	},
 	mounted() {
 		this.loggedInUser = JSON.parse(localStorage.getItem('company_user'));
-		if(this.loggedInUser){
+		if (this.loggedInUser) {
 			this.form.name = this.loggedInUser.name;
 			this.form.email = this.loggedInUser.email;
 		}
