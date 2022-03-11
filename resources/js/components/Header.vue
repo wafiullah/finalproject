@@ -36,7 +36,6 @@
                                         <li>
                                             <a
                                                 href="/admin/login"
-                                                target="_blank"
                                                 >Admin Panel</a
                                             >
                                         </li>
