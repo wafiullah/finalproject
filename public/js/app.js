@@ -3684,7 +3684,7 @@ __webpack_require__.r(__webpack_exports__);
             //     .replace({ name: "dashboard" })
             //     .then(() => {});
 
-            window.location = '/dashboard';
+            window.location = '/';
           } else {// this.ToasterFailed("Something went wrong.");
           }
         })["catch"](function (err) {

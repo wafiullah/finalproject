@@ -136,7 +136,7 @@ export default {
                             // this.$router
                             //     .replace({ name: "dashboard" })
                             //     .then(() => {});
-                            window.location = '/dashboard'
+                            window.location = '/'
                         } else {
                             // this.ToasterFailed("Something went wrong.");
                         }
