@@ -2976,7 +2976,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -27076,9 +27075,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "dropdown-navs" }, [
       _c("ul", [
         _c("li", [
-          _c("a", { attrs: { href: "/admin/login", target: "_blank" } }, [
-            _vm._v("Admin Panel")
-          ])
+          _c("a", { attrs: { href: "/admin/login" } }, [_vm._v("Admin Panel")])
         ])
       ])
     ])
