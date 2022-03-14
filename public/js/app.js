@@ -26710,62 +26710,12 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "col-md-6 col-lg-4 mt-res-md-50px mt-res-sx-30px mt-res-md-30px"
-            },
-            [
-              _c("div", { staticClass: "single-wedge" }, [
-                _c("h4", { staticClass: "footer-herading" }, [
-                  _vm._v("Newsletter")
-                ]),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "img_app" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: "https://play.google.com/store/apps" } },
-                    [
-                      _c("img", {
-                        attrs: { src: "/images/icons/app_store.png", alt: "" }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { attrs: { href: "https://play.google.com/store/apps" } },
-                    [
-                      _c("img", {
-                        attrs: { src: "/images/icons/google_play.png", alt: "" }
-                      })
-                    ]
-                  )
-                ])
-              ])
-            ]
-          )
+          _vm._m(1)
         ])
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "footer-bottom" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 col-lg-8" }, [
-            _c("img", {
-              staticClass: "payment-img",
-              attrs: { src: "/images/icons/payment.png", alt: "" }
-            })
-          ])
-        ])
-      ])
-    ])
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
@@ -26807,27 +26757,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "subscrib-text" }, [
-      _c("p", [
-        _vm._v(
-          "\n                                You may unsubscribe at any moment. For that\n                                purpose, please find our contact info in the\n                                legal notice.\n                            "
-        )
-      ])
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-md-6 col-lg-4 mt-res-md-50px mt-res-sx-30px mt-res-md-30px"
+      },
+      [
+        _c("div", { staticClass: "single-wedge" }, [
+          _c("h4", { staticClass: "footer-herading" }, [_vm._v("Newsletter")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "subscrib-text" }, [
+            _c("p", [
+              _vm._v(
+                "\n                                You may unsubscribe at any moment. For that\n                                purpose, please find our contact info in the\n                                legal notice.\n                            "
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-      _c("p", { staticClass: "copy-text" }, [
-        _vm._v(
-          "\n                        Copyright ©\n                        "
-        ),
-        _c("a", { attrs: { href: "" } }),
-        _vm._v(
-          ". All\n                        Rights Reserved\n                    "
-        )
+    return _c("div", { staticClass: "footer-bottom" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+            _c("p", { staticClass: "copy-text" }, [
+              _vm._v(
+                "\n                        Copyright ©\n                        "
+              ),
+              _c("a", { attrs: { href: "" } }),
+              _vm._v(
+                ". All\n                        Rights Reserved\n                    "
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-8" })
+        ])
       ])
     ])
   }
@@ -27817,9 +27788,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "contact-info-dec" }, [
-            _c("p", [_vm._v("+012 345 678 102")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("+012 345 678 102")])
+            _c("p", [_vm._v("+93 730 944 532")])
           ])
         ]),
         _vm._v(" "),
@@ -27830,7 +27799,9 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("div", { staticClass: "contact-info-dec" }, [
             _c("p", [
-              _c("a", { attrs: { href: "#" } }, [_vm._v("urname@email.com")])
+              _c("a", { attrs: { href: "#" } }, [
+                _vm._v("khadija.sidiqi75@email.com")
+              ])
             ]),
             _vm._v(" "),
             _c("p", [
@@ -27847,7 +27818,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "contact-info-dec" }, [
             _c("p", [_vm._v("Address goes here,")]),
             _vm._v(" "),
-            _c("p", [_vm._v("street, Crossroad 123.")])
+            _c("p", [_vm._v("Kabul,Paghman ,Qargha.")])
           ])
         ]),
         _vm._v(" "),

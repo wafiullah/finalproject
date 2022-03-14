@@ -99,7 +99,7 @@
                                     legal notice.
                                 </p>
                             </div>
-                            <div class="img_app">
+                            <!-- <div class="img_app">
                                 <a href="https://play.google.com/store/apps"
                                     ><img
                                         :src="'/images/icons/app_store.png'"
@@ -110,7 +110,7 @@
                                         :src="'/images/icons/google_play.png'"
                                         alt=""
                                 /></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- footer single wedget -->
@@ -129,11 +129,11 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-lg-8">
-                        <img
+                        <!-- <img
                             class="payment-img"
                             :src="'/images/icons/payment.png'"
                             alt=""
-                        />
+                        /> -->
                     </div>
                 </div>
             </div>

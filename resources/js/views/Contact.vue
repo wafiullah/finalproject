@@ -16,9 +16,9 @@
                             </div>
 
                             <div class="contact-info-dec">
-                                <p>+012 345 678 102</p>
+                                <p>+93 730 944 532</p>
 
-                                <p>+012 345 678 102</p>
+                                <!-- <p>+012 345 678 102</p> -->
                             </div>
                         </div>
 
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="contact-info-dec">
-                                <p><a href="#">urname@email.com</a></p>
+                                <p><a href="#">khadija.sidiqi75@email.com</a></p>
 
                                 <p><a href="#">urwebsitenaem.com</a></p>
                             </div>
@@ -42,7 +42,7 @@
                             <div class="contact-info-dec">
                                 <p>Address goes here,</p>
 
-                                <p>street, Crossroad 123.</p>
+                                <p>Kabul,Paghman ,Qargha.</p>
                             </div>
                         </div>
 
