@@ -17,8 +17,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-        dd(phpinfo());
-        //
         $orders = Order::with([
             'user',
             'product',

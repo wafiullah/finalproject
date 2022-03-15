@@ -31,6 +31,7 @@ class InvoiceController extends Controller
         $item = (new InvoiceItem())->title($order->product->title)->pricePerUnit($order->product->discounted_price)->quantity($order->quantity);
 
         $invoice = Invoice::make()
+            ->sequence($order->id)
             ->buyer($customer)
             ->seller($client)
             ->addItem($item);

@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'date' => [
-        /*
-         * Carbon date format
-         */
-        'format' => 'Y-m-d',
-        /*
-         * Due date for payment since invoice's date.
-         */
-        'pay_until_days' => 7,
-    ],
+    // 'date' => [
+    //     /*
+    //      * Carbon date format
+    //      */
+    //     'format' => 'Y-m-d',
+    //     /*
+    //      * Due date for payment since invoice's date.
+    //      */
+    //     'pay_until_days' => 7,
+    // ],
 
     'serial_number' => [
         'series'   => 'AA',
@@ -24,7 +24,7 @@ return [
          * Supported tags {SERIES}, {DELIMITER}, {SEQUENCE}
          * Example: AA.00001
          */
-        'format' => '{SERIES}{DELIMITER}{SEQUENCE}',
+        'format' => '{SEQUENCE}',
     ],
 
     'currency' => [
