@@ -42,7 +42,10 @@
                                 <td>{{optional($order->user)->name}}</td>
                                 <td>{{$order->order_date}}</td>
                                 <td>Af {{$order->amount}}</td>
-                                <td><a href="{{route('admin.orders.edit',$order->id)}}"
+                                <td>
+                                    <a href="{{route('admin.invoice',$order->id)}}"
+                                        class="btn btn-success btn-sm">Generate Invoice</a>
+                                    <a href="{{route('admin.orders.edit',$order->id)}}"
                                         class="btn btn-success btn-sm">Edit</a>
                                     <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post"
                                         style="display: inline-block;" onsubmit="return confirm('are you sure?')">
@@ -93,6 +96,7 @@
             lengthMenu: '_MENU_ items/page',
         }
     });
+
 </script>
 
 

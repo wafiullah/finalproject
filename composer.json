@@ -16,6 +16,7 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "laraveldaily/laravel-invoices": "^2.0",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {

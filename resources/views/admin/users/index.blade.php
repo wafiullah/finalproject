@@ -83,34 +83,35 @@
 <script src="{{asset('assets/lib/datatables/js/datatables.min.js')}}"></script>
 <script>
     $('#datatable1').DataTable({
-    responsive: true,
-    dom: 'Bfrtip',
-    buttons: [{
-    extend: 'csvHtml5',
-    exportOptions: {
-    columns: [0, ':visible']
-    }
-    },
-    {
-    extend: 'excelHtml5',
-    exportOptions: {
-    columns: ':visible'
-    }
-    },
-    {
-    extend: 'pdf',
-    exportOptions: {
-    columns: ':visible'
-    }
-    },
-    'colvis'
-    ],
-    language: {
-    searchPlaceholder: 'Search...',
-    sSearch: '',
-    lengthMenu: '_MENU_ items/page',
-    }
+        responsive: true,
+        dom: 'Bfrtip',
+        buttons: [{
+                extend: 'csvHtml5',
+                exportOptions: {
+                    columns: [0, ':visible']
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            {
+                extend: 'pdf',
+                exportOptions: {
+                    columns: ':visible'
+                }
+            },
+            'colvis'
+        ],
+        language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+        }
     });
+
 </script>
 
 @endpush
