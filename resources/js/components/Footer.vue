@@ -129,11 +129,11 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-lg-8">
-                        <!-- <img
+                        <img
                             class="payment-img"
                             :src="'/images/icons/payment.png'"
                             alt=""
-                        /> -->
+                        />
                     </div>
                 </div>
             </div>

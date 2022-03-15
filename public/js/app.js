@@ -26715,7 +26715,20 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(2)
+    _c("div", { staticClass: "footer-bottom" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-lg-8" }, [
+            _c("img", {
+              staticClass: "payment-img",
+              attrs: { src: "/images/icons/payment.png", alt: "" }
+            })
+          ])
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = [
@@ -26782,23 +26795,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "footer-bottom" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-6 col-lg-4" }, [
-            _c("p", { staticClass: "copy-text" }, [
-              _vm._v(
-                "\n                        Copyright ©\n                        "
-              ),
-              _c("a", { attrs: { href: "" } }),
-              _vm._v(
-                ". All\n                        Rights Reserved\n                    "
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-md-6 col-lg-8" })
-        ])
+    return _c("div", { staticClass: "col-md-6 col-lg-4" }, [
+      _c("p", { staticClass: "copy-text" }, [
+        _vm._v(
+          "\n                        Copyright ©\n                        "
+        ),
+        _c("a", { attrs: { href: "" } }),
+        _vm._v(
+          ". All\n                        Rights Reserved\n                    "
+        )
       ])
     ])
   }
@@ -27788,7 +27793,9 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "contact-info-dec" }, [
-            _c("p", [_vm._v("+93 730 944 532")])
+            _c("p", [_vm._v("+93 731 512 383")]),
+            _vm._v(" "),
+            _c("p", [_vm._v("+93 776 467 017")])
           ])
         ]),
         _vm._v(" "),
@@ -27800,7 +27807,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "contact-info-dec" }, [
             _c("p", [
               _c("a", { attrs: { href: "#" } }, [
-                _vm._v("khadija.sidiqi75@email.com")
+                _vm._v("wafiullahmayar@email.com")
               ])
             ]),
             _vm._v(" "),
@@ -27818,7 +27825,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "contact-info-dec" }, [
             _c("p", [_vm._v("Address goes here,")]),
             _vm._v(" "),
-            _c("p", [_vm._v("Kabul,Paghman ,Qargha.")])
+            _c("p", [_vm._v("Wardak,Band-e-Chak ,Bianan.")])
           ])
         ]),
         _vm._v(" "),
