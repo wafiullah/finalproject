@@ -34,7 +34,7 @@ class InvoiceController extends Controller
             ->buyer($customer)
             ->seller($client)
             ->addItem($item);
-
+            // ->logo(public_path('images/logo.png'))
         return $invoice->stream();
     }
 }

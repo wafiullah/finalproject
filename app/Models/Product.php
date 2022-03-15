@@ -22,4 +22,24 @@ class Product extends Model
         return $this->hasMany(ProductComment::class, 'product_id')->latest();
     }
     
-}
+
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'product_id');
+    }
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($item) {
+            $item->orders()->delete();
+        });
+    }
+}   
