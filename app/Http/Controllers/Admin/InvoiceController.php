@@ -17,8 +17,8 @@ class InvoiceController extends Controller
 
         $order = Order::with(['product','user'])->findOrFail($request->id);
         $client = new Party([
-            'name'          => 'STANIKZIE FOODS PREDICTS ORGANIZATION',
-            'phone'         => '+0093 78 1234567',
+            'name'          => 'Stanekzai Foods Products Organization',
+            'phone'         => '+93 73 151 2383 ',
         ]);
 
         $customer = new Buyer([
