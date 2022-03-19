@@ -21,7 +21,7 @@ class AdminController extends Controller
     public function updateProfile(Request $request)
     {
         try {
-            $user = auth()->guard('admin')->user();
+            $user = auth()->user();
             $request->validate([
                 'name' => 'required|max:100',
             ]);
