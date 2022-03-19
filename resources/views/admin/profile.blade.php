@@ -19,6 +19,7 @@
                 @include('partials.alerts')
                 <form class="form" action="{{ route('admin.profile.update') }}" method="post">
                     {{ csrf_field() }}
+                
                     <input type="hidden" name="_method" value="put">
                     <div class="row mg-b-25">
                         <div class="col-lg-12">

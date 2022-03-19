@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="contact-info-dec">
-                                <p>+93 731 512 383</p>
+                                <p>+93 73 094 4532</p>
 
                                 <p>+93 776 467 017</p>
                             </div>
@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="contact-info-dec">
-                                <p><a href="#">wafiullahmayar@email.com</a></p>
+                                <p><a href="#">khadija.sadiqi@email.com</a></p>
 
                                 <p><a href="#">urwebsitenaem.com</a></p>
                             </div>
@@ -42,7 +42,7 @@
                             <div class="contact-info-dec">
                                 <p>Address goes here,</p>
 
-                                <p>Wardak,Band-e-Chak ,Bianan.</p>
+                                <p>Kabul,Paghman ,Qargha.</p>
                             </div>
                         </div>
 

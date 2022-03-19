@@ -128,13 +128,13 @@
                             Rights Reserved
                         </p>
                     </div>
-                    <div class="col-md-6 col-lg-8">
+                    <!-- <div class="col-md-6 col-lg-8">
                         <img
                             class="payment-img"
                             :src="'/images/icons/payment.png'"
                             alt=""
                         />
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
