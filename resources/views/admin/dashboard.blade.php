@@ -56,10 +56,22 @@ Admin Dashboard
                 <i class="icon ion-ios-cart"></i>
                 <div class="dash-content">
                     <label class="tx-primary">Total Purchase Material Amount</label>
-                    <h2>Af{{number_format($totalMaterialPurchaseAmount,2)}}</h2>
+                    <h2>Af {{number_format($totalMaterialPurchaseAmount,2)}}</h2>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="card card-dash-one mt-4">
+    <div class="row no-gutters">
+        <div class="col-lg-6">
+            <i class="icon ion-ios-cart"></i>
+            <div class="dash-content">
+                <label class="tx-primary">Total Profit Amount</label>
+                <h2>Af {{number_format($totalAmountSales-$totalMaterialPurchaseAmount,2)}}</h2>
+            </div>
+        </div>
+        </div>
+
     </div>
 </div>
 @endsection
