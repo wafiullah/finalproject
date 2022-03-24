@@ -49,6 +49,7 @@ class OrderController extends Controller
         $validated = $request->validate([
             'product_id' => 'required',
             'quantity' => 'required',
+            'discount' => 'required',
             'order_date' => 'required',
             'user_id' => 'required',
             'amount' => 'required',
@@ -96,6 +97,7 @@ class OrderController extends Controller
         $validated = $request->validate([
             'product_id' => 'required',
             'quantity' => 'required',
+            'discount' => 'required',
             'order_date' => 'required',
             'user_id' => 'required',
             'amount' => 'required',

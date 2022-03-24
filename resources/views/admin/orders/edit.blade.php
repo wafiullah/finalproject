@@ -44,6 +44,13 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label class="form-control-label">Discount: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="number" id="discount_in_one" required name="discount"
+                                value="{{ old('discount') }}" placeholder="Discount">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label class="form-control-label">Amount: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="number" id="total_amount" required name="amount"
                                 value="{{ $order->amount }}" placeholder="Amount">

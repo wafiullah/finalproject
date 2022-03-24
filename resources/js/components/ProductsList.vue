@@ -84,7 +84,7 @@ export default {
     methods: {
         calculatePercentage(item) {
             return parseFloat(
-                 item.price - (item.price * item.discounted_price / 100)
+              100 - (item.discounted_price * 100 / item.price)
                ,
                0
             ).toFixed(0);

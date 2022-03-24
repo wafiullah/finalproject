@@ -3163,7 +3163,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     calculatePercentage: function calculatePercentage(item) {
-      return parseFloat(item.price - item.price * item.discounted_price / 100, 0).toFixed(0);
+      return parseFloat(100 - item.discounted_price * 100 / item.price, 0).toFixed(0);
     }
   }
 });

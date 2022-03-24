@@ -28,6 +28,7 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Quantity</th>
+                                <th>Discount</th>
                                 <th>Customer</th>
                                 <th>Order Date</th>
                                 <th>Amount</th>
@@ -39,6 +40,7 @@
                             <tr>
                                 <td>{{optional($order->product)->title}}</td>
                                 <td>{{$order->quantity}}</td>
+                                <td>{{$order->discount}}%</td>
                                 <td>{{optional($order->user)->name}}</td>
                                 <td>{{$order->order_date}}</td>
                                 <td>Af {{$order->amount}}</td>

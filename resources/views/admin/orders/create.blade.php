@@ -42,6 +42,13 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label class="form-control-label">Discount: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="number" id="discount" required name="discount"
+                                value="{{ old('discount') }}" placeholder="Discount">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label class="form-control-label">Total Amount: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="number" id="total_amount" required name="amount"
                                 value="{{ old('amount') }}" placeholder="Amount">
@@ -96,7 +103,11 @@
     var totalAmount = 0;
     var productPrice = parseInt($('#product_id').find(':selected').attr('price'));
     var quantity = $("#quantity").val();
-    $("#total_amount").val(quantity * productPrice);
+    var discount = $("#discount").val();
+
+    // $("#total_amount").val(quantity * productPrice);
+    $("#total_amount").val((discount * productPrice)/100 * quantity );
+
     }
 
 </script>
