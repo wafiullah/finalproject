@@ -42,9 +42,9 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="form-control-label">Discount: <span class="tx-danger">*</span></label>
-                            <input class="form-control" type="number" id="discount" required name="discount"
-                                value="{{ old('discount') }}" placeholder="Discount">
+                            <label class="form-control-label">Discount in %: </label>
+                            <input class="form-control" type="number" id="discount" name="discount"
+                                value="{{ old('discount') }}" placeholder="Discount in %">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -91,23 +91,28 @@
         });
     });
     $('#product_id').change(function (e) {
-    e.preventDefault();
-    calculateTotalAmount();
+        e.preventDefault();
+        calculateTotalAmount();
     });
 
     $("#quantity").on('change keyup', function (e) {
-    calculateTotalAmount();
+        calculateTotalAmount();
+    });
+
+    $("#discount").on('change keyup', function (e) {
+        calculateTotalAmount();
     });
 
     function calculateTotalAmount() {
-    var totalAmount = 0;
-    var productPrice = parseInt($('#product_id').find(':selected').attr('price'));
-    var quantity = $("#quantity").val();
-    var discount = $("#discount").val();
-
-    // $("#total_amount").val(quantity * productPrice);
-    $("#total_amount").val((discount * productPrice)/100 * quantity );
-
+        var totalAmount = 0;
+        var productPrice = parseInt($('#product_id').find(':selected').attr('price'));
+        var quantity = $("#quantity").val();
+        var discount = $("#discount").val();
+        var totalAmount = quantity * productPrice;
+        $("#total_amount").val(totalAmount);
+        if (discount > 0) {
+            $("#total_amount").val(totalAmount - (discount * totalAmount) / 100);
+        }
     }
 
 </script>
