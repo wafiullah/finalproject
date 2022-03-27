@@ -288,7 +288,8 @@
                     </td>
                     @if($invoice->hasItemDiscount)
                         <td class="text-right">
-                            {{ $invoice->formatCurrency($item->discount) }}%
+                            
+                            {{ $item->discount }}%
                         </td>
                     @endif
                     @if($invoice->hasItemTax)
