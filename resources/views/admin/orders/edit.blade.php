@@ -46,14 +46,14 @@
                         <div class="form-group">
                             <label class="form-control-label">Discount: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="number" id="discount_in_one" required name="discount"
-                                value="{{ old('discount') }}" placeholder="Discount">
+                                value="{{ $order->discount }}" placeholder="Discount">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="form-control-label">Amount: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="number" id="total_amount" required name="amount"
-                                value="{{ $order->amount }}" placeholder="Amount">
+                                value="{{$order->amount}}" placeholder="Amount">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -104,13 +104,22 @@
     $("#quantity").on('change keyup', function (e) {
         calculateTotalAmount();
     });
-    calculateTotalAmount();
+
+    $("#discount").on('change keyup', function (e) {
+        calculateTotalAmount();
+    });
 
     function calculateTotalAmount() {
         var totalAmount = 0;
         var productPrice = parseInt($('#product_id').find(':selected').attr('price'));
         var quantity = $("#quantity").val();
-        $("#total_amount").val(quantity * productPrice);
+        var discount = $("#discount").val();
+        var totalAmount = quantity * productPrice;
+        $("#total_amount").val(totalAmount);
+        if (discount > 0) {
+            $("#total_amount").val(totalAmount - (discount * totalAmount) / 100);
+        }
     }
+
 </script>
 @endpush

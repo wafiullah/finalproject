@@ -28,14 +28,14 @@ class InvoiceController extends Controller
             ],
         ]);
 
-        $item = (new InvoiceItem())->title($order->product->title)->pricePerUnit($order->product->discounted_price)->quantity($order->quantity);
+        $item = (new InvoiceItem())->title($order->product->title)->pricePerUnit($order->product->discounted_price)->quantity($order->quantity)->discount($order->discount);
 
         $invoice = Invoice::make()
             ->sequence($order->id)
             ->buyer($customer)
             ->seller($client)
             ->addItem($item);
-            // ->logo(public_path('images/logo.png'))
+           // ->logo(public_path('images/logo/logo.jpg'));
         return $invoice->stream();
     }
 }

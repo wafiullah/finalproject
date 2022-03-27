@@ -284,11 +284,11 @@
                     @endif
                     <td class="text-center">{{ $item->quantity }}</td>
                     <td class="text-right">
-                        {{ $invoice->formatCurrency($item->price_per_unit) }}
+                        {{ $invoice->formatCurrency($item->price_per_unit) }}AF
                     </td>
                     @if($invoice->hasItemDiscount)
                         <td class="text-right">
-                            {{ $invoice->formatCurrency($item->discount) }}
+                            {{ $invoice->formatCurrency($item->discount) }}%
                         </td>
                     @endif
                     @if($invoice->hasItemTax)
@@ -298,7 +298,7 @@
                     @endif
 
                     <td class="text-right pr-0">
-                        {{ $invoice->formatCurrency($item->sub_total_price) }}
+                        {{ $invoice->formatCurrency($item->sub_total_price) }}AF
                     </td>
                 </tr>
                 @endforeach
@@ -308,7 +308,7 @@
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
                         <td class="text-right pl-0">{{ __('invoices::invoice.total_discount') }}</td>
                         <td class="text-right pr-0">
-                            {{ $invoice->formatCurrency($invoice->total_discount) }}
+                            {{ $invoice->formatCurrency($item->price_per_unit*$item->quantity  - $invoice->total_amount)}}AF
                         </td>
                     </tr>
                 @endif
@@ -317,7 +317,7 @@
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
                         <td class="text-right pl-0">{{ __('invoices::invoice.taxable_amount') }}</td>
                         <td class="text-right pr-0">
-                            {{ $invoice->formatCurrency($invoice->taxable_amount) }}
+                            {{ $invoice->formatCurrency($invoice->taxable_amount) }}AF
                         </td>
                     </tr>
                 @endif
@@ -352,7 +352,7 @@
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
                         <td class="text-right pl-0">{{ __('invoices::invoice.total_amount') }}</td>
                         <td class="text-right pr-0 total-amount">
-                            {{ $invoice->formatCurrency($invoice->total_amount) }}
+                            {{ $invoice->formatCurrency($invoice->total_amount) }}AF
                         </td>
                     </tr>
             </tbody>
