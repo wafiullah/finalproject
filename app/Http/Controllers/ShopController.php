@@ -12,7 +12,7 @@ class ShopController extends Controller
 
     public function getProducts(Request $request){
 
-        $products = Product::latest()->get();
+        $products = Product::withAvg('comments','rating')->latest()->get();
 
         return ProductsResource::collection($products);
     }
