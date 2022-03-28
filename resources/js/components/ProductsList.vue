@@ -36,12 +36,13 @@
                 </router-link>
             </h2>
             <div class="rating-product">
-                <i class="ion-android-star"></i>
-                <i class="ion-android-star"></i>
-                <i class="ion-android-star"></i>
-                <i class="ion-android-star"></i>
-                <i class="ion-android-star"></i>
+                 <star-rating v-model="item.comments_avg_rating"
+										:star-size="20"
+										:read-only="true"
+										:show-rating="false">
+                 </star-rating>
             </div>
+           
             <div class="pricing-meta">
                 <ul>
                     <li class="old-price">Af {{ item.price }}</li>
@@ -73,8 +74,12 @@
 </template>
 
 <script>
+import StarRating from 'vue-star-rating';
 
 export default {
+    components:{
+      StarRating,
+    },
     props: {
         item: {
             type: Object,

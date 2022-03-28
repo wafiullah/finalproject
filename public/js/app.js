@@ -3080,6 +3080,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3154,7 +3156,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    StarRating: (vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default())
+  },
   props: {
     item: {
       type: Object,
@@ -27198,7 +27205,9 @@ var render = function() {
             },
             [
               _vm._v(
-                "\n                " + _vm._s(_vm.item.title) + "\n            "
+                "\n                    " +
+                  _vm._s(_vm.item.title) +
+                  "\n                "
               )
             ]
           )
@@ -27206,7 +27215,23 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(1),
+      _c(
+        "div",
+        { staticClass: "rating-product" },
+        [
+          _c("star-rating", {
+            attrs: { "star-size": 20, "read-only": true, "show-rating": false },
+            model: {
+              value: _vm.item.comments_avg_rating,
+              callback: function($$v) {
+                _vm.$set(_vm.item, "comments_avg_rating", $$v)
+              },
+              expression: "item.comments_avg_rating"
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "pricing-meta" }, [
         _c("ul", [
@@ -27220,9 +27245,9 @@ var render = function() {
           _vm._v(" "),
           _c("li", { staticClass: "discount-price" }, [
             _vm._v(
-              "\n                    -" +
+              "\n                        -" +
                 _vm._s(_vm.calculatePercentage(_vm.item)) +
-                "%\n                "
+                "%\n                    "
             )
           ])
         ])
@@ -27248,7 +27273,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n                    View\n                ")]
+              [_vm._v("\n                        View\n                    ")]
             )
           ],
           1
@@ -27264,22 +27289,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("ul", { staticClass: "product-flag" }, [
       _c("li", { staticClass: "new" }, [_vm._v("New")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "rating-product" }, [
-      _c("i", { staticClass: "ion-android-star" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "ion-android-star" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "ion-android-star" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "ion-android-star" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "ion-android-star" })
     ])
   }
 ]
