@@ -31,7 +31,7 @@ Vue.use(VeeValidate)
 import carousel from 'vue-owl-carousel'
 Vue.use(carousel)
 
-
+import store from './store';
 
 // end carousel
 
@@ -44,6 +44,7 @@ import App from './App.vue';
     el: '#app',
     components: { App},
     router: routes,
+    store,
 
     render: h => h(App)
 });

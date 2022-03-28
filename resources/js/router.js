@@ -10,6 +10,7 @@ import Dashboard from './views/User/Dashboard.vue'
 
 import Vue from "vue";
 import Router from "vue-router";
+import Checkout from './views/Checkout.vue'
 
 Vue.use(Router);
 const router = new Router({
@@ -24,6 +25,11 @@ const router = new Router({
             path: '/contact', 
             name: 'contact',
             component: Contact
+        },
+        {
+            path: '/checkout', 
+            name: 'checkout',
+            component: Checkout
         },
         {
             path: '/about', 

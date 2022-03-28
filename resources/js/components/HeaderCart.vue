@@ -1,9 +1,7 @@
 <template>
     <div class="cart-info d-flex">
         <div class="mini-cart-warp" @click="toggleSmallCart()">
-            <a href="#" class="count-cart"
-                ><span>${{ total }}</span></a
-            >
+            <a href="#" class="count-cart" ><span class="item-counts">{{products.length}}</span><span>${{ total }}</span></a>
             <div
                 class="mini-cart-content"
                 v-bind:class="{ 'cart-visible': isActive }"
@@ -23,7 +21,7 @@
                                 }"
                                 ><img alt="" :src="product.image"
                             /></router-link>
-                            <span class="product-quantity">1x</span>
+                            <span class="product-quantity">{{product.quantity}}x</span>
                         </div>
                         <div class="shopping-cart-title">
                             <h4>
@@ -31,11 +29,11 @@
                                     :to="{
                                         name: 'product-details',
                                         params: {
-                                            id: item.id
+                                            id: product.id
                                         }
                                     }"
                                 >
-                                    {{ item.title }}
+                                    {{ product.title }}
                                 </router-link>
                             </h4>
                             <span>${{ product.price }}</span>
@@ -54,7 +52,14 @@
                     </h4>
                 </div>
                 <div class="shopping-cart-btn text-center">
-                    <a class="default-btn" href="checkout.html">checkout</a>
+                    <router-link
+					class="default-btn"
+					:to="{
+						name: 'checkout',
+					}"
+				>
+					Checkout
+				</router-link>
                 </div>
             </div>
         </div>
@@ -89,4 +94,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+.item-counts{
+        position: absolute;
+    top: 9px;
+    left: -26px;
+    right: auto;
+    width: 18px;
+    height: 18px;
+    background: #4fb68d;
+    color: #fff;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 50%;
+    float: right;
+}
+</style>

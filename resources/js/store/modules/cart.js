@@ -1,5 +1,5 @@
 // import shop from "@/api/shop";
-
+import VsToast from '@vuesimple/vs-toast';
 export default {
     namespaced: true,
 
@@ -17,7 +17,8 @@ export default {
                     title: cartItem.title,
                     price: cartItem.price,
                     image: cartItem.image,
-                    quantity: cartItem.quantity
+                    quantity: cartItem.quantity,
+                    id: cartItem.id,
                 }
             })
         },
@@ -33,7 +34,8 @@ export default {
                 title: product.title,
                 image: product.image1,
                 price: product.discounted_price,
-                quantity: 1
+                quantity: 1,
+                id: product.id
             })
         },
 
@@ -58,16 +60,23 @@ export default {
             rootState,
             rootGetters
         }, product) {
-            // if (rootGetters['products/productIsInStock'](product)) {
             console.log(product);
             const cartItem = state.items.find(item => item.id === product.id)
             if (!cartItem) {
-                commit('pushProductToCart', product)
+                commit('pushProductToCart', product);
+                VsToast.show({
+                    title: 'Success',
+                    message: 'Product Added To Cart',
+                    variant: 'success',
+                });
             } else {
-                commit('incrementItemQuantity', cartItem)
+                commit('incrementItemQuantity', cartItem);
+                VsToast.show({
+                    title: 'Success',
+                    message: 'Product Quantity Updated.',
+                    variant: 'success',
+                });
             }
-            // commit('products/decrementProductInventory', product, {root: true})
-            // }
         },
 
         // checkout({state, commit}) {

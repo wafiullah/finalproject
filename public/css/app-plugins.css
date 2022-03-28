@@ -7593,22 +7593,6 @@ ul.dropdown-nav>li>a {
     font-weight: 700
 }
 
-.count-cart:after {
-    position: absolute;
-    top: 9px;
-    left: -26px;
-    right: auto;
-    width: 18px;
-    height: 18px;
-    content: "2";
-    background: #4fb68d;
-    color: #fff;
-    line-height: 18px;
-    text-align: center;
-    border-radius: 50%;
-    float: right
-}
-
 .home-cosmatics .count-cart:after {
     background-color: #c0b07d
 }
@@ -7916,9 +7900,9 @@ ul.dropdown-nav>li>a {
 }
 
 .container-inner {
-    padding: 22px 30px;
+    /* padding: 22px 30px; */
     background: #fff;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     position: relative
 }
 

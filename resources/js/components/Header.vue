@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header class="main-header home-2">
+        <header class="main-header ">
             <div class="header-top-nav">
                 <div class="container">
                     <div class="row">
@@ -117,6 +117,10 @@
                                             >
                                         </li>
                                     </ul>
+
+                                </div>
+                                <div class="header_account_area">
+                                <HeaderCart />
                                 </div>
                             </div>
                         </div>
@@ -162,7 +166,11 @@
 </template>
 
 <script>
+import HeaderCart from "./HeaderCart.vue";
 export default {
+    components: {
+        HeaderCart,
+    },
     data() {
         return {
             userLoggedIn: "",

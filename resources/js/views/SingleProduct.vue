@@ -59,8 +59,18 @@
 									<li class="old-price not-cut">Af {{ item.price }}</li>
 								</ul>
 							</div>
-							<p>{{ item.description }}</p>
 
+							<p>{{ item.description }}</p>
+							<div class="pro-details-quality mt-0px">
+								<div class="pro-details-cart btn-hover">
+									<button
+										class="btn btn-primary"
+										@click="addProductToCart(item)"
+									>
+										Add to cart
+									</button>
+								</div>
+							</div>
 							<div class="pro-details-social-info">
 								<span>Share</span>
 								<div class="social-info">
@@ -97,30 +107,6 @@
 										</li>
 									</ul>
 								</div>
-								<!-- <div class="social-info">
-									<ul>
-										<li>
-											<a href="#">
-												<i class="ion-social-facebook"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="ion-social-twitter"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="ion-social-google"></i>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<i class="ion-social-instagram"></i>
-											</a>
-										</li>
-									</ul>
-								</div> -->
 							</div>
 						</div>
 					</div>
@@ -229,7 +215,7 @@ import axios from 'axios';
 import { Tabs, Tab } from 'vue-tabs-component';
 import StarRating from 'vue-star-rating';
 import VsToast from '@vuesimple/vs-toast';
-
+ import { mapActions} from 'vuex'
 export default {
 	components: {
 		Tabs,
@@ -251,6 +237,9 @@ export default {
 		};
 	},
 	methods: {
+		...mapActions({
+        addProductToCart: 'cart/addProductToCart'
+      }),
 		currentUrl() {
 			return window.location.href;
 		},
