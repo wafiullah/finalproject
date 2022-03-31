@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SupplierController;
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AttendanceController;
+use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\ContactInquiryController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
@@ -62,6 +63,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('employee/attendance', [AttendanceController::class,'employeeAttendance'])->name('employee.attendance');
 
         Route::get('invoice/{id}', [InvoiceController::class,'invoiceGenerate'])->name('invoice');
+        
+        
+        Route::get('notifications/markall', [NotificationsController::class,'markAllRead'])->name('notifications.markallread');
+        Route::get('notifications/markAsRead/{id}/{invoice_id}', [NotificationsController::class,'markAsRead'])->name('notifications.markasread');
 
 
     });

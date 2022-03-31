@@ -12653,10 +12653,10 @@ h3.cart-page-title {
     color: #666
 }
 
-.your-order-area .Place-order>a {
+.your-order-area .Place-order .order-btn {
     background-color: #4fb68b;
     color: #fff;
-    display: block;
+    display: inline-block;
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1;
@@ -12664,7 +12664,9 @@ h3.cart-page-title {
     text-align: center;
     text-transform: uppercase;
     border-radius: 50px;
-    z-index: 9
+    border: none;
+    z-index: 9;
+    width: 100%;
 }
 
 .your-order-area .Place-order>a:hover {

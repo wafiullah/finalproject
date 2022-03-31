@@ -21,6 +21,10 @@ class Order extends Model
         'order_date',
         'user_id',
         'amount',
+        'address',
+        'city',
+        'state',
+        'phone',
     ];
 
     public function user()

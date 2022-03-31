@@ -64,88 +64,7 @@
 											v-for="(item, index) in items"
 											:key="index"
 										>
-											<article class="list-product">
-												<div class="img-block">
-													<router-link
-														class="thumbnail"
-														:to="{
-															name: 'product-details',
-															params: {
-																id: item.id,
-															},
-														}"
-													>
-														<img class="first-img" :src="item.image1" alt="" />
-														<img class="second-img" :src="item.image2" alt="" />
-													</router-link>
-
-													<div class="quick-view">
-														<a
-															class="quick_view"
-															href="#"
-															data-link-action="quickview"
-															title="Quick view"
-															data-toggle="modal"
-															data-target="#exampleModal"
-														>
-															<i class="ion-ios-search-strong"></i>
-														</a>
-													</div>
-												</div>
-												<ul class="product-flag">
-													<li class="new">New</li>
-												</ul>
-												<div class="product-decs">
-													<a class="inner-link" href="shop-4-column.html"
-														><span>{{ item.brand }}</span></a
-													>
-
-													<h2>
-														<router-link
-															class="product-link"
-															:to="{
-																name: 'product-details',
-																params: {
-																	id: item.id,
-																},
-															}"
-														>
-															{{ item.title }}
-														</router-link>
-													</h2>
-													<div class="rating-product">
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-														<i class="ion-android-star"></i>
-													</div>
-													<div class="pricing-meta">
-														<ul>
-															<li class="old-price">${{ item.price }}</li>
-															<li class="current-price">${{ item.discounted }}</li>
-															<li class="discount-price">-{{ calculatePercentage(item) }}%</li>
-														</ul>
-													</div>
-												</div>
-												<div class="add-to-link">
-													<ul>
-														<li class="cart">
-															<router-link
-																class="product-link"
-																:to="{
-																	name: 'product-details',
-																	params: {
-																		id: item.id,
-																	},
-																}"
-															>
-																View
-															</router-link>
-														</li>
-													</ul>
-												</div>
-											</article>
+											<ProductsList :item="item" />
 										</div>
 									</div>
 								</div>
@@ -175,31 +94,34 @@
 </template>
 <script>
 import axios from 'axios';
-
+import ProductsList from './../components/ProductsList';
 export default {
 	name: 'Shop',
+	components: {
+		ProductsList,
+	},
 	data() {
 		return {
 			items: [],
 		};
 	},
 	methods: {
-        calculatePercentage(item){
-            return parseFloat(item.discounted_price/item.price*100, 2).toFixed(2);
-        },
+		calculatePercentage(item) {
+			return parseFloat((item.discounted_price / item.price) * 100, 2).toFixed(2);
+		},
 		getProducts() {
 			axios
 				.get(route('shop.products'))
 				.then((res) => {
-                    console.log(res.data);
-                    this.items = res.data.data;
-                })
+					console.log(res.data);
+					this.items = res.data.data;
+				})
 				.catch((err) => {})
 				.finally(() => {});
 		},
 	},
-    mounted () {
-        this.getProducts();
-    },
+	mounted() {
+		this.getProducts();
+	},
 };
 </script>

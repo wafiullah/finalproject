@@ -6,7 +6,7 @@ export default {
     state: {
         // {id, quantity}
         items: [],
-        checkoutStatus: null
+        checkoutStatus: 'empty'
     },
 
     getters: {
@@ -55,29 +55,27 @@ export default {
     actions: {
         addProductToCart({
             state,
-            getters,
             commit,
-            rootState,
-            rootGetters
         }, product) {
-            console.log(product);
             const cartItem = state.items.find(item => item.id === product.id)
-            if (!cartItem) {
-                commit('pushProductToCart', product);
-                VsToast.show({
-                    title: 'Success',
-                    message: 'Product Added To Cart',
-                    variant: 'success',
-                });
-            } else {
+            if (state.items.length == 0) {
+                if (!cartItem) {
+                    commit('pushProductToCart', product);
+                    VsToast.success('Product Added To Cart.');
+                } else {
+                    commit('incrementItemQuantity', cartItem);
+                    VsToast.success('Product Quantity Updated.');
+                }
+            } else if (cartItem) {
                 commit('incrementItemQuantity', cartItem);
-                VsToast.show({
-                    title: 'Success',
-                    message: 'Product Quantity Updated.',
-                    variant: 'success',
-                });
+                VsToast.success('Product Quantity Updated.');
+            } else {
+                VsToast.error('Only single product is allowed in the cart.');
             }
+            state.checkoutStatus = 'notempty';
         },
+
+      
 
         // checkout({state, commit}) {
         //   shop.buyProducts(

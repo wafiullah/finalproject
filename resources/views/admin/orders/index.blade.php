@@ -26,6 +26,7 @@
                     <table id="datatable1" class="table display responsive nowrap" style="width: 100%">
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Product</th>
                                 <th>Quantity</th>
                                 <th>Discount</th>
@@ -38,6 +39,7 @@
                         <tbody>
                             @forelse ($orders as $order)
                             <tr>
+                                <td>{{ $order->id }}</td>
                                 <td>{{optional($order->product)->title}}</td>
                                 <td>{{$order->quantity}}</td>
                                 <td>{{$order->discount}}%</td>
@@ -47,6 +49,10 @@
                                 <td>
                                     <a href="{{route('admin.invoice',$order->id)}}"
                                         class="btn btn-success btn-sm">Generate Invoice</a>
+
+                                        <a href="{{route('admin.orders.show',$order->id)}}"
+                                            class="btn btn-success btn-sm">View</a>
+
                                     <a href="{{route('admin.orders.edit',$order->id)}}"
                                         class="btn btn-success btn-sm">Edit</a>
                                     <form action="{{ route('admin.orders.destroy', $order->id) }}" method="post"

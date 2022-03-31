@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,10 +15,16 @@
     <!-- Slim CSS -->
     @stack('css')
     <link rel="stylesheet" href="{{asset('assets/css/slim.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+    <style>
+            .notifications-list{
+                height: 300px;
+    overflow: auto;
+            }
+    </style>
 </head>
 
 <body>
+
     <div class="slim-header with-sidebar">
         <div class="container-fluid">
             <div class="slim-header-left">
@@ -30,6 +37,8 @@
             </div>
 
             <div class="slim-header-right">
+                <x-admin.notifications />
+
                 <!-- dropdown -->
                 <div class="dropdown dropdown-c">
                     <a href="#" class="logged-user" data-toggle="dropdown">
@@ -74,23 +83,23 @@
                     <a href="{{route('admin.purchase-materials.index')}}" class="sidebar-nav-link purchase-materials"><i
                             class="icon ion-ios-list"></i>
                         Purchase Materials</a>
-                    </li>
-                    <li class="sidebar-nav-item">
-                        <a href="{{route('admin.suppliers.index')}}" class="sidebar-nav-link suppliers"><i
-                                class="icon ion-ios-list"></i>
-                            Suppliers</a>
-                    </li>
-                    <li class="sidebar-nav-item">
-                        <a href="{{route('admin.employees.index')}}" class="sidebar-nav-link employees"><i
-                                class="icon ion-ios-people"></i>
-                            Employees</a>
-                    </li>
-                    <li class="sidebar-nav-item">
-                        <a href="{{route('admin.attendance.index')}}" class="sidebar-nav-link attendance"><i
-                                class="icon ion-ios-people"></i>
-                            Attendance</a>
-                    </li>
-                    <li class="sidebar-nav-item">
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="{{route('admin.suppliers.index')}}" class="sidebar-nav-link suppliers"><i
+                            class="icon ion-ios-list"></i>
+                        Suppliers</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="{{route('admin.employees.index')}}" class="sidebar-nav-link employees"><i
+                            class="icon ion-ios-people"></i>
+                        Employees</a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="{{route('admin.attendance.index')}}" class="sidebar-nav-link attendance"><i
+                            class="icon ion-ios-people"></i>
+                        Attendance</a>
+                </li>
+                <li class="sidebar-nav-item">
                     <a href="{{route('admin.users.index')}}" class="sidebar-nav-link users"><i
                             class="icon ion-ios-people"></i>
                         Customers</a>
@@ -105,8 +114,8 @@
                     <ul class="nav sidebar-nav-sub">
                         <li class="nav-sub-item"> <a href="{{route('admin.categories.index')}}" class="nav-sub-link">
                 Manage Categories</a> </li>
-                </ul>
-                </li> --}}
+            </ul>
+            </li> --}}
             </ul>
         </div>
         <!-- slim-sidebar -->
