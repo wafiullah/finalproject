@@ -111,7 +111,7 @@
         var totalAmount = quantity * productPrice;
         $("#total_amount").val(totalAmount);
         if (discount > 0) {
-            $("#total_amount").val(totalAmount - (discount * totalAmount) / 100);
+            $("#total_amount").val(totalAmount - (discount * quantity * totalAmount) / 100);
         }
     }
 
