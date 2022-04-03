@@ -288,8 +288,7 @@
                     </td>
                     @if($invoice->hasItemDiscount)
                         <td class="text-right">
-                            
-                            {{ $item->discount }}%
+                            {{  $invoice->formatCurrency($item->discount) }}
                         </td>
                     @endif
                     @if($invoice->hasItemTax)
@@ -304,12 +303,21 @@
                 </tr>
                 @endforeach
                 {{-- Summary --}}
+                <tr>
+                    <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
+                    <td class="text-right pl-0">Discount in %</td>
+                    <td class="text-right pr-0">
+                        {{-- {{ $invoice->formatCurrency($item->quantity*$item->price_per_unit - $invoice->total_amount)}}AF --}}
+                        {{ $invoice->getCustomData() }}%
+                    </td>
+                </tr>
                 @if($invoice->hasItemOrInvoiceDiscount())
                     <tr>
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
-                        <td class="text-right pl-0">{{ __('invoices::invoice.total_discount') }}</td>
+                        <td class="text-right pl-0">Total Discounted Amount</td>
                         <td class="text-right pr-0">
-                            {{ $invoice->formatCurrency($item->quantity*$item->price_per_unit - $invoice->total_amount)}}AF
+                            {{-- {{ $invoice->formatCurrency($item->quantity*$item->price_per_unit - $invoice->total_amount)}}AF --}}
+                            {{ $invoice->formatCurrency($invoice->total_discount) }}
                         </td>
                     </tr>
                 @endif
@@ -318,7 +326,7 @@
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
                         <td class="text-right pl-0">{{ __('invoices::invoice.taxable_amount') }}</td>
                         <td class="text-right pr-0">
-                            {{ $invoice->formatCurrency($invoice->taxable_amount) }}AF
+                            {{ $invoice->formatCurrency($invoice->taxable_amount) }}
                         </td>
                     </tr>
                 @endif
@@ -353,7 +361,8 @@
                         <td colspan="{{ $invoice->table_columns - 2 }}" class="border-0"></td>
                         <td class="text-right pl-0">{{ __('invoices::invoice.total_amount') }}</td>
                         <td class="text-right pr-0 total-amount">
-                            {{ $invoice->formatCurrency(($item->quantity*$item->price_per_unit) - ($item->quantity*$item->discount *($item->quantity*$item->price_per_unit))/100) }}AF
+                            {{$invoice->formatCurrency($invoice->total_amount) }}
+                            {{-- {{ $invoice->formatCurrency(($item->quantity*$item->price_per_unit) - ($item->quantity*$item->discount *($item->quantity*$item->price_per_unit))/100) }}AF --}}
                         </td>
                     </tr>
             </tbody>
