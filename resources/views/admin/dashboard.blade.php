@@ -62,30 +62,35 @@ Admin Dashboard
         </div>
     </div>
     <div class="card card-dash-one mt-4">
-    <div class="row no-gutters">
-        <div class="col-lg-6">
-            <i class="icon ion-ios-cart"></i>
-            <div class="dash-content">
-                <label class="tx-primary">Total Profit Amount</label>
-                <h2>Af {{number_format($totalAmountSales-$totalMaterialPurchaseAmount,2)}}</h2>
+        <div class="row no-gutters">
+            <div class="col-lg-6">
+                <i class="icon ion-ios-cart"></i>
+                <div class="dash-content">
+                    <label class="tx-primary">Total Profit Amount</label>
+                    <h2>Af {{number_format($totalAmountSales-$totalMaterialPurchaseAmount,2)}}</h2>
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
 </div>
 <div class="py-12 container">
-<h6 class="slim-pagetitle">Product Sales Chart</h6>  
+    <h6 class="slim-pagetitle">Product Sales Chart</h6>
     <div id="chart" style="height: 300px;"></div>
 </div>
-<script src="https://unpkg.com/chart.js@^2.9.3/dist/Chart.min.js"></script>
-<!-- Chartisan -->
-<script src="https://unpkg.com/@chartisan/chartjs@^2.1.0/dist/chartisan_chartjs.umd.js"></script>
-    <script>
-        const SalesChart = new Chartisan({
-            el:'#chart',
-            url:'@chart("sales_chart")',
+<script src="{{ asset('assets/lib/Chart.min.js') }}"></script>
+<script src="{{ asset('assets/lib/chartisan_chartjs.umd.js') }}"></script>
 
-        })
-    </script>
+<script>
+    const SalesChart = new Chartisan({
+        el: '#chart',
+        url: '@chart("sales_chart")',
+        hooks: new ChartisanHooks()
+        .colors(['#18d6a4', '#4299E1'])
+        
+            .responsive()
+            .beginAtZero()
+    })
+
+</script>
 @endsection

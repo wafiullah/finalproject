@@ -1,12 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace App\Charts;
 
+use App\Models\Order;
 use Chartisan\PHP\Chartisan;
-use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
+use ConsoleTVs\Charts\BaseChart;
 
 class SalesChart extends BaseChart
 {
@@ -17,9 +18,22 @@ class SalesChart extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
+
+        $mostPurchasedProducts = Order::with('product:id,title')->select('product_id', \DB::raw('COUNT(product_id) as count'))
+            ->groupBy('product_id')
+            ->orderBy('count', 'desc')
+            ->get()
+            ->toArray();
+
+        $products = [];
+        $mostPurchasedCounts = [];
+        foreach ($mostPurchasedProducts as $product) {
+            $products[] = $product['product']['title'];
+            $mostPurchasedCounts[] = $product['count'];
+        }
+
         return Chartisan::build()
-            ->labels(['First', 'Second', 'Third'])
-            ->dataset('Sample', [1, 2, 3])
-            ->dataset('Sample 2', [3, 2, 1]);
+            ->labels($products)
+            ->dataset('Most Purcahsed Product', $mostPurchasedCounts);
     }
 }
