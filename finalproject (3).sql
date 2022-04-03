@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2022 at 04:28 AM
+-- Generation Time: Apr 03, 2022 at 07:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'Admin', 'admin@admin.com', '$2a$12$ivSzEX3gZEBv2CAs5OehJOfmLeosq1fox1anJDln/Xh17yP9rMkTi', NULL, NULL, NULL);
+(2, 'Admin', 'admin@admin.com', '$2y$10$tQni4k0ibFsRfzPKCb3RaebATY8px4D5iOrio3TertXUhImrjHttO', NULL, NULL, '2022-03-19 14:09:23');
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,33 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2022_02_20_195149_create_purchase_materials_table', 0),
 (14, '2022_02_20_195149_create_suppliers_table', 0),
 (15, '2022_02_20_195149_create_users_table', 0),
-(16, '2022_02_20_195151_add_foreign_keys_to_attendances_table', 0);
+(16, '2022_02_20_195151_add_foreign_keys_to_attendances_table', 0),
+(17, '2022_03_31_082843_create_notifications_table', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_id` bigint(20) UNSIGNED NOT NULL,
+  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `read_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
+('26bd0491-da7b-4730-b7de-135d0dc010a1', 'App\\Notifications\\OrderPlaced', 'App\\Models\\Admin', 2, '{\"title\":\"New Order\",\"amount\":1050,\"invoice_id\":13}', '2022-04-01 12:13:29', '2022-04-01 12:12:38', '2022-04-01 12:13:29'),
+('abeabf9f-f065-443f-81d5-f70f899c1449', 'App\\Notifications\\OrderPlaced', 'App\\Models\\Admin', 2, '{\"title\":\"New Order\",\"amount\":400,\"invoice_id\":12}', '2022-04-01 11:51:25', '2022-04-01 11:50:41', '2022-04-01 11:51:25');
 
 -- --------------------------------------------------------
 
@@ -216,11 +242,31 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `quantity` int(10) UNSIGNED NOT NULL,
+  `discount` int(25) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `order_date` date NOT NULL,
   `status` enum('Pending','Delivered','Cancelled') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `amount` decimal(12,2) NOT NULL
+  `amount` decimal(12,2) NOT NULL,
+  `address` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment_method` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `product_id`, `created_at`, `updated_at`, `quantity`, `discount`, `user_id`, `order_date`, `status`, `amount`, `address`, `city`, `state`, `phone`, `payment_method`, `notes`) VALUES
+(8, 10, '2022-03-20 22:31:52', '2022-03-20 22:31:52', 6, 0, 8, '2022-02-21', NULL, '594.00', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 10, '2022-03-25 03:05:45', '2022-03-25 03:40:29', 1, 4, 4, '2022-03-10', NULL, '100.00', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 10, '2022-03-25 03:39:36', '2022-03-25 03:39:36', 2, 4, 3, '2022-03-11', NULL, '192.00', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 10, '2022-03-25 03:53:58', '2022-03-25 03:53:58', 1, 1, 9, '2022-03-01', NULL, '99.00', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 11, '2022-04-01 12:12:38', '2022-04-01 12:14:30', 3, 2, 11, '2022-04-01', NULL, '1050.00', 'Culpa deserunt temp', 'Illo commodi sit eu', 'Ut consequat Eum si', 'Culpa deserunt temp', 'Bank Transfer', 'Dolor aspernatur ame'),
+(14, 11, '2022-04-03 11:39:50', '2022-04-03 11:39:50', 2, 2, 9, '2022-04-14', NULL, '672.00', NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 11, '2022-04-03 12:23:12', '2022-04-03 12:23:12', 3, 4, 10, '2022-03-10', NULL, '924.00', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -282,7 +328,10 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (23, 'App\\Models\\User', 7, 'AppToken', 'b799c437af299fbd9509e81340dfe2ed51a16a4f67479d53eb06d56f74ec2969', '[\"*\"]', NULL, '2022-03-11 23:04:48', '2022-03-11 23:04:48'),
 (24, 'App\\Models\\User', 7, 'AppToken', '1513f7c470f4902e2fe69dae490730d9b7c266f33afcc231543f6a0f81346010', '[\"*\"]', NULL, '2022-03-12 10:21:57', '2022-03-12 10:21:57'),
 (25, 'App\\Models\\User', 7, 'AppToken', 'c7d03a291cf783a28009cccf77d697fa5ddabf35b3f249dbfcdcc22ffb8d9b7c', '[\"*\"]', NULL, '2022-03-14 06:44:58', '2022-03-14 06:44:58'),
-(26, 'App\\Models\\User', 8, 'AppToken', '91ae32b6c1797f2ef8c88c8c1414507bf6df1f41eed51d6c8d33084b5761e38a', '[\"*\"]', NULL, '2022-03-14 14:20:44', '2022-03-14 14:20:44');
+(26, 'App\\Models\\User', 8, 'AppToken', '91ae32b6c1797f2ef8c88c8c1414507bf6df1f41eed51d6c8d33084b5761e38a', '[\"*\"]', NULL, '2022-03-14 14:20:44', '2022-03-14 14:20:44'),
+(27, 'App\\Models\\User', 9, 'AppToken', '2558e0ee6091d98578712c41143c4c95daf18c239bf479009c70ecbb8d20bb36', '[\"*\"]', NULL, '2022-03-21 02:18:25', '2022-03-21 02:18:25'),
+(28, 'App\\Models\\User', 10, 'AppToken', '375e77af9c54ad844677a55c624a7069f3ddc77a9c14c131ac9a044e9ffae58c', '[\"*\"]', NULL, '2022-03-28 13:19:08', '2022-03-28 13:19:08'),
+(29, 'App\\Models\\User', 11, 'AppToken', '78a99fab60a4bf0b681f87587d8bb5ad7c710aab9765b1d77d4438cd03e9f623', '[\"*\"]', '2022-04-01 12:12:38', '2022-04-01 11:47:12', '2022-04-01 12:12:38');
 
 -- --------------------------------------------------------
 
@@ -307,7 +356,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `price`, `discounted_price`, `description`, `image1`, `image2`, `created_at`, `updated_at`) VALUES
-(10, 'Choco Cake', 100.00, 99.00, 'That is very nice cake.\r\nI like that cake.', '/images/product-14.jpg', NULL, '2022-03-18 22:36:44', '2022-03-18 22:38:18');
+(10, 'Choco Cake', 101.00, 100.00, 'That is very nice cake.\r\nI like that cake.', '/images/product-14.jpg', NULL, '2022-03-18 22:36:44', '2022-03-25 03:02:48'),
+(11, 'oil', 400.00, 350.00, 'This is very nice product', '/images/product-5.jpg', NULL, '2022-03-22 11:57:05', '2022-03-22 12:08:43');
 
 -- --------------------------------------------------------
 
@@ -349,7 +399,8 @@ INSERT INTO `product_comments` (`id`, `product_id`, `name`, `rating`, `comment`,
 (16, 7, 'wafiullah', 3, 'this is very nice project', '2022-03-10 10:36:01', '2022-03-10 10:36:01', 'wafi@gmail.com'),
 (17, 5, 'wafiullah', 4, 'Saepe reiciendis ull', '2022-03-12 10:22:38', '2022-03-12 10:22:38', 'wafiullah@gmail.com'),
 (18, 5, 'wafiullah', 5, 'Saepe reiciendis ull\n\n\n\n\n\n\n\n\n\nthis id', '2022-03-12 10:23:32', '2022-03-12 10:23:32', 'wafiullah@gmail.com'),
-(19, 5, 'wafiullah', 5, 'Saepe reiciendis ull\n\n\n\n\n\n\n\n\n\nthis id dddddddd', '2022-03-12 10:23:49', '2022-03-12 10:23:49', 'wafiullah@gmail.com');
+(19, 5, 'wafiullah', 5, 'Saepe reiciendis ull\n\n\n\n\n\n\n\n\n\nthis id dddddddd', '2022-03-12 10:23:49', '2022-03-12 10:23:49', 'wafiullah@gmail.com'),
+(20, 10, 'mayar', 3, 'this is very', '2022-03-28 13:19:50', '2022-03-28 13:19:50', 'mayar@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -432,7 +483,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (4, 'wafiullah', 'wafi@gmail.com', NULL, '$2y$10$UdnwNj3QD8FAzXxp78vxieNL5gretNNfb/FgZczGa0SfCzLUad8wO', NULL, '2022-02-22 14:11:29', '2022-02-22 14:11:29', 0),
 (6, 'ahmad', 'admin@admin.com', NULL, '$2y$10$PWYqJyoW2cXDJZaAmWWjYutyiGrTzB2imykVgMLesmpe9lW5Ok1/G', NULL, '2022-03-02 09:28:12', '2022-03-02 09:28:12', 0),
 (7, 'Shima', 'shima@gmail.com', NULL, '$2y$10$y7Y9txLzaa0ZgqjJLGeF0OAOUJweStNwG85M72oFU1HjrAJ1wO/XW', NULL, '2022-03-11 05:36:11', '2022-03-18 21:38:11', 0),
-(8, 'khadija', 'khadija@gmail.com', NULL, '$2y$10$.aCehSaCBedqQtqRCxmKku4yzeKX9pVc.7Y9Q2rPgDgC.0MA5bjj.', NULL, '2022-03-14 14:20:30', '2022-03-14 14:20:30', 0);
+(8, 'khadija', 'khadija@gmail.com', NULL, '$2y$10$.aCehSaCBedqQtqRCxmKku4yzeKX9pVc.7Y9Q2rPgDgC.0MA5bjj.', NULL, '2022-03-14 14:20:30', '2022-03-14 14:20:30', 0),
+(9, 'wafi', 'w@gmail.com', NULL, '$2y$10$9FaEM2zqB0IiQm79.iC2/OUukjTB1xNDZDYTcI8UHtMkejotJc5Py', NULL, '2022-03-21 02:18:05', '2022-03-21 02:18:05', 0),
+(10, 'mayar', 'mayar@gmail.com', NULL, '$2y$10$ryJhc8DhCETSjZmPk05UP.DF4MGxxkL89aIFw3C43Hb52oo18EsN2', NULL, '2022-03-28 13:18:55', '2022-03-28 13:18:55', 0),
+(11, 'wafiwafi', 'wafiwafi@gmail.com', NULL, '$2y$10$xrVHmxCUEkvPpo8sds7RKOWsNz9.DrPGXYwN/odJR0KjnQGwn.WcC', NULL, '2022-04-01 11:46:57', '2022-04-01 11:46:57', 0);
 
 --
 -- Indexes for dumped tables
@@ -483,6 +537,13 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`);
 
 --
 -- Indexes for table `orders`
@@ -579,31 +640,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product_comments`
 --
 ALTER TABLE `product_comments`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `purchase_materials`
@@ -621,7 +682,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

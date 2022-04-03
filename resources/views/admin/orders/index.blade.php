@@ -45,7 +45,7 @@
                                 <td>{{$order->discount}}%</td>
                                 <td>{{optional($order->user)->name}}</td>
                                 <td>{{$order->order_date}}</td>
-                                <td>Af {{$order->amount}}</td>
+                                <td>Af {{$order->amount - ($order->quantity*$order->discount* $order->amount)/100}}</td>
                                 <td>
                                     <a href="{{route('admin.invoice',$order->id)}}"
                                         class="btn btn-success btn-sm">Generate Invoice</a>
